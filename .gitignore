@@ -1,0 +1,9 @@
+/*
+!.gitignore
+!pom.xml
+!*.md
+!LICENSE.txt
+
+!/src
+!/libs
+!/images

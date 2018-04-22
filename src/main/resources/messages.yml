@@ -1,0 +1,76 @@
+# 
+# SecurityVillagers messages file
+#
+# For a better configuration:
+# - Use Notepad++
+#   - View -> Symbols -> Show White Space and TAB (Active)
+#   - Don't use arrows (tabs), but spaces
+# - Set format (syntax) editor to YAML
+#
+
+# / = = = = = = = = = = = = = = = = \
+# |   SECURITYVILLAGERS  MESSAGES   |
+# \ = = = = = = = = = = = = = = = = /
+securityvillagers:
+  # Special tags: %version% = The version of the update | %thisversion% = The version of your plugin
+  update-available: "&9New version of SecurityVillagers found: %version% (Current: %thisversion%)"
+  no-permission: "&cYou do not have access to that command"
+  configuration-reloaded: "&aConfiguration reloaded"
+  no-console: "You need to be a player to perform this command"
+  not-found: "&cCommand not found"
+  help:
+  - "&7===============[ &6SecurityVillagers &7]==============="
+  - "&6/sv help &7- Print this help page"
+  - "&6/sv changeage &7- Change the villager age"
+  - "&6/sv profession [profession] &7- Change the villager profession"
+  - "&6/sv rename [name] &7- Rename the villager"
+  - "&6/sv reload &7- Reload the configuration"
+
+# / = = = = = = = = = = = = = = = = \
+# |        INTERACT MESSAGES        |
+# \ = = = = = = = = = = = = = = = = /
+interact:
+  hit: "&cYou can't hit villagers!"
+  shoot: "&cYou can't shoot villagers!"
+  disabled-egg: "&cYou can't use eggs"
+  disabled-trade: "&cYou can't trade with villagers!"
+
+# / = = = = = = = = = = = = = = = = \
+# |       SELECTION  MESSAGES       |
+# \ = = = = = = = = = = = = = = = = /
+selection:
+  selected: "&aVillager selected"
+  missing: "&cYou have to select a villager!"
+
+# / = = = = = = = = = = = = = = = = \
+# |       PROFESSION MESSAGES       |
+# \ = = = = = = = = = = = = = = = = /
+profession:
+  # Special tag: %profession% = Current profession's villager
+  current: "&aThe villager is a %profession%"
+  done: "&aChanged villager profession to %profession%"
+  wrong-command: "&cWrong command: Use /sv profession <profession>:\n&cAvailable: Normal, Nitwit, Husk, Blacksmith, Butcher, Farmer, Librarian and Priest"
+
+# / = = = = = = = = = = = = = = = = \
+# |       CONVERTER  MESSAGES       |
+# \ = = = = = = = = = = = = = = = = /
+converter:
+  into-baby: "&aTurned the villager into a baby!"
+  into-adult: "&aTurned the villager into an adult!"
+
+# / = = = = = = = = = = = = = = = = \
+# |         RENAME MESSAGES         |
+# \ = = = = = = = = = = = = = = = = /
+rename:
+  done: "&aVillager name set to %name%"
+  remove: "&aRemoved villager name"
+
+# / = = = = = = = = = = = = = = = = \
+# |       IRON GOLEM MESSAGES       |
+# \ = = = = = = = = = = = = = = = = /
+iron-golem:
+  hit: "&cYou can't hit iron golems!"
+  shoot: "&cYou can't shoot iron golems!"
+
+dont-edit-this:
+  messages-version: 5
