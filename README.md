@@ -8,7 +8,7 @@
 <p align="center"><img src="images/logo.png"></p>
 
 # SecurityVillagers
-<b>SecurityVillagers</b> is a plugin for Minecraft servers that allows the protection of villagers. You can choose the players/groups that can interact/attack with villagers.
+<b>SecurityVillagers</b> is a plugin for Minecraft servers that allows the protection of villagers. You can choose which players/groups can attack/interact with villagers.
 
 [Read more about SecurityVillagers here!](https://alessiodp.com/securityvillagers.php)
 
