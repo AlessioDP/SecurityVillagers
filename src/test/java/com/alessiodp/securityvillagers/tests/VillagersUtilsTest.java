@@ -91,7 +91,12 @@ public class VillagersUtilsTest {
 		when(mockItemMeta.getSpawnedType()).thenReturn(EntityType.ZOMBIE);
 		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
 		
-		// Test 3 (false): Blaze rod
+		// Test 3 (false): Null egg
+		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
+		when(mockItemMeta.getSpawnedType()).thenReturn(null);
+		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
+		
+		// Test 4 (false): Blaze rod
 		when(mockItem.getType()).thenReturn(Material.BLAZE_ROD);
 		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
 	}

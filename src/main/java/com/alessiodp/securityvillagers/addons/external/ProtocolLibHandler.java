@@ -16,6 +16,8 @@ public class ProtocolLibHandler {
 	private SecurityVillagers plugin;
 	private static final String ADDON_NAME = "ProtocolLib";
 	
+	private static ProtocolLibUtil protocol;
+	
 	public ProtocolLibHandler(SecurityVillagers instance) {
 		plugin = instance;
 		init();
@@ -24,39 +26,43 @@ public class ProtocolLibHandler {
 	private void init() {
 		if (Bukkit.getPluginManager().isPluginEnabled(ADDON_NAME)) {
 			if (ConfigMain.PREVENTIONS_MUTE) {
-				addListener();
+				protocol = new ProtocolLibUtil();
+				protocol.addListener();
 				plugin.log(Constants.DEBUG_ADDON_HOOK
 						.replace("{addon}", ADDON_NAME));
+			} else {
+				if (protocol != null)
+					protocol.removeListener();
 			}
 		} else {
 			if (ConfigMain.PREVENTIONS_MUTE) {
 				ConfigMain.PREVENTIONS_MUTE = false;
-				removeListener();
 				plugin.log(Constants.DEBUG_ADDON_MISSING
 						.replace("{addon}", ADDON_NAME));
 			}
 		}
 	}
-	
-	private void addListener() {
-		ProtocolLibrary.getProtocolManager()
-				.addPacketListener(
-						new PacketAdapter(plugin,
-								new PacketType[]{PacketType.Play.Server.NAMED_SOUND_EFFECT}) {
-			public void onPacketSending(PacketEvent event) {
-				if (event.getPacketType() == PacketType.Play.Server.NAMED_SOUND_EFFECT) {
-					PacketContainer packet = event.getPacket();
-					if (!event.getPlayer().hasPermission(SVPermission.ADMIN_BYPASS_MUTE.toString())) {
-						if (packet.getSoundEffects().getValues().get(0).equals(Sound.ENTITY_VILLAGER_AMBIENT)) {
-							event.setCancelled(true);
-						}
-					}
-				}
-			}
-		});
-	}
-	
-	private void removeListener() {
-		ProtocolLibrary.getProtocolManager().removePacketListeners(plugin);
+	public class ProtocolLibUtil {
+		private void addListener() {
+			ProtocolLibrary.getProtocolManager()
+					.addPacketListener(
+							new PacketAdapter(plugin,
+									new PacketType[]{PacketType.Play.Server.NAMED_SOUND_EFFECT}) {
+								public void onPacketSending(PacketEvent event) {
+									if (event.getPacketType() == PacketType.Play.Server.NAMED_SOUND_EFFECT) {
+										PacketContainer packet = event.getPacket();
+										if (!event.getPlayer().hasPermission(SVPermission.ADMIN_BYPASS_MUTE.toString())) {
+											if (packet.getSoundEffects().getValues().get(0).equals(Sound.ENTITY_VILLAGER_AMBIENT)) {
+												event.setCancelled(true);
+											}
+										}
+									}
+								}
+							});
+		}
+		
+		private void removeListener() {
+			ProtocolLibrary.getProtocolManager().removePacketListeners(plugin);
+		}
 	}
 }

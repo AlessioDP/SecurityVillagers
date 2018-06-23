@@ -261,8 +261,10 @@ public class VillagersUtils {
 		itemStack.getType();
 		if (itemStack.getType().equals(Material.MONSTER_EGG)) {
 			if (itemStack.getItemMeta() instanceof SpawnEggMeta) {
-				if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType().equals(EntityType.VILLAGER)) {
-					ret = true;
+				if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType() != null) {
+					if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType().equals(EntityType.VILLAGER)) {
+						ret = true;
+					}
 				}
 			}
 		}
