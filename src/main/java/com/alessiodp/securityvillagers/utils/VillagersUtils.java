@@ -2,6 +2,7 @@ package com.alessiodp.securityvillagers.utils;
 
 import com.alessiodp.securityvillagers.addons.external.FactionsHandler;
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
@@ -258,12 +259,21 @@ public class VillagersUtils {
 	
 	public static boolean isVillagerEgg(ItemStack itemStack) {
 		boolean ret = false;
-		itemStack.getType();
-		if (itemStack.getType().equals(Material.MONSTER_EGG)) {
-			if (itemStack.getItemMeta() instanceof SpawnEggMeta) {
-				if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType() != null) {
-					if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType().equals(EntityType.VILLAGER)) {
-						ret = true;
+		Material villagerEgg = MaterialUtils.getMaterial("VILLAGER_SPAWN_EGG", "MONSTER_EGG");
+		boolean useNewApi = Bukkit.getVersion().contains("1.13");
+		if (useNewApi) {
+			// New Bukkit API 1.13
+			if (itemStack.getType().equals(villagerEgg)) {
+				ret = true;
+			}
+		} else {
+			// Old API
+			if (itemStack.getType().equals(villagerEgg)) {
+				if (itemStack.getItemMeta() instanceof SpawnEggMeta) {
+					if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType() != null) {
+						if (((SpawnEggMeta) itemStack.getItemMeta()).getSpawnedType().equals(EntityType.VILLAGER)) {
+							ret = true;
+						}
 					}
 				}
 			}

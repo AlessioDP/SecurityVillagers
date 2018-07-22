@@ -2,10 +2,11 @@ package com.alessiodp.securityvillagers.tests;
 
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.utils.AttackBlockResult;
+import com.alessiodp.securityvillagers.utils.MaterialUtils;
 import com.alessiodp.securityvillagers.utils.VillagersUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
@@ -15,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SpawnEggMeta;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -23,11 +25,12 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.powermock.api.mockito.PowerMockito.mock;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(VillagersUtils.class)
+@PrepareForTest({VillagersUtils.class, Bukkit.class, MaterialUtils.class})
 public class VillagersUtilsTest {
 	@Test
 	public void testCanBeAttacked() {
@@ -68,7 +71,7 @@ public class VillagersUtilsTest {
 		result = VillagersUtils.canBeAttacked(mockVillager, mockFrom4);
 		assertEquals(AttackBlockResult.AttackResult.SUCCESS, result.getResult());
 		
-		// Test 6 (true): Player vs IronGolem
+		// Test 5 (true): Player vs IronGolem
 		result = VillagersUtils.canBeAttacked(mockIronGolem, mockFrom1);
 		assertEquals(AttackBlockResult.AttackResult.HIT, result.getResult());
 	}
@@ -77,26 +80,23 @@ public class VillagersUtilsTest {
 	public void testIsVillagerEgg() {
 		ItemStack mockItem = mock(ItemStack.class);
 		SpawnEggMeta mockItemMeta = mock(SpawnEggMeta.class);
+		PowerMockito.mockStatic(Bukkit.class);
+		PowerMockito.mockStatic(MaterialUtils.class);
 		
 		// Global stubs
 		when(mockItem.getItemMeta()).thenReturn(mockItemMeta);
+		when(Bukkit.getVersion()).thenReturn("1.13");
+		when(MaterialUtils.getMaterial(any(), any())).thenCallRealMethod();
 		
 		// Test 1 (true): Villager egg
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
-		when(mockItemMeta.getSpawnedType()).thenReturn(EntityType.VILLAGER);
+		when(mockItem.getType()).thenReturn(Material.VILLAGER_SPAWN_EGG);
 		assertTrue(VillagersUtils.isVillagerEgg(mockItem));
 		
 		// Test 2 (false): Zombie egg
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
-		when(mockItemMeta.getSpawnedType()).thenReturn(EntityType.ZOMBIE);
+		when(mockItem.getType()).thenReturn(Material.ZOMBIE_SPAWN_EGG);
 		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
 		
-		// Test 3 (false): Null egg
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
-		when(mockItemMeta.getSpawnedType()).thenReturn(null);
-		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
-		
-		// Test 4 (false): Blaze rod
+		// Test 3 (false): Blaze rod
 		when(mockItem.getType()).thenReturn(Material.BLAZE_ROD);
 		assertFalse(VillagersUtils.isVillagerEgg(mockItem));
 	}

@@ -5,10 +5,11 @@ import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.configuration.data.Messages;
 import com.alessiodp.securityvillagers.handlers.VillagerHandler;
 import com.alessiodp.securityvillagers.listeners.PlayerListener;
+import com.alessiodp.securityvillagers.utils.MaterialUtils;
 import com.alessiodp.securityvillagers.utils.SVPermission;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.block.Action;
@@ -17,24 +18,33 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.SpawnEggMeta;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayList;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.mock;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({SecurityVillagers.class, PlayerInteractEntityEvent.class, PlayerInteractEvent.class})
+@PrepareForTest({
+		SecurityVillagers.class,
+		PlayerInteractEntityEvent.class,
+		PlayerInteractEvent.class,
+		Bukkit.class,
+		MaterialUtils.class
+})
 public class PlayerListenerTest {
 	@Test
 	public void testOnPlayerInteractEntity() {
+		PowerMockito.mockStatic(Bukkit.class);
+		PowerMockito.mockStatic(MaterialUtils.class);
 		SecurityVillagers mockPlugin = mock(SecurityVillagers.class);
 		VillagerHandler mockVillagerHandler = mock(VillagerHandler.class);
 		PlayerInteractEntityEvent mockEvent = mock(PlayerInteractEntityEvent.class);
@@ -53,7 +63,7 @@ public class PlayerListenerTest {
 		Messages.SELECTION_SELECTED = "";
 		ConfigMain.CHANGEAGE_ENABLE = true;
 		ConfigMain.CHANGEAGE_ITEM_ENABLE = true;
-		ConfigMain.CHANGEAGE_ITEM_ITEM = Material.WATCH;
+		ConfigMain.CHANGEAGE_ITEM_ITEM = Material.COMPASS;
 		ConfigMain.CHANGEAGE_ALLOWEDWORLDS = new ArrayList<>();
 		ConfigMain.CHANGEAGE_ALLOWEDWORLDS.add("*");
 		ConfigMain.GENERAL_INTERACT_EGG = true;
@@ -79,14 +89,14 @@ public class PlayerListenerTest {
 		
 		// Test 2 (true): Converter watch
 		when(mockEvent.getRightClicked()).thenReturn(mockEntity1);
-		when(mockItem.getType()).thenReturn(Material.WATCH);
+		when(mockItem.getType()).thenReturn(Material.COMPASS);
 		when(mockPlayer.hasPermission(SVPermission.ADMIN_CHANGEAGE.toString())).thenReturn(true);
 		playerListener.onPlayerInteractEntity(mockEvent);
 		verify(mockEvent, times(2)).setCancelled(true);
 		
 		// Test 3 (true): Interact egg
 		when(mockEvent.getRightClicked()).thenReturn(mockEntity1);
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
+		when(mockItem.getType()).thenReturn(Material.VILLAGER_SPAWN_EGG);
 		playerListener.onPlayerInteractEntity(mockEvent);
 		verify(mockEvent, times(3)).setCancelled(true);
 		
@@ -122,11 +132,12 @@ public class PlayerListenerTest {
 	public void testOnPlayerInteract() {
 		SecurityVillagers mockPlugin = mock(SecurityVillagers.class);
 		PlayerInteractEvent mockEvent = mock(PlayerInteractEvent.class);
+		PowerMockito.mockStatic(Bukkit.class);
+		PowerMockito.mockStatic(MaterialUtils.class);
 		Action action = Action.RIGHT_CLICK_BLOCK;
 		Player mockPlayer = mock(Player.class);
 		PlayerInventory mockInventory = mock(PlayerInventory.class);
 		ItemStack mockItem = mock(ItemStack.class);
-		SpawnEggMeta mockItemMeta = mock(SpawnEggMeta.class);
 		
 		// Initialize listener
 		PlayerListener playerListener = new PlayerListener(mockPlugin);
@@ -138,23 +149,21 @@ public class PlayerListenerTest {
 		Messages.INTERACT_DISABLED_EGG = "";
 		
 		// Global stubs
+		when(Bukkit.getVersion()).thenReturn("1.13");
+		when(MaterialUtils.getMaterial(any(),any())).thenCallRealMethod();
 		when(mockEvent.getAction()).thenReturn(action);
 		when(mockEvent.getPlayer()).thenReturn(mockPlayer);
 		when(mockPlayer.getInventory()).thenReturn(mockInventory);
 		
 		// Test 1 (true): Villager egg
 		when(mockInventory.getItemInMainHand()).thenReturn(mockItem);
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
-		when(mockItem.getItemMeta()).thenReturn(mockItemMeta);
-		when(mockItemMeta.getSpawnedType()).thenReturn(EntityType.VILLAGER);
+		when(mockItem.getType()).thenReturn(Material.VILLAGER_SPAWN_EGG);
 		playerListener.onPlayerInteract(mockEvent);
 		verify(mockEvent, times(1)).setCancelled(true);
 		
 		// Test 2 (false): Zombie egg
 		when(mockInventory.getItemInMainHand()).thenReturn(mockItem);
-		when(mockItem.getType()).thenReturn(Material.MONSTER_EGG);
-		when(mockItem.getItemMeta()).thenReturn(mockItemMeta);
-		when(mockItemMeta.getSpawnedType()).thenReturn(EntityType.ZOMBIE);
+		when(mockItem.getType()).thenReturn(Material.EGG);
 		playerListener.onPlayerInteract(mockEvent);
 		verify(mockEvent, times(1)).setCancelled(true);
 		

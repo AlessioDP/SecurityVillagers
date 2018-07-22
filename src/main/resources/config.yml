@@ -133,7 +133,7 @@ changeage:
   item:
     # Use an item to convert the villager
     enable: false
-    item: WATCH
+    item: COMPASS
   # In which worlds enable the converter (For all worlds use '*')
   allowed-worlds:
   - '*'
@@ -147,4 +147,4 @@ rename:
   enable: true
 
 dont-edit-this:
-  config-version: 7
+  config-version: 8

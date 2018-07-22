@@ -25,7 +25,7 @@ public class FactionsOneHandler implements IFaction {
 				Field f = patch.getField("NAME");
 				if (f.get(new Patch()).equals("FactionsOne"))
 					ret = true;
-			} catch (Exception ex) {}
+			} catch (Exception ignored) {}
 		}
 		return ret;
 	}

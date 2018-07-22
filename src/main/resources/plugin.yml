@@ -3,6 +3,7 @@ author: AlessioDP
 website: https://alessiodp.com/
 main: com.alessiodp.securityvillagers.SecurityVillagers
 version: ${project.version}
+api-version: 1.13
 description: Customize your villagers protection
 softdepend: [Factions, ProtocolLib]
 commands:

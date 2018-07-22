@@ -1,6 +1,5 @@
 package com.alessiodp.securityvillagers.tests;
 
-import com.alessiodp.securityvillagers.SecurityVillagers;
 import com.alessiodp.securityvillagers.configuration.ConfigurationManager;
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.configuration.data.Messages;

@@ -123,7 +123,7 @@ public class ConfigMain {
 		
 		CHANGEAGE_ENABLE = true;
 		CHANGEAGE_ITEM_ENABLE = false;
-		CHANGEAGE_ITEM_ITEM = Material.WATCH;
+		CHANGEAGE_ITEM_ITEM = Material.COMPASS;
 		CHANGEAGE_ALLOWEDWORLDS = Collections.singletonList("*");
 		
 		RENAME_ENABLE = true;

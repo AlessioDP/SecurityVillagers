@@ -2,6 +2,7 @@ package com.alessiodp.securityvillagers.listeners;
 
 import com.alessiodp.securityvillagers.addons.external.FactionsHandler;
 import com.alessiodp.securityvillagers.addons.internal.ADPUpdater;
+import com.alessiodp.securityvillagers.utils.MaterialUtils;
 import com.alessiodp.securityvillagers.utils.SVPermission;
 import com.alessiodp.securityvillagers.utils.VillagersUtils;
 import org.bukkit.Material;
@@ -66,7 +67,7 @@ public class PlayerListener implements Listener {
 				}
 			} else if (ConfigMain.GENERAL_INTERACT_EGG
 					&& !player.hasPermission(SVPermission.EGG.toString())
-					&& handItem.equals(Material.MONSTER_EGG)) {
+					&& handItem.equals(MaterialUtils.getMaterial("VILLAGER_SPAWN_EGG", "MONSTER_EGG"))) {
 				// Egg
 				if (ConfigMain.FACTIONS_ENABLE
 						&& ConfigMain.FACTIONS_PREVENT_INTERACT
