@@ -23,8 +23,17 @@ securityvillagers:
   - "&6/sv help &7- Print this help page"
   - "&6/sv changeage &7- Change the villager age"
   - "&6/sv profession [profession] &7- Change the villager profession"
+  - "&6/sv protect &7- Protect/unprotect the villager"
   - "&6/sv rename [name] &7- Rename the villager"
   - "&6/sv reload &7- Reload the configuration"
+
+# / = = = = = = = = = = = = = = = = \
+# |       PROTECTION MESSAGES       |
+# \ = = = = = = = = = = = = = = = = /
+protection:
+  protected: "&aThis villager will be protected"
+  unprotected: "&cThis villager isn't protected anymore!"
+  is-global: "&cYou don't need to use this command, protection is global!"
 
 # / = = = = = = = = = = = = = = = = \
 # |        INTERACT MESSAGES        |
@@ -73,4 +82,4 @@ iron-golem:
   shoot: "&cYou can't shoot iron golems!"
 
 dont-edit-this:
-  messages-version: 5
+  messages-version: 6

@@ -1,6 +1,7 @@
 package com.alessiodp.securityvillagers.utils;
 
 import com.alessiodp.securityvillagers.addons.external.FactionsHandler;
+import com.alessiodp.securityvillagers.configuration.Constants;
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -26,6 +27,14 @@ public class VillagersUtils {
 	 */
 	public static AttackBlockResult canBeAttacked(Villager villager, Entity from) {
 		AttackBlockResult ret = new AttackBlockResult();
+		
+		// Check if is protected
+		if (!ConfigMain.PREVENTIONS_PROTECTIONTYPE.equalsIgnoreCase("global")) {
+			if (!villager.hasMetadata(Constants.PROTECT_METADATA)) {
+				ret.setResult(AttackBlockResult.AttackResult.SUCCESS);
+				return ret;
+			}
+		}
 		
 		// Player attack
 		if (from instanceof Player) {

@@ -45,6 +45,7 @@ public class VillagersUtilsTest {
 		AttackBlockResult result;
 		
 		// Plugin configuration
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "global";
 		ConfigMain.GENERAL_DAMAGE_HIT = true;
 		ConfigMain.GENERAL_DAMAGE_ARROW = true;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = new ArrayList<>();
@@ -74,6 +75,17 @@ public class VillagersUtilsTest {
 		// Test 5 (true): Player vs IronGolem
 		result = VillagersUtils.canBeAttacked(mockIronGolem, mockFrom1);
 		assertEquals(AttackBlockResult.AttackResult.HIT, result.getResult());
+		
+		// Test 6 (true): Player (custom protection on)
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "custom";
+		when(mockVillager.hasMetadata(any())).thenReturn(true);
+		result = VillagersUtils.canBeAttacked(mockVillager, mockFrom1);
+		assertEquals(AttackBlockResult.AttackResult.HIT, result.getResult());
+		
+		// Test 7 (false): Player (custom protection off)
+		when(mockVillager.hasMetadata(any())).thenReturn(false);
+		result = VillagersUtils.canBeAttacked(mockVillager, mockFrom1);
+		assertEquals(AttackBlockResult.AttackResult.SUCCESS, result.getResult());
 	}
 	
 	@Test

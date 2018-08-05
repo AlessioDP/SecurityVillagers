@@ -35,6 +35,10 @@ preventions:
   # REQUIRES ProtocolLib PLUGIN
   # Give permission "securityvillagers.admin.bypass-mute" to bypass it
   mute-villager-sounds: false
+  # Choose villagers to protect
+  # global: protect ALL villagers
+  # custom: select villagers to protect then /sv protect
+  protection-type: global
 
 # / = = = = = = = = = = = = = = = = \
 # |        GENERAL  SETTINGS        |
@@ -147,4 +151,4 @@ rename:
   enable: true
 
 dont-edit-this:
-  config-version: 8
+  config-version: 9

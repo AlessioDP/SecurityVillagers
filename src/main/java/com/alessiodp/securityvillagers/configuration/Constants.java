@@ -1,11 +1,13 @@
 package com.alessiodp.securityvillagers.configuration;
 
 public class Constants {
-	public static final int VERSION_CONFIG = 8;
-	public static final int VERSION_MESSAGES = 5;
+	public static final int VERSION_CONFIG = 9;
+	public static final int VERSION_MESSAGES = 6;
 	
 	public static final String CONFIGURATION_OUTDATED = "Configuration file outdated";
 	public static final String MESSAGES_OUTDATED = "Messages file outdated";
+	
+	public static final String PROTECT_METADATA = "sv_protect";
 	
 	/*
 	 * Updater

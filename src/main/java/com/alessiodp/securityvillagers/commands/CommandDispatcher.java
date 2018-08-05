@@ -4,6 +4,7 @@ import com.alessiodp.securityvillagers.SecurityVillagers;
 import com.alessiodp.securityvillagers.commands.list.CommandChangeAge;
 import com.alessiodp.securityvillagers.commands.list.CommandHelp;
 import com.alessiodp.securityvillagers.commands.list.CommandProfession;
+import com.alessiodp.securityvillagers.commands.list.CommandProtect;
 import com.alessiodp.securityvillagers.commands.list.CommandReload;
 import com.alessiodp.securityvillagers.commands.list.CommandRename;
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
@@ -26,6 +27,7 @@ public class CommandDispatcher implements CommandExecutor {
 		commands = new HashMap<>();
 		commands.put("help", new CommandHelp(plugin));
 		commands.put("reload", new CommandReload(plugin));
+		commands.put("protect", new CommandProtect(plugin));
 		if (ConfigMain.CHANGEAGE_ENABLE)
 			commands.put("changeage", new CommandChangeAge(plugin));
 		if (ConfigMain.PROFESSION_ENABLE)

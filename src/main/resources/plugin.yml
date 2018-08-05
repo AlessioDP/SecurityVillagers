@@ -29,6 +29,8 @@ permissions:
     description: Allow access to /sv help
   securityvillagers.admin.profession:
     description: Allow access to /sv profession
+  securityvillagers.admin.protect:
+    description: Allow access to /sv protect
   securityvillagers.admin.reload:
     description: Allow access to /sv reload
   securityvillagers.admin.selection:

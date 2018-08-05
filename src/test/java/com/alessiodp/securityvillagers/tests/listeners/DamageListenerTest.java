@@ -19,6 +19,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayList;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.mock;
@@ -46,6 +47,7 @@ public class DamageListenerTest {
 		DamageListener damageListener = new DamageListener(mockPlugin);
 		
 		// Plugin configuration
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "global";
 		ConfigMain.GENERAL_DAMAGE_HIT = true;
 		ConfigMain.GENERAL_DAMAGE_ARROW = true;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = new ArrayList<>();
@@ -85,6 +87,21 @@ public class DamageListenerTest {
 		when(mockEvent.getDamager()).thenReturn(mockDamager1);
 		damageListener.onEntityDamageByEntity(mockEvent);
 		verify(mockEvent, times(4)).setCancelled(true);
+		
+		// Test 6 (true): Villager & Player hit (custom protection on)
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "custom";
+		when(mockEvent.getEntity()).thenReturn(mockEntity1);
+		when(mockEvent.getDamager()).thenReturn(mockDamager1);
+		when(mockEntity1.hasMetadata(any())).thenReturn(true);
+		damageListener.onEntityDamageByEntity(mockEvent);
+		verify(mockEvent, times(5)).setCancelled(true);
+		
+		// Test 7 (false): Villager & Player hit (custom protection off)
+		when(mockEvent.getEntity()).thenReturn(mockEntity1);
+		when(mockEvent.getDamager()).thenReturn(mockDamager1);
+		when(mockEntity1.hasMetadata(any())).thenReturn(false);
+		damageListener.onEntityDamageByEntity(mockEvent);
+		verify(mockEvent, times(5)).setCancelled(true);
 	}
 	
 	@Test

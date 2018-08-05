@@ -1,5 +1,6 @@
 package com.alessiodp.securityvillagers.tests;
 
+import com.alessiodp.securityvillagers.SecurityVillagers;
 import com.alessiodp.securityvillagers.configuration.ConfigurationManager;
 import com.alessiodp.securityvillagers.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.configuration.data.Messages;
@@ -21,12 +22,13 @@ import static org.powermock.api.mockito.PowerMockito.mock;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({ConfigMain.class, Messages.class})
+@PrepareForTest({SecurityVillagers.class, ConfigMain.class, Messages.class})
 public class ConfigurationTest {
 	@Test
 	public void testOnConfigMainLoadMatch() throws Exception {
 		mockStatic(ConfigMain.class);
-		ConfigMain configMainInstance = new ConfigMain();
+		SecurityVillagers mockPlugin = mock(SecurityVillagers.class);
+		ConfigMain configMainInstance = new ConfigMain(mockPlugin);
 		configMainInstance.loadDefaults();
 		
 		HashMap<String, Object> savedEntries = new HashMap<>();
@@ -37,13 +39,12 @@ public class ConfigurationTest {
 			savedEntries.put(f.getName(), f.get(configMainInstance));
 		}
 		
-		// Mock ConfigurationManager
-		ConfigurationManager configurationManager = mock(ConfigurationManager.class);
+		// Prepare config
 		File configFile = new File(getClass().getResource("/config.yml").toURI());
 		FileConfiguration cfg = YamlConfiguration.loadConfiguration(configFile);
 		
 		// Invoke private method
-		Whitebox.<Void>invokeMethod(configurationManager, "loadConfigMain", cfg);
+		configMainInstance.loadConfiguration(cfg);
 		
 		// Check if configuration matches
 		for (Field f : listFields) {
@@ -56,7 +57,8 @@ public class ConfigurationTest {
 	@Test
 	public void testOnMessagesLoadMatch() throws Exception {
 		mockStatic(Messages.class);
-		Messages messagesInstance = new Messages();
+		SecurityVillagers mockPlugin = mock(SecurityVillagers.class);
+		Messages messagesInstance = new Messages(mockPlugin);
 		messagesInstance.loadDefaults();
 		
 		HashMap<String, Object> savedEntries = new HashMap<>();
@@ -67,13 +69,12 @@ public class ConfigurationTest {
 			savedEntries.put(f.getName(), f.get(messagesInstance));
 		}
 		
-		// Mock ConfigurationManager
-		ConfigurationManager configurationManager = mock(ConfigurationManager.class);
-		File configFile = new File(getClass().getResource("/messages.yml").toURI());
-		FileConfiguration cfg = YamlConfiguration.loadConfiguration(configFile);
+		// Prepare config
+		File messagesFile = new File(getClass().getResource("/messages.yml").toURI());
+		FileConfiguration cfg = YamlConfiguration.loadConfiguration(messagesFile);
 		
 		// Invoke private method
-		Whitebox.<Void>invokeMethod(configurationManager, "loadMessages", cfg);
+		messagesInstance.loadConfiguration(cfg);
 		
 		// Check if configuration matches
 		for (Field f : listFields) {

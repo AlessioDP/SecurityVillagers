@@ -11,6 +11,7 @@ public enum SVPermission {
 	ADMIN_CHANGEAGE("securityvillagers.admin.changeage"),
 	ADMIN_HELP("securityvillagers.admin.help"),
 	ADMIN_PROFESSION("securityvillagers.admin.profession"),
+	ADMIN_PROTECT("securityvillagers.admin.protect"),
 	ADMIN_RELOAD("securityvillagers.admin.reload"),
 	ADMIN_RENAME("securityvillagers.admin.rename"),
 	ADMIN_SELECTION("securityvillagers.admin.selection"),

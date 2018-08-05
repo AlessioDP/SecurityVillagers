@@ -16,6 +16,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayList;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.mock;
@@ -36,6 +37,7 @@ public class PreventionListenerTest {
 		
 		// Plugin configuration
 		ConfigMain.PREVENTIONS_TARGET = true;
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "global";
 		ConfigMain.GENERAL_DAMAGE_WORLDS = new ArrayList<>();
 		ConfigMain.GENERAL_DAMAGE_WORLDS.add("*"); // Necessary to avoid NullPointerException on entity get world
 		ConfigMain.DAMAGE_MOBS_ZOMBIE = true;
@@ -51,6 +53,21 @@ public class PreventionListenerTest {
 		when(mockEvent.getEntity()).thenReturn(mockEntity);
 		preventionListener.onEntityTarget(mockEvent);
 		verify(mockEvent, times(1)).setCancelled(true);
+		
+		// Test 3 (true): Villager & Zombie (custom protection on)
+		ConfigMain.PREVENTIONS_PROTECTIONTYPE = "custom";
+		when(mockEvent.getTarget()).thenReturn(mockTarget1);
+		when(mockEvent.getEntity()).thenReturn(mockEntity);
+		when(mockTarget1.hasMetadata(any())).thenReturn(true);
+		preventionListener.onEntityTarget(mockEvent);
+		verify(mockEvent, times(2)).setCancelled(true);
+		
+		// Test 4 (false): Villager & Zombie (custom protection off)
+		when(mockEvent.getTarget()).thenReturn(mockTarget1);
+		when(mockEvent.getEntity()).thenReturn(mockEntity);
+		when(mockTarget1.hasMetadata(any())).thenReturn(false);
+		preventionListener.onEntityTarget(mockEvent);
+		verify(mockEvent, times(2)).setCancelled(true);
 	}
 	
 	@Test
