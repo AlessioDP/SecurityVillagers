@@ -128,6 +128,9 @@ public abstract class ProtectedEntity {
 				ret = ConfigMain.MOBS_ILLAGER_WITCH_SPAWN_PREVENT;
 				worlds = ConfigMain.MOBS_ILLAGER_WITCH_SPAWN_WORLDS;
 				break;
+			default:
+				// Not supported
+				break;
 		}
 		return ret && (worlds.contains("*") || worlds.contains(world));
 	}

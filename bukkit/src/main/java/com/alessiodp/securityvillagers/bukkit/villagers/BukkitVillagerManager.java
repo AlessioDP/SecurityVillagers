@@ -106,7 +106,7 @@ public class BukkitVillagerManager extends VillagerManager {
 		
 		// Player attack
 		if (attacker instanceof Player) {
-			if (!canBeAttackedFromPlayer(protectedEntity, (Player) attacker, true)) {
+			if (!canBeAttackedFromPlayer((Player) attacker, true)) {
 				plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_HIT_PLAYER
 						.replace("{entity}", protectedEntity.getType().name())
 						.replace("{player}", ((Player) attacker).getName()), true);
@@ -121,7 +121,7 @@ public class BukkitVillagerManager extends VillagerManager {
 			ProjectileSource shooter = ((Projectile) attacker).getShooter();
 			if (shooter != null) {
 				if (shooter instanceof Player) {
-					if (!canBeAttackedFromPlayer(protectedEntity, (Player) shooter, false)) {
+					if (!canBeAttackedFromPlayer((Player) shooter, false)) {
 						plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_PROJECTILE_PLAYER
 								.replace("{entity}", protectedEntity.getType().name())
 								.replace("{player}", ((Player) shooter).getName()), true);
@@ -129,7 +129,7 @@ public class BukkitVillagerManager extends VillagerManager {
 						return AttackResult.SHOOT;
 					}
 				} else {
-					if (!canBeAttackedFromMob(protectedEntity, (Entity) shooter)) {
+					if (!canBeAttackedFromMob((Entity) shooter)) {
 						plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_PROJECTILE_MOB
 								.replace("{entity}", protectedEntity.getType().name())
 								.replace("{mob}", ((Entity) shooter).getName()), true);
@@ -141,7 +141,7 @@ public class BukkitVillagerManager extends VillagerManager {
 		}
 		
 		// Attack from mob
-		if (!canBeAttackedFromMob(protectedEntity, (Entity) attacker)) {
+		if (!canBeAttackedFromMob((Entity) attacker)) {
 			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_HIT_MOB
 					.replace("{entity}", protectedEntity.getType().name())
 					.replace("{mob}", ((Entity) attacker).getName()), true);
@@ -236,18 +236,12 @@ public class BukkitVillagerManager extends VillagerManager {
 		return !protection;
 	}
 	
-	private boolean canBeAttackedFromPlayer(ProtectedEntity protectedEntity, Player player, boolean isMelee) {
-		boolean ret = true;
-		
-		if (isMelee ? ConfigMain.GENERAL_DAMAGE_HIT : ConfigMain.GENERAL_DAMAGE_ARROW) {
-			if (!player.hasPermission((isMelee ? SecurityVillagersPermission.USER_HIT : SecurityVillagersPermission.USER_SHOOT).toString())) {
-				ret = false;
-			}
-		}
-		return ret;
+	private boolean canBeAttackedFromPlayer(Player player, boolean isMelee) {
+		return !((isMelee ? ConfigMain.GENERAL_DAMAGE_HIT : ConfigMain.GENERAL_DAMAGE_ARROW)
+				&& (!player.hasPermission((isMelee ? SecurityVillagersPermission.USER_HIT : SecurityVillagersPermission.USER_SHOOT).toString())));
 	}
 	
-	private boolean canBeAttackedFromMob(ProtectedEntity protectedEntity, Entity mob) {
+	private boolean canBeAttackedFromMob(Entity mob) {
 		return !(
 				ConfigMain.DAMAGE_MOBS_EVOKER && (MobsType.EVOKER.instanceOf(mob) || MobsType.EVOKER_FANGS.instanceOf(mob)) // Evoker
 				|| (ConfigMain.DAMAGE_MOBS_ILLUSIONER && MobsType.ILLUSIONER.instanceOf(mob)) // Illusioner
