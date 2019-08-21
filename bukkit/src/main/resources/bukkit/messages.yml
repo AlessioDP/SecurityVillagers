@@ -77,16 +77,16 @@ help:
   footer: ""
   console-help:
     - "You can only make these commands:"
-    - " > sv reload - Reload the configuration"
-    - " > sv version - Show SecurityVillagers information"
+    - " > sv reload - Reload configuration files"
+    - " > sv version - Show plugin information"
   commands:
     help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Show help pages","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
     changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Change mob age","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
     profession: '{"text":"","extra":[{"text":"/sv profession <profession>","color":"gold"},{"text":" - Change villager profession","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv profession "},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
     protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Protect/unprotect mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
-    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Reload SecurityVillagers configuration files","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
+    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Reload configuration files","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
     rename: '{"text":"","extra":[{"text":"/sv rename <name/remove>","color":"gold"},{"text":" - Change mob name","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
-    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Show SecurityVillagers information","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
+    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Show plugin information","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Perform the command","color":"gold"}}}'
 
 
 dont-edit-this:

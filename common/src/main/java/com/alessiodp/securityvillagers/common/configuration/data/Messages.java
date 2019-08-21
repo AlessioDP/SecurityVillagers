@@ -113,16 +113,16 @@ public abstract class Messages extends ConfigurationFile {
 		HELP_FOOTER = "";
 		HELP_CONSOLEHELP = new ArrayList<>();
 		HELP_CONSOLEHELP.add("You can only make these commands:");
-		HELP_CONSOLEHELP.add(" > sv reload - Reload the configuration");
-		HELP_CONSOLEHELP.add(" > sv version - Show SecurityVillagers information");
+		HELP_CONSOLEHELP.add(" > sv reload - Reload configuration files");
+		HELP_CONSOLEHELP.add(" > sv version - Show plugin information");
 		
 		HELP_CMD_HELP = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv help\",\"color\":\"gold\"},{\"text\":\" - Show help pages\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv help \"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 		HELP_CMD_CHANGEAGE = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv changeage\",\"color\":\"gold\"},{\"text\":\" - Change mob age\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv changeage\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 		HELP_CMD_PROFESSION = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv profession <profession>\",\"color\":\"gold\"},{\"text\":\" - Change villager profession\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv profession \"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 		HELP_CMD_PROTECT = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv protect [on/off]\",\"color\":\"gold\"},{\"text\":\" - Protect/unprotect mob\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv protect\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
-		HELP_CMD_RELOAD = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv reload\",\"color\":\"gold\"},{\"text\":\" - Reload SecurityVillagers configuration files\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv reload\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
+		HELP_CMD_RELOAD = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv reload\",\"color\":\"gold\"},{\"text\":\" - Reload configuration files\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv reload\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 		HELP_CMD_RENAME = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv rename <name/remove>\",\"color\":\"gold\"},{\"text\":\" - Change mob name\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv rename \"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
-		HELP_CMD_VERSION = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv version\",\"color\":\"gold\"},{\"text\":\" - Show SecurityVillagers information\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv version\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
+		HELP_CMD_VERSION = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv version\",\"color\":\"gold\"},{\"text\":\" - Show plugin information\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv version\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 	}
 	
 	@Override
