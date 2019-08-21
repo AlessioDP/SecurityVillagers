@@ -1,0 +1,56 @@
+---
+securityvillagers:
+  update-available: "&2Nuova versione di SecurityVillagers trovata: %version% (Attuale: %thisversion%)"
+  no-permission: "&cNon hai accesso a questo comando"
+  configuration-outdated: "&cIl file di configurazione '%config%' di SecurityVillagers è obsoleto!"
+  common-messages:
+    invalid-command: "&cComando non valido"
+    configuration-reloaded: "&aConfigurazione ricaricata"
+general:
+  interact:
+    hit: "&cNon puoi colpire questo mob!"
+    shoot: "&cNon puoi sparare a questo mob!"
+    egg: "&cNon puoi usare le uova su questo mob!"
+    trade: "&cNon puoi scambiare con questo mob!"
+  selection:
+    selected: "&aMob selezionato"
+    required: "&cDevi selezionare un mob prima!"
+commands:
+  changeage:
+    baby: "&aTrasformato il mob in un bambino!"
+    adult: "&aTrasformato il mob in un adulto!"
+    failed: "&cNon puoi cambiare l'età di questo mob!"
+  profession:
+    current: "&aLa professione del villico è %profession%"
+    changed: "&aCambiata la professione del villico in %profession%"
+    not-found: "&cNon è stata trovata la professione '%profession%'!"
+    failed: "&cNon puoi cambiare la professione a questo mob!"
+    wrong-command: "&cComando sbagliato: Esegui &7/sv profession <professione>"
+  protect:
+    protected: "&aIl mob selezionato è ora protetto"
+    unprotected: "&cIl mob selezionato non è più protetto"
+    wrong-command: "&cComando sbagliato: Esegui &7/sv protect [on/off]"
+  rename:
+    renamed: "&aIl mob è stato rinominato in %name%"
+    removed: "&aRimosso nome dal mob"
+    wrong-command: "&6Comando sbagliato: Esegui &7/sv rename <nome/remove>"
+  version:
+    updated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP"
+    outdated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP\n&aNuova versione trovata: &2%newversion%"
+help:
+  header: "&6===== &lPagina d'aiuto di SecurityVillagers &r&6====="
+  footer: ""
+  console-help:
+    - "Puoi solamente far questi comandi:"
+    - " > sv reload - Ricarica la configurazione"
+    - " > sv version - Mostra informazioni su SecurityVillagers"
+  commands:
+    help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Mostra la pagina d''aiuto","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Cambia età del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    profession: '{"text":"","extra":[{"text":"/sv profession <professione>","color":"gold"},{"text":" - Cambia la professione del villico","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv profession "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Attiva/disattiva protezione mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Ricarica i file di configurazione","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    rename: '{"text":"","extra":[{"text":"/sv rename <nome/remove>","color":"gold"},{"text":" - Cambia nome del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Mostra informazioni su SecurityVillagers","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+dont-edit-this:
+  version: 1
