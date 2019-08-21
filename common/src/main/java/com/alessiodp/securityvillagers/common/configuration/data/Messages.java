@@ -78,7 +78,7 @@ public abstract class Messages extends ConfigurationFile {
 		// General settings
 		GENERAL_INTERACT_HIT = "&cYou can't hit this mob!";
 		GENERAL_INTERACT_SHOOT = "&cYou can't shoot this mob!";
-		GENERAL_INTERACT_EGG = "&cYou can't use eggs on this mob";
+		GENERAL_INTERACT_EGG = "&cYou can't use eggs on this mob!";
 		GENERAL_INTERACT_TRADE = "&cYou can't trade with this mob!";
 		
 		GENERAL_SELECTION_SELECTED = "&aMob selected";

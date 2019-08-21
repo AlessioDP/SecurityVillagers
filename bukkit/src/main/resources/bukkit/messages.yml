@@ -27,7 +27,7 @@ general:
   interact:
     hit: "&cYou can't hit this mob!"
     shoot: "&cYou can't shoot this mob!"
-    egg: "&cYou can't use eggs on this mob"
+    egg: "&cYou can't use eggs on this mob!"
     trade: "&cYou can't trade with this mob!"
 
   selection:
