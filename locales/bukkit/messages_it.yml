@@ -42,8 +42,8 @@ help:
   footer: ""
   console-help:
     - "Puoi solamente far questi comandi:"
-    - " > sv reload - Ricarica la configurazione"
-    - " > sv version - Mostra informazioni su SecurityVillagers"
+    - " > sv reload - Ricarica i file di configurazione"
+    - " > sv version - Mostra informazioni sul plugin"
   commands:
     help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Mostra la pagina d''aiuto","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
     changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Cambia età del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
@@ -51,6 +51,6 @@ help:
     protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Attiva/disattiva protezione mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
     reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Ricarica i file di configurazione","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
     rename: '{"text":"","extra":[{"text":"/sv rename <nome/remove>","color":"gold"},{"text":" - Cambia nome del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Mostra informazioni su SecurityVillagers","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Mostra informazioni sul plugin","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
 dont-edit-this:
   version: 1
