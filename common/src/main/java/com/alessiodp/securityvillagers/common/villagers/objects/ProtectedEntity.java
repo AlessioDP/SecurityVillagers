@@ -57,6 +57,9 @@ public abstract class ProtectedEntity {
 			case WITCH:
 				ret = ConfigMain.MOBS_ILLAGER_WITCH_PROTECT;
 				break;
+			default:
+				// Not supported
+				break;
 		}
 		return ret;
 	}

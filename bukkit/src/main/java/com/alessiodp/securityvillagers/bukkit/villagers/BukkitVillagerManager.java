@@ -231,6 +231,7 @@ public class BukkitVillagerManager extends VillagerManager {
 			case STARVATION:
 			default:
 				protection = false;
+				break;
 		}
 		
 		return !protection;
