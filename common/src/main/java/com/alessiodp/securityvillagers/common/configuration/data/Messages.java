@@ -113,8 +113,8 @@ public abstract class Messages extends ConfigurationFile {
 		HELP_FOOTER = "";
 		HELP_CONSOLEHELP = new ArrayList<>();
 		HELP_CONSOLEHELP.add("You can only make these commands:");
-		HELP_CONSOLEHELP.add(" > oa reload - Reload the configuration");
-		HELP_CONSOLEHELP.add(" > oa version - Show SecurityVillagers information");
+		HELP_CONSOLEHELP.add(" > sv reload - Reload the configuration");
+		HELP_CONSOLEHELP.add(" > sv version - Show SecurityVillagers information");
 		
 		HELP_CMD_HELP = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv help\",\"color\":\"gold\"},{\"text\":\" - Show help pages\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv help \"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
 		HELP_CMD_CHANGEAGE = "{\"text\":\"\",\"extra\":[{\"text\":\"/sv changeage\",\"color\":\"gold\"},{\"text\":\" - Change mob age\",\"color\":\"gray\"}],\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/sv changeage\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"Perform the command\",\"color\":\"gold\"}}}";
