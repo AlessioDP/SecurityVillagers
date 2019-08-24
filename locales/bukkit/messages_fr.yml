@@ -2,23 +2,23 @@
 securityvillagers:
   update-available: "&6Nouvelle version de SecurityVillagers trouvée : %version% (Actuelle : %thisversion%)"
   no-permission: "&cVous n'avez pas accès à cette commande"
-  configuration-outdated: "&cThe configuration file '%config%' of SecurityVillagers is outdated!"
+  configuration-outdated: "&cLe fichier de configuration \"%config%\" de SecurityVillagers est obsolète!"
   common-messages:
-    invalid-command: "&cInvalid command"
-    configuration-reloaded: "&aConfiguration reloaded"
+    invalid-command: "&cCommande invalide"
+    configuration-reloaded: "&aConfiguration rechargée"
 general:
   interact:
-    hit: "&cYou can't hit this mob!"
-    shoot: "&cYou can't shoot this mob!"
-    egg: "&cYou can't use eggs on this mob!"
-    trade: "&cYou can't trade with this mob!"
+    hit: "&cVous ne pouvez pas frapper cette créature!"
+    shoot: "&cVous ne pouvez pas tirer sur cette créature!"
+    egg: "&cVous ne pouvez pas utiliser d'œufs sur cette créature!"
+    trade: "&cVous ne pouvez pas échanger avec cette créature!"
   selection:
-    selected: "&aMob selected"
-    required: "&cYou have to select a mob first!"
+    selected: "&aCréature sélectionnée"
+    required: "&cVous devez d'abord sélectionner une créature!"
 commands:
   changeage:
-    baby: "&aTurned the mob into a baby!"
-    adult: "&aTurned the mob into an adult!"
+    baby: "&aLa créature est devenue un bébé!"
+    adult: "&aLa créature est devenue un adulte!"
     failed: "&cYou cannot change the age of this mob!"
   profession:
     current: "&aThe villager is a %profession%"
