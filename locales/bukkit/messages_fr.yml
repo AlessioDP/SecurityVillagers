@@ -1,7 +1,7 @@
 ---
 securityvillagers:
-  update-available: "&6New version of SecurityVillagers found: %version% (Current: %thisversion%)"
-  no-permission: "&cYou do not have access to that command"
+  update-available: "&6Nouvelle version de SecurityVillagers trouvée : %version% (Actuelle : %thisversion%)"
+  no-permission: "&cVous n'avez pas accès à cette commande"
   configuration-outdated: "&cThe configuration file '%config%' of SecurityVillagers is outdated!"
   common-messages:
     invalid-command: "&cInvalid command"
