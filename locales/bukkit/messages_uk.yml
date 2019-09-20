@@ -1,0 +1,56 @@
+---
+securityvillagers:
+  update-available: "&6Знайдено нову версію SecurityVillagers: %version% (Ваша версія: %thisversion%)"
+  no-permission: "&cУ вас немає доступу до цієї команди"
+  configuration-outdated: "&cФайл конфігурації '%config%' плагіну SecurityVillagers застарілий!"
+  common-messages:
+    invalid-command: "&cНевірна команда"
+    configuration-reloaded: "&aКонфігурацію оновлено"
+general:
+  interact:
+    hit: "&cВи не можете нанести шкоди цьому створінню!"
+    shoot: "&cВи не можете стріляти в це створіння!"
+    egg: "&cВи не можете кидати яйця у це створіння!"
+    trade: "&cВи не можете тогрувати з цим жителем!"
+  selection:
+    selected: "&aСтворіння вибрано"
+    required: "&cВи не вибрали створіння!"
+commands:
+  changeage:
+    baby: "&aСтворіння було перетворено на дитинча!"
+    adult: "&aДитинча було перетворено у доросле створіння!"
+    failed: "&cВи не можете змінити вік цього створіння!"
+  profession:
+    current: "&aПрофесія жителя: %profession%"
+    changed: "&aПрофесію жителя було змінено на: %profession%"
+    not-found: "&cПрофесії '%profession%' не існує!"
+    failed: "&cВи не можете змінити професію цього жителя!"
+    wrong-command: "&cНевірні дані: Введіть &7/sv profession <професія>"
+  protect:
+    protected: "&aВибране створіння захищено"
+    unprotected: "&cЗахист знято"
+    wrong-command: "&cНевірні дані: Введіть &7/sv protect [on/off]"
+  rename:
+    renamed: "&aІм'я створіння було змінено на: %name%"
+    removed: "&aІм'я створіння було видалено"
+    wrong-command: "&cНевірні дані: Введіть &7/sv rename <ім'я/remove>"
+  version:
+    updated: "&6&lSecurityVillagers &7%version% - розроблено &6AlessioDP"
+    outdated: "&6&lSecurityVillagers &7%version% - розроблено &6AlessioDP\n&aЗнайдено нову версію: &2%newversion%"
+help:
+  header: "&6============ &lДовідка SecurityVillagers&r&6============"
+  footer: ""
+  console-help:
+    - "Ви можете виконувати тільки ці команди:"
+    - " > sv reload - Оновити файли конфігурації"
+    - " > sv version - Показати інформацію про плагін"
+  commands:
+    help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Показати довідку","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Змінити вік створіння","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    profession: '{"text":"","extra":[{"text":"/sv profession <професія>","color":"gold"},{"text":" - Змінити професію жителя","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv profession "},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Захистити/зняти захист зі створіння","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Оновити файли конфігурації","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    rename: '"text":"","extra":[{"text":"/sv rename <ім''я/remove>","color":"gold"},{"text":" - Змінити ім''я створіння","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Показати інформацію про плагін","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Виконати команду","color":"gold"}}}'
+dont-edit-this:
+  version: 1
