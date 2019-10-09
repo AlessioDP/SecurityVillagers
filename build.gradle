@@ -40,16 +40,18 @@ allprojects {
         mavenCentral()
         // CodeMC repository - ADP Core
         maven { url = 'https://repo.codemc.org/repository/maven-public/' }
-        // CodeMC repository - NMS repo
+        // CodeMC repository - NMS repository
         maven { url = 'https://repo.codemc.org/repository/nms/' }
         // Spigot repository for Spigot & Bukkit
         maven { url = 'https://hub.spigotmc.org/nexus/content/groups/public/' }
         // OSS Sonatype repository for Bungeecord
         maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
-        // JitPack repo
+        // JitPack repository
         maven { url = 'https://jitpack.io' }
         // Sponge repository for configurate
         maven { url = 'https://repo.spongepowered.org/maven' }
+        // ProtocolLib repository
+        maven { url = 'http://repo.dmulloy2.net/nexus/repository/public/' }
     }
 
     dependencies {
