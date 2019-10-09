@@ -3,7 +3,7 @@ buildscript {
         jcenter() // Shadow plugin
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:5.0.0'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
     }
 }
 
@@ -14,7 +14,7 @@ allprojects {
     apply plugin: 'com.github.johnrengelman.shadow' // Shadow jar
 
     group 'com.alessiodp.securityvillagers'
-    version '2.10.0'
+    version '2.10.1'
 
     // Info
     ext.pluginName = "SecurityVillagers"
@@ -23,8 +23,8 @@ allprojects {
     ext.pluginWebsite = "https://alessiodp.com/"
 
     // Development
-    ext.adpCore = '1.2.4'
-    ext.lombok = '1.18.8'
+    ext.adpCore = '1.2.7'
+    ext.lombok = '1.18.10'
     ext.powermock = '2.0.2'
 
     // Libraries

@@ -19,6 +19,13 @@ public abstract class ProtectedEntity {
 	
 	public void updateProtectedEntity() {
 		plugin.getDatabaseManager().updateProtectedEntity(this);
+		
+		// Update protected entities list
+		if (isProtectionEnabled()) {
+			plugin.getVillagerManager().getProtectedEntities().add(getUuid());
+		} else {
+			plugin.getVillagerManager().getProtectedEntities().remove(getUuid());
+		}
 	}
 	
 	public final boolean isConfigProtected() {
