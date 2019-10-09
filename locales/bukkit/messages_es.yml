@@ -12,7 +12,7 @@ securityvillagers:
   no-permission: "&cYou do not have access to that command"
   #Special tag:
   #=> %config%      = The configuration file name that is outdated
-  configuration-outdated: "&cThe configuration file '%config%' of SecurityVillagers is outdated!"
+  configuration-outdated: "&cEl archivo de configuracion '%config%' de SecurityVillagers esta desactualizado!"
   common-messages:
     invalid-command: "&cInvalid command"
     configuration-reloaded: "&aConfiguration reloaded"
