@@ -1,4 +1,8 @@
 ---
+#Messages configuration file
+#/ = = = = = = = = = = = = = = = = \
+#|    SECURITYVILLAGER MESSAGES    |
+#\ = = = = = = = = = = = = = = = = /
 securityvillagers:
   update-available: "&6Найдена новая версия плагина SecurityVillagers: %version% (У вас: %thisversion%)"
   no-permission: "&cУ вас нет доступа к этой команде"
