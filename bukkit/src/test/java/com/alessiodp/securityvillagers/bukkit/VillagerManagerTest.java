@@ -49,7 +49,7 @@ public class VillagerManagerTest {
 		villagerManager = new BukkitVillagerManager(mockPlugin);
 		
 		ConfigMain.GENERAL_PROTECTIONTYPE = ConfigMain.ProtectionType.GLOBAL;
-		ConfigMain.GENERAL_IMMORTAL = false;
+		ConfigMain.GENERAL_DAMAGE_IMMORTAL = false;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("*");
 		ConfigMain.GENERAL_DAMAGE_HIT = true;
 		ConfigMain.GENERAL_DAMAGE_ARROW = true;

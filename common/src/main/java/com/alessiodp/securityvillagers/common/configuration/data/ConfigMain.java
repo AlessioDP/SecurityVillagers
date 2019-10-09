@@ -24,8 +24,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 	
 	// General settings
 	public static ProtectionType GENERAL_PROTECTIONTYPE;
-	public static boolean		GENERAL_IMMORTAL;
 	
+	public static boolean		GENERAL_DAMAGE_IMMORTAL;
 	public static boolean		GENERAL_DAMAGE_HIT;
 	public static boolean		GENERAL_DAMAGE_ARROW;
 	public static List<String>	GENERAL_DAMAGE_WORLDS;
@@ -186,8 +186,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 		
 		// General settings
 		GENERAL_PROTECTIONTYPE = ProtectionType.GLOBAL;
-		GENERAL_IMMORTAL = false;
 		
+		GENERAL_DAMAGE_IMMORTAL = false;
 		GENERAL_DAMAGE_HIT = true;
 		GENERAL_DAMAGE_ARROW = true;
 		GENERAL_DAMAGE_WORLDS = new ArrayList<>();
@@ -359,8 +359,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 		
 		// General settings
 		GENERAL_PROTECTIONTYPE = ProtectionType.getType(confAdapter.getString("general.protection-type", GENERAL_PROTECTIONTYPE.name()));
-		GENERAL_IMMORTAL = confAdapter.getBoolean("general.immortal", GENERAL_IMMORTAL);
 		
+		GENERAL_DAMAGE_IMMORTAL = confAdapter.getBoolean("general.damage.immortal", GENERAL_DAMAGE_IMMORTAL);
 		GENERAL_DAMAGE_HIT = confAdapter.getBoolean("general.damage.disable-hit-damage", GENERAL_DAMAGE_HIT);
 		GENERAL_DAMAGE_ARROW = confAdapter.getBoolean("general.damage.disable-arrow-damage", GENERAL_DAMAGE_ARROW);
 		GENERAL_DAMAGE_WORLDS = confAdapter.getStringList("general.damage.prevent-worlds", GENERAL_DAMAGE_WORLDS);

@@ -18,7 +18,10 @@ public class BukkitDeathListener extends DeathListener implements Listener {
 	public void onDeath(EntityDeathEvent event) {
 		ProtectedEntity protectedEntity = plugin.getVillagerManager().initializeProtectedEntity(event.getEntity());
 		if (protectedEntity != null) {
-			super.onDeath(protectedEntity, event.getEntity().getLastDamageCause().getCause().name());
+			super.onDeath(
+					protectedEntity,
+					event.getEntity().getLastDamageCause() != null ? event.getEntity().getLastDamageCause().getCause().name() : "UNKNOWN"
+			);
 		}
 	}
 }

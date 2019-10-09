@@ -83,8 +83,9 @@ public class BukkitVillagerManager extends VillagerManager {
 		
 		// Check if custom protected
 		if (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.CUSTOM
-				&& !protectedEntity.isProtectionEnabled())
+				&& !protectedEntity.isProtectionEnabled()) {
 			return true;
+		}
 		
 		// Check for factions
 		return (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.FACTIONS
@@ -97,7 +98,7 @@ public class BukkitVillagerManager extends VillagerManager {
 			return AttackResult.SUCCESS;
 		
 		// Check if immortal
-		if (ConfigMain.GENERAL_IMMORTAL) {
+		if (ConfigMain.GENERAL_DAMAGE_IMMORTAL) {
 			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_IMMORTAL
 					.replace("{entity}", protectedEntity.getType().name()), true);
 			
@@ -153,16 +154,18 @@ public class BukkitVillagerManager extends VillagerManager {
 	
 	@Override
 	public boolean canBeDamaged(ProtectedEntity protectedEntity, Object damageCause) {
+		System.out.println("here1");
 		if (isUnprotected(protectedEntity, null))
 			return true;
-		
+		System.out.println("here2");
 		// Check if immortal
-		if (ConfigMain.GENERAL_IMMORTAL) {
+		if (ConfigMain.GENERAL_DAMAGE_IMMORTAL) {
 			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_IMMORTAL
 					.replace("{entity}", protectedEntity.getType().name()), true);
 			
 			return false;
 		}
+		System.out.println("here3");
 		
 		// Check damage cause
 		boolean protection;
@@ -244,7 +247,7 @@ public class BukkitVillagerManager extends VillagerManager {
 	
 	private boolean canBeAttackedFromMob(Entity mob) {
 		return !(
-				ConfigMain.DAMAGE_MOBS_EVOKER && (MobsType.EVOKER.instanceOf(mob) || MobsType.EVOKER_FANGS.instanceOf(mob)) // Evoker
+				(ConfigMain.DAMAGE_MOBS_EVOKER && (MobsType.EVOKER.instanceOf(mob) || MobsType.EVOKER_FANGS.instanceOf(mob))) // Evoker
 				|| (ConfigMain.DAMAGE_MOBS_ILLUSIONER && MobsType.ILLUSIONER.instanceOf(mob)) // Illusioner
 				|| (ConfigMain.DAMAGE_MOBS_PILLAGER && MobsType.PILLAGER.instanceOf(mob)) // Pillager
 				|| (ConfigMain.DAMAGE_MOBS_RAVAGER && MobsType.RAVAGER.instanceOf(mob)) // Ravager

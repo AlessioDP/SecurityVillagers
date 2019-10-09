@@ -37,6 +37,11 @@ public class SVFileDispatcher extends FileDispatcher {
 		ConfigurationNode node = database.getRootNode().getNode("mobs", protectedEntity.getUuid().toString());
 		node.getNode("protection").setValue(protectedEntity.isProtectionEnabled() ? protectedEntity.isProtectionEnabled() : null);
 		
+		if (!protectedEntity.isProtectionEnabled()) {
+			// Delete if unprotected
+			node.setValue(null);
+		}
+		
 		try {
 			database.saveFile();
 		} catch (IOException ex) {
