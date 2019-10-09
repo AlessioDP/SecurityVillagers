@@ -3,13 +3,12 @@ repositories {
         dirs 'libs'
     }
 
-    maven { url = 'http://repo.dmulloy2.net/content/groups/public/' } // ProtocolLib repo
+    maven { url = 'http://repo.dmulloy2.net/nexus/repository/public/' } // ProtocolLib repo
 }
 
 dependencies {
     compile project(':common')
     compile group: 'com.alessiodp.core', name: 'bukkit', version: project.ext.adpCore
-    //compileOnly group: 'org.spigotmc', name: 'spigot-api', version: '1.8.8-R0.1-SNAPSHOT'
     compileOnly group: 'com.comphenix.protocol', name: 'ProtocolLib-API', version: project.ext.protocolLib
 
     compileOnly name: 'FactionsMassiveCraft-2.14.0'
