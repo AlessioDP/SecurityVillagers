@@ -1,11 +1,24 @@
 ---
+#Messages configuration file
+#/ = = = = = = = = = = = = = = = = \
+#|    SECURITYVILLAGER MESSAGES    |
+#\ = = = = = = = = = = = = = = = = /
 securityvillagers:
+  #Special tags:
+  #=> %version%     = New version found
+  #=> %thisversion% = Version installed
   update-available: "&6Найдена новая версия плагина SecurityVillagers: %version% (У вас: %thisversion%)"
+  #Special tag: %permission% = Missing permission
   no-permission: "&cУ вас нет доступа к этой команде"
+  #Special tag:
+  #=> %config%      = The configuration file name that is outdated
   configuration-outdated: "&cКонфигурация файла '%config%' в плагине SecurityVillagers устарела!"
   common-messages:
     invalid-command: "&cНеверная команда"
     configuration-reloaded: "&aКонфигурация обновлена"
+#/ = = = = = = = = = = = = = = = = \
+#|        GENERAL MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 general:
   interact:
     hit: "&cВы не можете нанести урон этому существу!"
@@ -15,6 +28,9 @@ general:
   selection:
     selected: "&aСущество выбрано"
     required: "&cСначала вы должны выбрать существо!"
+#/ = = = = = = = = = = = = = = = = \
+#|        COMMANDS MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 commands:
   changeage:
     baby: "&aСущество превращено в детёныша!"
@@ -35,8 +51,14 @@ commands:
     removed: "&aУдалено имя существа"
     wrong-command: "&cНеверные значения: Введите &7/sv rename <имя/remove>"
   version:
+    #Special tags:
+    #=> %version%    = Plugin version
+    #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Авторство принадлежит &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Авторство принадлежит &6AlessioDP\n&aНайдена новая версия: &2%newversion%"
+#/ = = = = = = = = = = = = = = = = \
+#|          HELP MESSAGES          |
+#\ = = = = = = = = = = = = = = = = /
 help:
   header: "&6============ &lСправочник SecurityVillagers&r&6============"
   footer: ""
