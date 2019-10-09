@@ -1,11 +1,24 @@
 ---
+#Messages configuration file
+#/ = = = = = = = = = = = = = = = = \
+#|    SECURITYVILLAGER MESSAGES    |
+#\ = = = = = = = = = = = = = = = = /
 securityvillagers:
+  #Special tags:
+  #=> %version%     = New version found
+  #=> %thisversion% = Version installed
   update-available: "&6New version of SecurityVillagers found: %version% (Current: %thisversion%)"
+  #Special tag: %permission% = Missing permission
   no-permission: "&cYou do not have access to that command"
+  #Special tag:
+  #=> %config%      = The configuration file name that is outdated
   configuration-outdated: "&cThe configuration file '%config%' of SecurityVillagers is outdated!"
   common-messages:
     invalid-command: "&cInvalid command"
     configuration-reloaded: "&aConfiguration reloaded"
+#/ = = = = = = = = = = = = = = = = \
+#|        GENERAL MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 general:
   interact:
     hit: "&cYou can't hit this mob!"
@@ -15,6 +28,9 @@ general:
   selection:
     selected: "&aMob selected"
     required: "&cYou have to select a mob first!"
+#/ = = = = = = = = = = = = = = = = \
+#|        COMMANDS MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 commands:
   changeage:
     baby: "&aTurned the mob into a baby!"
@@ -35,8 +51,14 @@ commands:
     removed: "&aRemoved mob name"
     wrong-command: "&Wrong variables: Type &7/sv rename <name/remove>"
   version:
+    #Special tags:
+    #=> %version%    = Plugin version
+    #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Developed by &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Developed by &6AlessioDP\n&aNew version found: &2%newversion%"
+#/ = = = = = = = = = = = = = = = = \
+#|          HELP MESSAGES          |
+#\ = = = = = = = = = = = = = = = = /
 help:
   header: "&6============ &lSecurityVillagers Help Page &r&6============"
   footer: ""

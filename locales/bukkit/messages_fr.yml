@@ -1,11 +1,24 @@
 ---
+#Messages configuration file
+#/ = = = = = = = = = = = = = = = = \
+#|    SECURITYVILLAGER MESSAGES    |
+#\ = = = = = = = = = = = = = = = = /
 securityvillagers:
+  #Special tags:
+  #=> %version%     = New version found
+  #=> %thisversion% = Version installed
   update-available: "&6Nouvelle version de SecurityVillagers trouvée : %version% (Actuelle : %thisversion%)"
+  #Special tag: %permission% = Missing permission
   no-permission: "&cVous n'avez pas accès à cette commande"
+  #Special tag:
+  #=> %config%      = The configuration file name that is outdated
   configuration-outdated: "&cLe fichier de configuration \"%config%\" de SecurityVillagers est obsolète !"
   common-messages:
     invalid-command: "&cCommande invalide"
     configuration-reloaded: "&aConfiguration rechargée"
+#/ = = = = = = = = = = = = = = = = \
+#|        GENERAL MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 general:
   interact:
     hit: "&cVous ne pouvez pas frapper cette créature !"
@@ -15,6 +28,9 @@ general:
   selection:
     selected: "&aCréature sélectionnée"
     required: "&cVous devez d'abord sélectionner une créature !"
+#/ = = = = = = = = = = = = = = = = \
+#|        COMMANDS MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 commands:
   changeage:
     baby: "&aLa créature est devenue un bébé !"
@@ -35,8 +51,14 @@ commands:
     removed: "&aNom de la créature supprimé"
     wrong-command: "&6Variables incorrectes : Tapez &7/sv rename <nom/remove>"
   version:
+    #Special tags:
+    #=> %version%    = Plugin version
+    #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Développé par &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Développé par &6AlessioDP\n&aNouvelle version trouvée : &2%newversion%"
+#/ = = = = = = = = = = = = = = = = \
+#|          HELP MESSAGES          |
+#\ = = = = = = = = = = = = = = = = /
 help:
   header: "&6============ &lPage d'aide de SecurityVillagers &r&6============"
   footer: ""

@@ -1,11 +1,24 @@
 ---
+#Messages configuration file
+#/ = = = = = = = = = = = = = = = = \
+#|    SECURITYVILLAGER MESSAGES    |
+#\ = = = = = = = = = = = = = = = = /
 securityvillagers:
+  #Special tags:
+  #=> %version%     = New version found
+  #=> %thisversion% = Version installed
   update-available: "&2Nuova versione di SecurityVillagers trovata: %version% (Attuale: %thisversion%)"
+  #Special tag: %permission% = Missing permission
   no-permission: "&cNon hai accesso a questo comando"
+  #Special tag:
+  #=> %config%      = The configuration file name that is outdated
   configuration-outdated: "&cIl file di configurazione '%config%' di SecurityVillagers è obsoleto!"
   common-messages:
     invalid-command: "&cComando non valido"
     configuration-reloaded: "&aConfigurazione ricaricata"
+#/ = = = = = = = = = = = = = = = = \
+#|        GENERAL MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 general:
   interact:
     hit: "&cNon puoi colpire questo mob!"
@@ -15,6 +28,9 @@ general:
   selection:
     selected: "&aMob selezionato"
     required: "&cDevi selezionare un mob prima!"
+#/ = = = = = = = = = = = = = = = = \
+#|        COMMANDS MESSAGES        |
+#\ = = = = = = = = = = = = = = = = /
 commands:
   changeage:
     baby: "&aTrasformato il mob in un bambino!"
@@ -35,8 +51,14 @@ commands:
     removed: "&aRimosso nome dal mob"
     wrong-command: "&6Comando sbagliato: Esegui &7/sv rename <nome/remove>"
   version:
+    #Special tags:
+    #=> %version%    = Plugin version
+    #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP\n&aNuova versione trovata: &2%newversion%"
+#/ = = = = = = = = = = = = = = = = \
+#|          HELP MESSAGES          |
+#\ = = = = = = = = = = = = = = = = /
 help:
   header: "&6===== &lPagina d'aiuto di SecurityVillagers &r&6====="
   footer: ""
