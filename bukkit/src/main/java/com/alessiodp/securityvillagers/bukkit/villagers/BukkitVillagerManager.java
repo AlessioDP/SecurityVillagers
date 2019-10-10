@@ -154,10 +154,9 @@ public class BukkitVillagerManager extends VillagerManager {
 	
 	@Override
 	public boolean canBeDamaged(ProtectedEntity protectedEntity, Object damageCause) {
-		System.out.println("here1");
 		if (isUnprotected(protectedEntity, null))
 			return true;
-		System.out.println("here2");
+		
 		// Check if immortal
 		if (ConfigMain.GENERAL_DAMAGE_IMMORTAL) {
 			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_IMMORTAL
@@ -165,7 +164,6 @@ public class BukkitVillagerManager extends VillagerManager {
 			
 			return false;
 		}
-		System.out.println("here3");
 		
 		// Check damage cause
 		boolean protection;

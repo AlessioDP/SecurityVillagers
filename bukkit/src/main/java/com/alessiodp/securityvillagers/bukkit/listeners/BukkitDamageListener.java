@@ -15,6 +15,12 @@ public class BukkitDamageListener extends DamageListener implements Listener {
 	
 	@EventHandler(ignoreCancelled = true)
 	public void onDamage(EntityDamageEvent event) {
+		if (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK
+				|| event.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
+			// Attacks and shoots are handled by FightListener
+			return;
+		}
+		
 		ProtectedEntity protectedEntity = plugin.getVillagerManager().initializeProtectedEntity(event.getEntity());
 		if (protectedEntity != null) {
 			boolean cancelled = super.onDamage(

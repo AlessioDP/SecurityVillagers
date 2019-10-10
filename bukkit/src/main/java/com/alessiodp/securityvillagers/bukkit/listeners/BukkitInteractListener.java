@@ -37,13 +37,16 @@ public class BukkitInteractListener extends InteractListener implements Listener
 				return;
 			}
 			
-			boolean cancelled = super.onPlayerInteractEntity(
-					new BukkitUser(plugin, event.getPlayer()),
-					plugin.getVillagerManager().initializeProtectedEntity(event.getRightClicked()),
-					((BukkitSecurityVillagersPlugin) plugin).getNmsManager().getMaterialInMainHand(event.getPlayer()).name()
-			);
-			if (cancelled)
-				event.setCancelled(cancelled);
+			ProtectedEntity protectedEntity = plugin.getVillagerManager().initializeProtectedEntity(event.getRightClicked());
+			if (protectedEntity != null) {
+				boolean cancelled = super.onPlayerInteractEntity(
+						new BukkitUser(plugin, event.getPlayer()),
+						protectedEntity,
+						((BukkitSecurityVillagersPlugin) plugin).getNmsManager().getMaterialInMainHand(event.getPlayer()).name()
+				);
+				if (cancelled)
+					event.setCancelled(cancelled);
+			}
 		}
 	}
 	
@@ -54,7 +57,6 @@ public class BukkitInteractListener extends InteractListener implements Listener
 	
 	@Override
 	protected boolean isFactionProtected(User user, ProtectedEntity protectedEntity) {
-		return ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.FACTIONS
-				&& FactionsHandler.isClaimProtectedByInteract(Bukkit.getPlayer(user.getUUID()), ((Entity) protectedEntity.getEntity()).getLocation());
+		return FactionsHandler.isClaimProtectedByInteract(Bukkit.getPlayer(user.getUUID()), ((Entity) protectedEntity.getEntity()).getLocation());
 	}
 }

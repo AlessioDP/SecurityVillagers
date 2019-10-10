@@ -38,7 +38,7 @@ public abstract class InteractListener {
 	private boolean isInteractProtected(User user, ProtectedEntity protectedEntity) {
 		return (ConfigMain.GENERAL_INTERACT_WORLDS.contains("*")
 				|| ConfigMain.GENERAL_INTERACT_WORLDS.contains(protectedEntity.getWorld()))
-				&& isFactionProtected(user, protectedEntity);
+				&& (ConfigMain.GENERAL_PROTECTIONTYPE != ConfigMain.ProtectionType.FACTIONS || isFactionProtected(user, protectedEntity));
 	}
 	
 	protected abstract boolean isEgg(String material);
