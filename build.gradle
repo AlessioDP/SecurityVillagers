@@ -3,18 +3,18 @@ buildscript {
         jcenter() // Shadow plugin
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
     }
 }
 
 defaultTasks 'clean', 'build'
 
 allprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'com.github.johnrengelman.shadow' // Shadow jar
 
     group 'com.alessiodp.securityvillagers'
-    version '2.10.2'
+    version '2.11.0'
 
     // Info
     ext.pluginName = "SecurityVillagers"
@@ -23,9 +23,9 @@ allprojects {
     ext.pluginWebsite = "https://alessiodp.com/"
 
     // Development
-    ext.adpCore = '1.2.7'
+    ext.adpCore = '1.3.1'
     ext.lombok = '1.18.10'
-    ext.powermock = '2.0.2'
+    ext.powermock = '2.0.4'
 
     // Libraries
     ext.protocolLib = '4.4.0'
@@ -58,8 +58,8 @@ allprojects {
         compileOnly group: 'org.projectlombok', name: 'lombok', version: project.ext.lombok
         annotationProcessor group: 'org.projectlombok', name: 'lombok', version: project.ext.lombok
 
-        testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: project.ext.powermock
-        testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: project.ext.powermock
+        testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: project.ext.powermock
+        testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: project.ext.powermock
     }
 }
 
@@ -75,6 +75,7 @@ dependencies {
     compile project(':bukkit:v1_13_R1')
     compile project(':bukkit:v1_13_R2')
     compile project(':bukkit:v1_14_R1')
+    compile project(':bukkit:v1_15_R1')
 }
 
 // Disable root project jar

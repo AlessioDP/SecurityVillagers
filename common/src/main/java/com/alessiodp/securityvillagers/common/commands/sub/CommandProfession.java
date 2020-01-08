@@ -8,7 +8,9 @@ import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
+import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
+import com.alessiodp.securityvillagers.common.tasks.ProfessionCooldown;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import com.alessiodp.securityvillagers.common.villagers.objects.VillagerProfession;
@@ -17,6 +19,7 @@ import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CommandProfession extends ADPSubCommand {
 	@Getter private final boolean executableByConsole = false;
@@ -55,6 +58,25 @@ public class CommandProfession extends ADPSubCommand {
 		if (!protectedEntity.haveProfession()) {
 			player.sendMessage(Messages.CMD_PROFESSION_FAILED, true);
 			return;
+		}
+		
+		if (ConfigMain.PROFESSION_COOLDOWN > 0
+				&& !player.hasPermission(SecurityVillagersPermission.ADMIN_PROFESSION_CD_BYPASS.toString())) {
+			Long unixTimestamp = ((SecurityVillagersPlugin) plugin).getProfessionCooldown().get(player.getUUID());
+			long unixNow = System.currentTimeMillis() / 1000L;
+			// Check cooldown
+			if (unixTimestamp != null && (unixNow - unixTimestamp) < ConfigMain.PROFESSION_COOLDOWN) {
+				player.sendMessage(Messages.CMD_PROFESSION_COOLDOWN
+						.replace("%seconds%", String.valueOf(ConfigMain.PROFESSION_COOLDOWN - (unixNow - unixTimestamp))), true);
+				return;
+			}
+			
+			((SecurityVillagersPlugin) plugin).getProfessionCooldown().put(player.getUUID(), unixNow);
+			plugin.getScheduler().scheduleAsyncLater(new ProfessionCooldown((SecurityVillagersPlugin) plugin, player.getUUID()), ConfigMain.PROFESSION_COOLDOWN, TimeUnit.SECONDS);
+			
+			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_PROFESSION_TASK
+					.replace("{value}", Integer.toString(ConfigMain.PROFESSION_COOLDOWN))
+					.replace("{player}", player.getName()), true);
 		}
 		
 		// Command starts

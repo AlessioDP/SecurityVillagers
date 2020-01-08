@@ -6,7 +6,6 @@ import com.alessiodp.securityvillagers.bukkit.BukkitSecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.bukkit.addons.external.FactionsHandler;
 import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.listeners.InteractListener;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import org.bukkit.Bukkit;

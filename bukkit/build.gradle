@@ -7,8 +7,8 @@ repositories {
 }
 
 dependencies {
-    compile project(':common')
-    compile group: 'com.alessiodp.core', name: 'bukkit', version: project.ext.adpCore
+    api project(':common')
+    api group: 'com.alessiodp.core', name: 'bukkit', version: project.ext.adpCore
     compileOnly group: 'com.comphenix.protocol', name: 'ProtocolLib', version: project.ext.protocolLib
 
     compileOnly name: 'FactionsMassiveCraft-2.14.0'

@@ -23,10 +23,14 @@ permissions:
     description: Bypass villagers mute
   securityvillagers.admin.changeage:
     description: Allow access to /sv changeage
+  securityvillagers.admin.changeage.cooldown.bypass:
+    description: Bypass changeage cooldown
   securityvillagers.admin.help:
     description: Allow access to /sv help
   securityvillagers.admin.profession:
     description: Allow access to /sv profession
+  securityvillagers.admin.profession.cooldown.bypass:
+    description: Bypass profession cooldown
   securityvillagers.admin.protect:
     description: Allow access to /sv protect
   securityvillagers.admin.reload:
@@ -55,8 +59,10 @@ permissions:
       securityvillagers.admin.bypass.factions: true
       securityvillagers.admin.bypass.mute: true
       securityvillagers.admin.changeage: true
+      securityvillagers.admin.changeage.cooldown.bypass: true
       securityvillagers.admin.help: true
       securityvillagers.admin.profession: true
+      securityvillagers.admin.profession.cooldown.bypass: true
       securityvillagers.admin.protect: true
       securityvillagers.admin.reload: true
       securityvillagers.admin.rename: true

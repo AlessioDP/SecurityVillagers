@@ -13,6 +13,9 @@ import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.VillagerManager;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	// Plugin fields
 	@Getter private final String pluginName = SVConstants.PLUGIN_NAME;
@@ -21,6 +24,8 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	
 	// SecurityVillagers fields
 	@Getter protected VillagerManager villagerManager;
+	@Getter protected HashMap<UUID, Long> changeAgeCooldown;
+	@Getter protected HashMap<UUID, Long> professionCooldown;
 	
 	public SecurityVillagersPlugin(ADPBootstrap bootstrap) {
 		super(bootstrap);
@@ -34,6 +39,8 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	@Override
 	protected void initializeCore() {
 		databaseManager = new SVDatabaseManager(this);
+		professionCooldown = new HashMap<>();
+		changeAgeCooldown = new HashMap<>();
 	}
 	
 	@Override

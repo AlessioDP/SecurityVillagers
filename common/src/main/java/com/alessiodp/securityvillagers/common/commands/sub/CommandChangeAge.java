@@ -8,13 +8,17 @@ import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
+import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
+import com.alessiodp.securityvillagers.common.tasks.ChangeAgeCooldown;
+import com.alessiodp.securityvillagers.common.tasks.ProfessionCooldown;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CommandChangeAge extends ADPSubCommand {
 	@Getter private final boolean executableByConsole = false;
@@ -53,6 +57,25 @@ public class CommandChangeAge extends ADPSubCommand {
 		if (!protectedEntity.isAgeable()) {
 			player.sendMessage(Messages.CMD_CHANGEAGE_FAILED, true);
 			return;
+		}
+		
+		if (ConfigMain.CHANGEAGE_COOLDOWN > 0
+				&& !player.hasPermission(SecurityVillagersPermission.ADMIN_CHANGEAGE_CD_BYPASS.toString())) {
+			Long unixTimestamp = ((SecurityVillagersPlugin) plugin).getChangeAgeCooldown().get(player.getUUID());
+			long unixNow = System.currentTimeMillis() / 1000L;
+			// Check cooldown
+			if (unixTimestamp != null && (unixNow - unixTimestamp) < ConfigMain.CHANGEAGE_COOLDOWN) {
+				player.sendMessage(Messages.CMD_CHANGEAGE_COOLDOWN
+						.replace("%seconds%", String.valueOf(ConfigMain.CHANGEAGE_COOLDOWN - (unixNow - unixTimestamp))), true);
+				return;
+			}
+			
+			((SecurityVillagersPlugin) plugin).getChangeAgeCooldown().put(player.getUUID(), unixNow);
+			plugin.getScheduler().scheduleAsyncLater(new ChangeAgeCooldown((SecurityVillagersPlugin) plugin, player.getUUID()), ConfigMain.CHANGEAGE_COOLDOWN, TimeUnit.SECONDS);
+			
+			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_CHANGEAGE_TASK
+					.replace("{value}", Integer.toString(ConfigMain.CHANGEAGE_COOLDOWN))
+					.replace("{player}", player.getName()), true);
 		}
 		
 		// Command starts

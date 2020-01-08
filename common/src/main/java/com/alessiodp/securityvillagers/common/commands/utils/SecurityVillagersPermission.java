@@ -10,11 +10,12 @@ public enum SecurityVillagersPermission implements ADPPermission {
 	USER_TRADE				("securityvillagers.user.trade"),
 	
 	ADMIN_ALERTS			("securityvillagers.admin.alerts"),
-	//ADMIN_BYPASS_FACTIONS	("securityvillagers.admin.bypass.factions"),
 	ADMIN_BYPASS_MUTE		("securityvillagers.admin.bypass.mute"),
 	ADMIN_CHANGEAGE			("securityvillagers.admin.changeage"),
+	ADMIN_CHANGEAGE_CD_BYPASS ("securityvillagers.admin.changeage.cooldown.bypass"),
 	ADMIN_HELP				("securityvillagers.admin.help"),
 	ADMIN_PROFESSION		("securityvillagers.admin.profession"),
+	ADMIN_PROFESSION_CD_BYPASS ("securityvillagers.admin.profession.cooldown.bypass"),
 	ADMIN_PROTECT			("securityvillagers.admin.protect"),
 	ADMIN_RELOAD			("securityvillagers.admin.reload"),
 	ADMIN_RENAME			("securityvillagers.admin.rename"),

@@ -12,15 +12,17 @@ public class SVConstants {
 	
 	
 	// Versions
-	public static final int VERSION_BUKKIT_CONFIG = 1;
-	public static final int VERSION_BUKKIT_MESSAGES = 1;
+	public static final int VERSION_BUKKIT_CONFIG = 2;
+	public static final int VERSION_BUKKIT_MESSAGES = 2;
 	public static final int VERSION_DATABASE_YAML = 1;
 	
 	
 	// Debug messages
 	public static final String DEBUG_CMD_CHANGEAGE = "{player} performed changeage command with '{value}'";
+	public static final String DEBUG_CMD_CHANGEAGE_TASK = "Started ChangeAgeCooldown for {value} by {player}";
 	public static final String DEBUG_CMD_HELP = "{player} performed help command with page '{page}'";
 	public static final String DEBUG_CMD_PROFESSION = "{player} performed profession command with '{value}'";
+	public static final String DEBUG_CMD_PROFESSION_TASK = "Started ProfessionCooldown for {value} by {player}";
 	public static final String DEBUG_CMD_PROTECT = "{player} performed protect command with '{value}'";
 	public static final String DEBUG_CMD_RELOAD = "{player} performed reload command";
 	public static final String DEBUG_CMD_RELOAD_CONSOLE = "Console performed reload command";
@@ -39,4 +41,7 @@ public class SVConstants {
 	public static final String DEBUG_PROTECTION_PROJECTILE_PLAYER = "Prevented damage by player '{player}' projectile shoot on {entity}";
 	public static final String DEBUG_PROTECTION_PROJECTILE_MOB = "Prevented damage by {mob} projectile shoot on {entity}";
 	public static final String DEBUG_DEATH_PROTECTEDENTITY = "The protected entity {mob} [{uuid}] is dead due to {cause}";
+	
+	public static final String DEBUG_TASK_CHANGEAGE_EXPIRE = "ChangeAge cooldown expired for {uuid}";
+	public static final String DEBUG_TASK_PROFESSION_EXPIRE = "Profession cooldown expired for {uuid}";
 }

@@ -42,11 +42,13 @@ commands:
   changeage:
     baby: "&aTurned the mob into a baby!"
     adult: "&aTurned the mob into an adult!"
+    cooldown: "&cYou still have to wait %seconds% seconds"
     failed: "&cYou cannot change the age of this mob!"
 
   profession:
     current: "&aThe villager is a %profession%"
     changed: "&aChanged villager profession to %profession%"
+    cooldown: "&cYou still have to wait %seconds% seconds"
     not-found: "&cProfession '%profession%' not found!"
     failed: "&cYou cannot change the profession of this mob!"
     wrong-command: "&cWrong variables: Type &7/sv profession <profession>"
@@ -59,7 +61,7 @@ commands:
   rename:
     renamed: "&aThe mob name has been set to %name%"
     removed: "&aRemoved mob name"
-    wrong-command: "&Wrong variables: Type &7/sv rename <name/remove>"
+    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
 
   version:
     # Special tags:
@@ -90,4 +92,4 @@ help:
 
 
 dont-edit-this:
-  version: 1
+  version: 2

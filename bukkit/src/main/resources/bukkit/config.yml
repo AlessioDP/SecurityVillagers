@@ -236,6 +236,8 @@ selection:
 profession:
   # Change villager protection with the command /sv profession
   enable: true
+  # Add a cooldown to the command (bypass with securityvillagers.admin.profession.cooldown.bypass)
+  cooldown: 0
   # Profession names
   # If you wanna disable one of them, you have to leave it empty
   professions:
@@ -263,6 +265,8 @@ changeage:
   # Convert a villager from baby to adult, or vice versa
   # You have to select a villager then perform /sv changeage
   enable: true
+  # Add a cooldown to the command (bypass with securityvillagers.admin.changeage.cooldown.bypass)
+  cooldown: 0
 
 
 # / = = = = = = = = = = = = = = = = \
@@ -291,11 +295,11 @@ commands:
     rename: "rename"
     version: "version"
   sub-commands:
-    on: "on"
-    off: "off"
+    word-on: "on"
+    word-off: "off"
     # Sub-command used to remove something
     remove: "remove"
 
 
 dont-edit-this:
-  version: 1
+  version: 2

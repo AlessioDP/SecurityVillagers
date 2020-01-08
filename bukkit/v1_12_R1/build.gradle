@@ -1,5 +1,5 @@
 dependencies {
-    compile (project(':bukkit')) {
+    api (project(':bukkit')) {
         exclude group: 'org.spigotmc'
         exclude group: 'org.bukkit'
     }
