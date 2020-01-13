@@ -35,12 +35,12 @@ commands:
   changeage:
     baby: "&aTrasformato il mob in un bambino!"
     adult: "&aTrasformato il mob in un adulto!"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cDevi ancora aspettare %seconds% secondi"
     failed: "&cNon puoi cambiare l'età di questo mob!"
   profession:
     current: "&aLa professione del villico è %profession%"
     changed: "&aCambiata la professione del villico in %profession%"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cDevi ancora aspettare %seconds% secondi"
     not-found: "&cNon è stata trovata la professione '%profession%'!"
     failed: "&cNon puoi cambiare la professione a questo mob!"
     wrong-command: "&cComando sbagliato: Esegui &7/sv profession <professione>"
@@ -51,7 +51,7 @@ commands:
   rename:
     renamed: "&aIl mob è stato rinominato in %name%"
     removed: "&aRimosso nome dal mob"
-    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+    wrong-command: "&cComando sbagliato: Esegui &7/sv rename <nome/remove>"
   version:
     #Special tags:
     #=> %version%    = Plugin version
