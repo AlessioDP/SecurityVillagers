@@ -35,10 +35,12 @@ commands:
   changeage:
     baby: "&aСущество превращено в детёныша!"
     adult: "&aДетёныш был превращён во взрослое существо!"
+    cooldown: "&cYou still have to wait %seconds% seconds"
     failed: "&cВы не можете изменить возраст этого существа!"
   profession:
     current: "&aПрофессия этого жителя: %profession%"
     changed: "&aПрофессия жителя была изменена на '%profession%'"
+    cooldown: "&cYou still have to wait %seconds% seconds"
     not-found: "&cПрофессия '%profession%' не найдена!"
     failed: "&cВы не можете изменить профессию этого существа!"
     wrong-command: "&cНеверные значения: Введите &7/sv profession <профессия>"
@@ -49,7 +51,7 @@ commands:
   rename:
     renamed: "&aИмя существа было изменено на %name%"
     removed: "&aУдалено имя существа"
-    wrong-command: "&cНеверные значения: Введите &7/sv rename <имя/remove>"
+    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
   version:
     #Special tags:
     #=> %version%    = Plugin version
@@ -75,4 +77,4 @@ help:
     rename: '{"text":"","extra":[{"text":"/sv rename <имя/remove>","color":"gold"},{"text":" - Изменить имя существа","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
     version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Показать версию плагина","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
 dont-edit-this:
-  version: 1
+  version: 2
