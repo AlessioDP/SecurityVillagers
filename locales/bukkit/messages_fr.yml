@@ -35,12 +35,12 @@ commands:
   changeage:
     baby: "&aLa créature est devenue un bébé !"
     adult: "&aLa créature est devenue un adulte !"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cVous devez encore attendre %seconds% secondes"
     failed: "&cVous ne pouvez pas changer l'âge de cette créature !"
   profession:
     current: "&aLe villageois est un %profession%"
     changed: "&aLa profession du villageois a été changée en %profession%"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cVous devez encore attendre %seconds% secondes"
     not-found: "&cLa profession \"%profession%\" n'a pas été trouvée !"
     failed: "&cVous ne pouvez pas changer la profession de cette créature !"
     wrong-command: "&cVariables incorrectes : Tapez &7/sv profession <profession>"
@@ -51,7 +51,7 @@ commands:
   rename:
     renamed: "&aLa créature a été renommée en %name%"
     removed: "&aNom de la créature supprimé"
-    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+    wrong-command: "&cVariables incorrectes : Tapez &7/sv rename <nom/remove>"
   version:
     #Special tags:
     #=> %version%    = Plugin version
