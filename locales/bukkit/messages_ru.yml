@@ -35,12 +35,12 @@ commands:
   changeage:
     baby: "&aСущество превращено в детёныша!"
     adult: "&aДетёныш был превращён во взрослое существо!"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cВам все равно придется подождать %seconds% секунд"
     failed: "&cВы не можете изменить возраст этого существа!"
   profession:
     current: "&aПрофессия этого жителя: %profession%"
     changed: "&aПрофессия жителя была изменена на '%profession%'"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cВам все равно придется подождать %seconds% секунд"
     not-found: "&cПрофессия '%profession%' не найдена!"
     failed: "&cВы не можете изменить профессию этого существа!"
     wrong-command: "&cНеверные значения: Введите &7/sv profession <профессия>"
@@ -51,7 +51,7 @@ commands:
   rename:
     renamed: "&aИмя существа было изменено на %name%"
     removed: "&aУдалено имя существа"
-    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+    wrong-command: "&cНеверные значения: Введите &7/sv rename <имя/remove>"
   version:
     #Special tags:
     #=> %version%    = Plugin version
