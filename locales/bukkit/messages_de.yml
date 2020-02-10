@@ -35,12 +35,12 @@ commands:
   changeage:
     baby: "&aDer Mob wurde in ein Baby verwandelt!"
     adult: "&aDer Mob wurde in einen Erwachsenen verwandelt!"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cDu musst noch %seconds% Sekunden warten"
     failed: "&cDu kannst das Alter dieses Mobs nicht ändern!"
   profession:
     current: "&aDer Dorfbewohner ist ein %profession%"
     changed: "&aDen Beruf des Dorfbewohners zu %profession% geändert"
-    cooldown: "&cYou still have to wait %seconds% seconds"
+    cooldown: "&cDu musst noch %seconds% Sekunden warten"
     not-found: "&cDer Beruf '%profession%' wurde nicht gefunden!"
     failed: "&cDu kannst den Beruf dieses Mobs nicht ändern!"
     wrong-command: "&cFalscher Ausdruck: Verwende &7/sv profession <profession>"
@@ -51,7 +51,7 @@ commands:
   rename:
     renamed: "&aDer Name des Mobs wurde zu %name% gesetzt"
     removed: "&aMob Name entfernt"
-    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+    wrong-command: "&cFalscher Ausdruck: Verwende &7/sv rename <name/remove>"
   version:
     #Special tags:
     #=> %version%    = Plugin version
