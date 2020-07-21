@@ -1,24 +1,34 @@
 ---
-#Messages configuration file
-#/ = = = = = = = = = = = = = = = = \
-#|    SECURITYVILLAGER MESSAGES    |
-#\ = = = = = = = = = = = = = = = = /
+#/ =========================================== \
+#|  This is the messages file of OreAnnouncer  |
+#\ =========================================== /
+#For any problem be sure to:
+#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Join our Discord for further help: https://discord.alessiodp.com/
+#/ =============================== \
+#|   SECURITYVILLAGERS  MESSAGES   |
+#\ =============================== /
 securityvillagers:
-  #Special tags:
+  #[Special tags]
   #=> %version%     = New version found
   #=> %thisversion% = Version installed
-  update-available: "&6Найдена новая версия плагина SecurityVillagers: %version% (У вас: %thisversion%)"
-  #Special tag: %permission% = Missing permission
-  no-permission: "&cУ вас нет доступа к этой команде"
-  #Special tag:
+  update-available: '&6Найдена новая версия плагина SecurityVillagers: %version% (У вас: %thisversion%)'
+  #[Special tags]
   #=> %config%      = The configuration file name that is outdated
-  configuration-outdated: "&cКонфигурация файла '%config%' в плагине SecurityVillagers устарела!"
+  configuration-outdated: '&cКонфигурация файла ''%config%'' в плагине SecurityVillagers устарела!'
+  #[Special tags]
+  #=> %permission%  = Missing permission
+  no-permission: '&cУ вас нет доступа к этой команде'
   common-messages:
-    invalid-command: "&cНеверная команда"
-    configuration-reloaded: "&aКонфигурация обновлена"
-#/ = = = = = = = = = = = = = = = = \
-#|        GENERAL MESSAGES        |
-#\ = = = = = = = = = = = = = = = = /
+    invalid-command: '&cНеверная команда'
+    configuration-reloaded: '&aКонфигурация обновлена'
+  syntax:
+    wrong-message: '&cWrong syntax: Type &7/%syntax%'
+    name: 'name'
+    profession: 'profession'
+#/ =============================== \
+#|        GENERAL  MESSAGES        |
+#\ =============================== /
 general:
   interact:
     hit: "&cВы не можете нанести урон этому существу!"
@@ -28,9 +38,9 @@ general:
   selection:
     selected: "&aСущество выбрано"
     required: "&cСначала вы должны выбрать существо!"
-#/ = = = = = = = = = = = = = = = = \
+#/ =============================== \
 #|        COMMANDS MESSAGES        |
-#\ = = = = = = = = = = = = = = = = /
+#\ =============================== /
 commands:
   changeage:
     baby: "&aСущество превращено в детёныша!"
@@ -53,28 +63,41 @@ commands:
     removed: "&aУдалено имя существа"
     wrong-command: "&cНеверные значения: Введите &7/sv rename <имя/remove>"
   version:
-    #Special tags:
+    #[Special tags]
     #=> %version%    = Plugin version
     #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Авторство принадлежит &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Авторство принадлежит &6AlessioDP\n&aНайдена новая версия: &2%newversion%"
-#/ = = = = = = = = = = = = = = = = \
+#/ =============================== \
 #|          HELP MESSAGES          |
-#\ = = = = = = = = = = = = = = = = /
+#\ =============================== /
 help:
   header: "&6============ &lСправочник SecurityVillagers&r&6============"
   footer: ""
+  perform-command: 'Perform the command'
   console-help:
-    - "Вы можете выполнить только следующие команды:"
-    - " > sv reload - Обновить файлы конфигурации"
-    - " > sv version - Показать информацию о плагине"
+    header: 'Вы можете выполнить только следующие команды:'
+    command: ' > %command% - %description%'
   commands:
-    help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Показать справочник","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
-    changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Изменить возраст существа","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
-    profession: '{"text":"","extra":[{"text":"/sv profession <профессия>","color":"gold"},{"text":" - Изменить профессию жителя","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv profession "},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
-    protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Защитить/снять защиту с существа","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
-    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Обновить файлы конфигурации","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команды","color":"gold"}}}'
-    rename: '{"text":"","extra":[{"text":"/sv rename <имя/remove>","color":"gold"},{"text":" - Изменить имя существа","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
-    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Показать версию плагина","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Исполнить команду","color":"gold"}}}'
+    #[Special tags]
+    #=> %syntax%          = Command syntax
+    #=> %description%     = Description
+    #=> %run_command%     = Command run syntax
+    #=> %perform_command% = Perform command message
+    help: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    changeage: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    profession: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+  command-descriptions:
+    help: 'Show help pages'
+    changeage: 'Change mob age'
+    profession: 'Change villager profession'
+    protect: 'Protect/unprotect mob'
+    reload: 'Reload SecurityVillagers configuration files'
+    rename: 'Change mob name'
+    version: 'Show SecurityVillagers information'
 dont-edit-this:
-  version: 2
+  version: 3
