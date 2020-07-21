@@ -30,9 +30,7 @@ public class SVDatabaseManager extends DatabaseManager {
 	
 	@Override
 	protected IDatabaseDispatcher initializeDispatcher(StorageType storageType) {
-		IDatabaseDispatcher ret = null;
-		// Database is only YAML
-		return new SVFileDispatcher(plugin, storageType);
+		return new SVFileDispatcher(plugin, storageType); // Database is only YAML
 	}
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {

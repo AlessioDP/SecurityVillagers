@@ -34,11 +34,9 @@ public class CommandReload extends ADPSubCommand {
 	@Override
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
-		if (sender.isPlayer()) {
-			if (!sender.hasPermission(permission)) {
-				((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
-				return false;
-			}
+		if (sender.isPlayer() && !sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
+			return false;
 		}
 		return true;
 	}

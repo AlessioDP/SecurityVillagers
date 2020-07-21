@@ -35,11 +35,9 @@ public class CommandVersion extends ADPSubCommand {
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
 		
-		if (sender.isPlayer()) {
-			if (!sender.hasPermission(permission)) {
-				((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
-				return false;
-			}
+		if (sender.isPlayer() && !sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
+			return false;
 		}
 		return true;
 	}
