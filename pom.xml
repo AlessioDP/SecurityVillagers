@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.alessiodp.securityvillagers</groupId>
+	<artifactId>securityvillagers</artifactId>
+	<version>2.12.0</version>
+	<packaging>pom</packaging>
+	
+	<name>SecurityVillagers</name>
+	<description>Customize your villagers protection</description>
+	<url>https://alessiodp.com/securityvillagers</url>
+	
+	<licenses>
+		<license>
+			<name>AGPL-3.0</name>
+			<url>https://opensource.org/licenses/AGPL-3.0</url>
+		</license>
+	</licenses>
+	
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/AlessioDP/SecurityVillagers/issues</url>
+	</issueManagement>
+	
+	<scm>
+		<connection>scm:git:https://github.com/AlessioDP/SecurityVillagers.git</connection>
+		<url>https://github.com/AlessioDP/SecurityVillagers/</url>
+	</scm>
+	
+	<modules>
+		<module>bukkit</module>
+		<module>common</module>
+		<module>output</module>
+	</modules>
+	
+	<properties>
+		<plugin.name>SecurityVillagers</plugin.name>
+		<plugin.description>Customize your villagers protection</plugin.description>
+		<plugin.author>AlessioDP</plugin.author>
+		<plugin.website>https://alessiodp.com/securityvillagers</plugin.website>
+		<plugin.version>${project.version}</plugin.version>
+		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		
+		<maven.compiler.version>3.8.1</maven.compiler.version>
+		<maven.javadoc-plugin.version>3.2.0</maven.javadoc-plugin.version>
+		<maven.shade.version>3.2.4</maven.shade.version>
+		
+		<dev.powermock>2.0.7</dev.powermock>
+		<dev.lombok>1.18.12</dev.lombok>
+		
+		<libs.adpcore>1.4.8</libs.adpcore>
+		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
+		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
+		<libs.savageFactions>2.5-RC-9</libs.savageFactions>
+		<libs.protocolLib>4.5.1</libs.protocolLib>
+	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<repositories>
+		<repository>
+			<!-- Maven central -->
+			<id>maven-central-repo</id>
+			<url>https://repo.maven.apache.org/</url>
+		</repository>
+		<repository>
+			<!-- Spigot repo -->
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<!-- OSS Sonatype repo -->
+			<id>oss-repo</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
+		<repository>
+			<!-- JitPack repo -->
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+		<repository>
+			<!-- Sponge repo -->
+			<id>sponge-repo</id>
+			<url>https://repo.spongepowered.org/maven</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${dev.lombok}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${dev.powermock}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito2</artifactId>
+			<version>${dev.powermock}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

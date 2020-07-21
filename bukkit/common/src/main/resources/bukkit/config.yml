@@ -1,0 +1,320 @@
+# / ========================================================== \
+# |  This is the main configuration file of SecurityVillagers  |
+# \ ========================================================== /
+#
+# For any problem be sure to:
+# - Read the entire documentation on: https://alessiodp.com/docs/securityvillagers/
+# - Join our Discord for further help: https://discord.alessiodp.com/
+#
+
+# / =============================== \
+# |    SECURITYVILLAGER SETTINGS    |
+# \ =============================== /
+securityvillagers:
+  # [Check for plugins updates]
+  # OreAnnouncer will check for updates when the server finishes to load.
+  updates:
+    check: true
+    warn: true
+
+  # [Enable logging system]
+  # => debug:      Print debug messages
+  # => save-file:  Save any log into a text file
+  logging:
+    debug: false
+    save-file:
+      enable: false
+      format: "%date% [%time%] %message%\n"
+      file: log.txt
+
+
+# / =============================== \
+# |        STORAGE  SETTINGS        |
+# \ =============================== /
+storage:
+  # The storage is used if you set protection type to CUSTOM
+  # Name of the database file
+  database-file: "database.yml"
+
+
+# / =============================== \
+# |        GENERAL  SETTINGS        |
+# \ =============================== /
+general:
+  # Choose how to protect mobs
+  # => global    | Protect all
+  # => custom    | Select mobs to protect and use /sv protect
+  # => factions  | Protect mobs in your lands from other player attacks
+  protection-type: global
+
+  # [Damage settings]
+  # General settings for damage protection of mobs
+  # => immortal                         | Disable any type of damage to protected mobs
+  # => disable-hit-damage               | Protect from player attacks
+  # => disable-arrow-damage             | Protect from player arrows
+  # => disable-dispenser-arrow-damage   | Protect from dispenser arrows
+  # => prevent-worlds                   | Choose in which world the protection must be on (* for all)
+  damage:
+    immortal: false
+    disable-hit-damage: true
+    disable-arrow-damage: true
+    disable-dispenser-arrow-damage: true
+    prevent-worlds:
+      - '*'
+
+  # [Interaction settings]
+  # General settings for interaction with mobs
+  # => disable-trade    | Disable trades
+  # => disable-egg      | Disable eggs on mobs
+  # => prevent-worlds   | Choose in which world the interact protection must be on (* for all)
+  interact:
+    disable-trade: false
+    disable-egg: true
+    prevent-worlds:
+      - '*'
+
+  # [Mute settings]
+  # Mute annoying villager sounds. ProtocolLib PLUGIN IS REQUIRED!
+  # Use permission "securityvillagers.admin.bypass.mute" to re-enable sounds.
+  # => disable-sounds   | Disable sounds
+  # => prevent-worlds   | Choose in which world the interact protection must be on (* for all)
+  mute:
+    disable-sound: false
+    prevent-worlds:
+      - '*'
+
+  # [Target settings]
+  # Prevent targets on mobs, they won't be attacked by other entities.
+  # e.g. prevents zombie follow when their protection is enabled
+  # => disable-target   | Disable targets
+  # => prevent-worlds   | Choose in which world the interact protection must be on (* for all)
+  target:
+    disable-target: true
+    prevent-worlds:
+      - '*'
+
+  # [Factions settings]
+  # Enable protection only for factions
+  # Supported plugins: Factions and SavageFactions
+  factions:
+    members-bypass-protection: true
+    members-bypass-interact: true
+
+
+
+# / =============================== \
+# |          MOBS SETTINGS          |
+# \ =============================== /
+mobs:
+  villager:
+    protect: true
+    prevent-interact: false
+    spawn:
+      prevent: false
+      prevent-worlds:
+        - '*'
+
+  wandering-trader:
+    protect: true
+    prevent-interact: false
+    spawn:
+      prevent: false
+      prevent-worlds:
+        - '*'
+
+  trader-llama:
+    protect: true
+    prevent-interact: false
+    spawn:
+      prevent: false
+      prevent-worlds:
+        - '*'
+
+  iron-golem:
+    protect: false
+    spawn:
+      prevent: false
+      prevent-worlds:
+        - '*'
+
+  illager:
+    evoker:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    illusioner:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    pillager:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    ravager:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    vex:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    vindicator:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+    witch:
+      protect: false
+      spawn:
+        prevent: false
+        prevent-worlds:
+          - '*'
+
+
+# / =============================== \
+# |         DAMAGE SETTINGS         |
+# \ =============================== /
+damage:
+  # Protection against these mobs
+  mobs:
+    evoker: false
+    illusioner: false
+    pillager: false
+    ravager: false
+    skeleton: false
+    vex: false
+    vindicator: false
+    witch: false
+    wither: false
+    zombie: false
+
+  # Misc damages
+  other:
+    # Damage caused when an entity contacts a block such a Cactus
+    contact: false
+    # Damage caused when an entity is colliding with too many entities
+    cramming: false
+    # Damage caused by dragons
+    dragon: false
+    # Damage caused by running out of air while in water
+    drowning: false
+    # Damage caused by explosions
+    explosion: false
+    # Damage caused when an entity falls a distance greater than 3 blocks
+    fall: false
+    # Damage caused by being hit by a falling block
+    falling-block: false
+    # Damage caused by fire
+    fire: false
+    # Damage caused when an entity steps on magma
+    hot-floor: false
+    # Damage caused by direct exposure to lava
+    lava: false
+    # Damage caused by being struck by lightning
+    # Does not work in 1.8+ (The villager will be turned into a Witch)
+    lightning: false
+    # Damage caused by being hit by a damage potion or spell
+    magic: false
+    # Damage caused due to ongoing poison effect
+    poison: false
+    # Damage caused by being put in a block
+    suffocation: false
+    # Damage caused in retaliation to another attack by the Thorns enchantment
+    thorns: false
+    # Damage caused by falling into the void
+    void: false
+
+
+# / =============================== \
+# |       SELECTION  SETTINGS       |
+# \ =============================== /
+selection:
+  # Allow villager selection with an item.
+  # Used to perform some commands.
+  item: BLAZE_ROD
+  clear-selection-on-quit: true
+
+
+# / =============================== \
+# |       PROFESSION SETTINGS       |
+# \ =============================== /
+profession:
+  # Change villager protection with the command /sv profession
+  enable: true
+  # Add a cooldown to the command (bypass with securityvillagers.admin.profession.cooldown.bypass)
+  cooldown: 0
+  # Profession names
+  # If you wanna disable one of them, you have to leave it empty
+  professions:
+    armorer: "Armorer"
+    butcher: "Butcher"
+    cartographer: "Cartographer"
+    cleric: "Cleric"
+    farmer: "Farmer"
+    fisherman: "Fisherman"
+    fletcher: "Fletcher"
+    leatherworker: "Leatherworker"
+    librarian: "Librarian"
+    mason: "Mason"
+    nitwit: "Nitwit"
+    none: "None"
+    shepherd: "Shepherd"
+    toolsmith: "Toolsmith"
+    weaponsmith: "Weaponsmith"
+
+
+# / =============================== \
+# |       CHANGE AGE SETTINGS       |
+# \ =============================== /
+changeage:
+  # Convert a villager from baby to adult, or vice versa
+  # You have to select a villager then perform /sv changeage
+  enable: true
+  # Add a cooldown to the command (bypass with securityvillagers.admin.changeage.cooldown.bypass)
+  cooldown: 0
+
+
+# / =============================== \
+# |         RENAME SETTINGS         |
+# \ =============================== /
+rename:
+  # Enable villagers name editing with the command /sv rename
+  # It requires selection system enabled
+  enable: true
+
+
+# / =============================== \
+# |        COMMANDS SETTINGS        |
+# \ =============================== /
+commands:
+  # Enable tab support (/sv <tab> to see every allowed command)
+  tab-support: true
+  sv-description: "SecurityVillagers help page"
+  main-commands:
+    help: 'help'
+    sv: 'sv'
+    changeage: 'changeage'
+    profession: 'profession'
+    protect: 'protect'
+    reload: 'reload'
+    rename: 'rename'
+    version: 'version'
+  sub-commands:
+    word-on: 'on'
+    word-off: 'off'
+    remove: 'remove'
+
+
+dont-edit-this:
+  version: 3

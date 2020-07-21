@@ -2,6 +2,7 @@ package com.alessiodp.securityvillagers.common.listeners;
 
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
+import com.alessiodp.securityvillagers.common.utils.WorldUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +13,7 @@ public abstract class TargetListener {
 	
 	protected boolean onTarget(ProtectedEntity protectedEntity, Object targeter) {
 		boolean ret = false;
-		if (ConfigMain.GENERAL_TARGET_WORLDS.contains("*")
-					|| ConfigMain.GENERAL_TARGET_WORLDS.contains(protectedEntity.getWorld())) {
+		if (WorldUtils.containsWorld(ConfigMain.GENERAL_TARGET_WORLDS, protectedEntity.getWorld())) {
 			ret = !plugin.getVillagerManager().canBeAttacked(protectedEntity, targeter).isSuccess();
 		}
 		return ret;

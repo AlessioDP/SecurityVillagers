@@ -1,0 +1,70 @@
+name: ${plugin.name}
+description: ${plugin.description}
+author: ${plugin.author}
+website: ${plugin.website}
+version: ${plugin.version}
+main: com.alessiodp.securityvillagers.bukkit.bootstrap.BukkitSecurityVillagersBootstrap
+api-version: 1.13
+softdepend: [Factions, ProtocolLib]
+permissions:
+  securityvillagers.user.egg:
+    description: Allow use of eggs on mobs
+  securityvillagers.user.hit:
+    description: Allow melee attacks on mobs
+  securityvillagers.user.shoot:
+    description: Allow ranged attacks on mobs
+  securityvillagers.user.trade:
+    description: Allow trading with mobs
+  securityvillagers.admin.bypass.factions:
+    description: Bypass Factions preventions
+  securityvillagers.admin.bypass.mute:
+    description: Bypass villagers mute
+  securityvillagers.admin.changeage:
+    description: Allow access to /sv changeage
+  securityvillagers.admin.changeage.cooldown.bypass:
+    description: Bypass changeage cooldown
+  securityvillagers.admin.help:
+    description: Allow access to /sv help
+  securityvillagers.admin.profession:
+    description: Allow access to /sv profession
+  securityvillagers.admin.profession.cooldown.bypass:
+    description: Bypass profession cooldown
+  securityvillagers.admin.protect:
+    description: Allow access to /sv protect
+  securityvillagers.admin.reload:
+    description: Allow access to /sv reload
+  securityvillagers.admin.rename:
+    description: Allow access to /sv rename
+  securityvillagers.admin.select:
+    description: Allow to use an item to select mobs
+  securityvillagers.admin.version:
+    description: Allow access to /sv version
+  securityvillagers.admin.warnings:
+    description: Send an alert if there is an error
+
+  securityvillagers.user.*:
+    default: op
+    description: Can interact with villagers
+    children:
+      securityvillagers.user.egg: true
+      securityvillagers.user.hit: true
+      securityvillagers.user.shoot: true
+      securityvillagers.user.trade: true
+  securityvillagers.admin.*:
+    default: op
+    description: Can use all sv commands
+    children:
+      securityvillagers.user.*: true
+      securityvillagers.admin.bypass.factions: true
+      securityvillagers.admin.bypass.mute: true
+      securityvillagers.admin.changeage: true
+      securityvillagers.admin.changeage.cooldown.bypass: true
+      securityvillagers.admin.help: true
+      securityvillagers.admin.profession: true
+      securityvillagers.admin.profession.cooldown.bypass: true
+      securityvillagers.admin.protect: true
+      securityvillagers.admin.reload: true
+      securityvillagers.admin.rename: true
+      securityvillagers.admin.select: true
+      securityvillagers.admin.version: true
+      securityvillagers.admin.warnings: true

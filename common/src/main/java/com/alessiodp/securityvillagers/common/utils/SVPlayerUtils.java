@@ -1,10 +1,10 @@
 package com.alessiodp.securityvillagers.common.utils;
 
 import com.alessiodp.core.common.commands.list.ADPCommand;
+import com.alessiodp.core.common.commands.utils.ADPPermission;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.core.common.utils.IPlayerUtils;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import lombok.NonNull;
@@ -40,7 +40,7 @@ public class SVPlayerUtils implements IPlayerUtils {
 		return ret;
 	}
 	
-	public void sendNoPermissionMessage(User user, SecurityVillagersPermission permission) {
+	public void sendNoPermissionMessage(User user, ADPPermission permission) {
 		if (user != null)
 			user.sendMessage(Messages.SECURITYVILLAGERS_NOPERMISSION
 					.replace("%permission%", permission.toString()), true);

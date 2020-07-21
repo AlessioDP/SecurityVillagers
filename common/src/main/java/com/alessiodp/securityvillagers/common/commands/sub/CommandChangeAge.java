@@ -6,35 +6,47 @@ import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.tasks.ChangeAgeCooldown;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
-import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommandChangeAge extends ADPSubCommand {
-	@Getter private final boolean executableByConsole = false;
 	
 	public CommandChangeAge(ADPPlugin plugin, ADPMainCommand mainCommand) {
-		super(plugin, mainCommand);
+		super(
+				plugin,
+				mainCommand,
+				CommonCommands.CHANGEAGE,
+				SecurityVillagersPermission.ADMIN_CHANGEAGE,
+				ConfigMain.COMMANDS_CMD_CHANGEAGE,
+				false
+		);
+		
+		syntax = baseSyntax();
+		
+		description = Messages.HELP_CMD_DESCRIPTIONS_CHANGEAGE;
+		help = Messages.HELP_CMD_CHANGEAGE;
 	}
 	
 	@Override
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
 		
-		if (!sender.hasPermission(SecurityVillagersPermission.ADMIN_CHANGEAGE.toString())) {
-			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, SecurityVillagersPermission.ADMIN_CHANGEAGE);
+		if (!sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
 			return false;
 		}
 		
+		commandData.addPermission(SecurityVillagersPermission.ADMIN_CHANGEAGE_CD_BYPASS);
 		return true;
 	}
 	
@@ -59,7 +71,7 @@ public class CommandChangeAge extends ADPSubCommand {
 		}
 		
 		if (ConfigMain.CHANGEAGE_COOLDOWN > 0
-				&& !player.hasPermission(SecurityVillagersPermission.ADMIN_CHANGEAGE_CD_BYPASS.toString())) {
+				&& !commandData.havePermission(SecurityVillagersPermission.ADMIN_CHANGEAGE_CD_BYPASS)) {
 			Long unixTimestamp = ((SecurityVillagersPlugin) plugin).getChangeAgeCooldown().get(player.getUUID());
 			long unixNow = System.currentTimeMillis() / 1000L;
 			// Check cooldown

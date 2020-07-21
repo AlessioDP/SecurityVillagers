@@ -27,12 +27,12 @@ public class SVDatabaseManager extends DatabaseManager {
 			database = null;
 		}
 	}
+	
 	@Override
-	public IDatabaseDispatcher initializeDispatcher(StorageType storageType) {
-		IDatabaseDispatcher ret = new SVFileDispatcher(plugin);
-		
-		ret.init(storageType);
-		return ret.isFailed() ? null : ret;
+	protected IDatabaseDispatcher initializeDispatcher(StorageType storageType) {
+		IDatabaseDispatcher ret = null;
+		// Database is only YAML
+		return new SVFileDispatcher(plugin, storageType);
 	}
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {
@@ -42,7 +42,7 @@ public class SVDatabaseManager extends DatabaseManager {
 					.replace("{uuid}", protectedEntity.getUuid().toString()), true);
 			
 			((SVFileDispatcher) database).updateProtectedEntity(protectedEntity);
-		}).join();
+		});
 	}
 	
 	public ArrayList<UUID> getAllProtectedEntities() {

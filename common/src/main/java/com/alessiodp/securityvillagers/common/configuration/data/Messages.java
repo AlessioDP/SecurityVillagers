@@ -5,21 +5,26 @@ import com.alessiodp.core.common.configuration.ConfigOption;
 import com.alessiodp.core.common.configuration.ConfigurationFile;
 import lombok.NonNull;
 
-import java.util.List;
-
 public abstract class Messages extends ConfigurationFile {
 	// Plugin messages
 	@ConfigOption(path = "securityvillagers.update-available")
 	public static String SECURITYVILLAGERS_UPDATEAVAILABLE;
-	@ConfigOption(path = "securityvillagers.no-permission")
-	public static String SECURITYVILLAGERS_NOPERMISSION;
 	@ConfigOption(path = "securityvillagers.configuration-outdated")
 	public static String SECURITYVILLAGERS_CONFIGURATION_OUTDATED;
+	@ConfigOption(path = "securityvillagers.no-permission")
+	public static String SECURITYVILLAGERS_NOPERMISSION;
 	
 	@ConfigOption(path = "securityvillagers.common-messages.invalid-command")
 	public static String SECURITYVILLAGERS_COMMON_INVALIDCMD;
 	@ConfigOption(path = "securityvillagers.common-messages.configuration-reloaded")
 	public static String SECURITYVILLAGERS_COMMON_CONFIGRELOAD;
+	
+	@ConfigOption(path = "securityvillagers.syntax.wrong-message")
+	public static String SECURITYVILLAGERS_SYNTAX_WRONGMESSAGE;
+	@ConfigOption(path = "securityvillagers.syntax.name")
+	public static String SECURITYVILLAGERS_SYNTAX_NAME;
+	@ConfigOption(path = "securityvillagers.syntax.profession")
+	public static String SECURITYVILLAGERS_SYNTAX_PROFESSION;
 	
 	
 	// General settings
@@ -46,6 +51,7 @@ public abstract class Messages extends ConfigurationFile {
 	public static String CMD_CHANGEAGE_COOLDOWN;
 	@ConfigOption(path = "commands.changeage.failed")
 	public static String CMD_CHANGEAGE_FAILED;
+	
 	@ConfigOption(path = "commands.profession.current")
 	public static String CMD_PROFESSION_CURRENT;
 	@ConfigOption(path = "commands.profession.changed")
@@ -56,20 +62,17 @@ public abstract class Messages extends ConfigurationFile {
 	public static String CMD_PROFESSION_NOTFOUND;
 	@ConfigOption(path = "commands.profession.failed")
 	public static String CMD_PROFESSION_FAILED;
-	@ConfigOption(path = "commands.profession.wrong-command")
-	public static String CMD_PROFESSION_WRONGCMD;
+	
 	@ConfigOption(path = "commands.protect.protected")
 	public static String CMD_PROTECT_PROTECTED;
 	@ConfigOption(path = "commands.protect.unprotected")
 	public static String CMD_PROTECT_UNPROTECTED;
-	@ConfigOption(path = "commands.protect.wrong-command")
-	public static String CMD_PROTECT_WRONGCMD;
+	
 	@ConfigOption(path = "commands.rename.renamed")
 	public static String CMD_RENAME_RENAMED;
 	@ConfigOption(path = "commands.rename.removed")
 	public static String CMD_RENAME_REMOVED;
-	@ConfigOption(path = "commands.rename.wrong-command")
-	public static String CMD_RENAME_WRONGCMD;
+	
 	@ConfigOption(path = "commands.version.updated")
 	public static String CMD_VERSION_UPDATED;
 	@ConfigOption(path = "commands.version.outdated")
@@ -81,8 +84,12 @@ public abstract class Messages extends ConfigurationFile {
 	public static String HELP_HEADER;
 	@ConfigOption(path = "help.footer")
 	public static String HELP_FOOTER;
-	@ConfigOption(path = "help.console-help")
-	public static List<String> HELP_CONSOLEHELP;
+	@ConfigOption(path = "help.perform-command")
+	public static String HELP_PERFORM_COMMAND;
+	@ConfigOption(path = "help.console-help.header")
+	public static String HELP_CONSOLEHELP_HEADER;
+	@ConfigOption(path = "help.console-help.command")
+	public static String HELP_CONSOLEHELP_COMMAND;
 	
 	@ConfigOption(path = "help.commands.help")
 	public static String HELP_CMD_HELP;
@@ -98,6 +105,21 @@ public abstract class Messages extends ConfigurationFile {
 	public static String HELP_CMD_RENAME;
 	@ConfigOption(path = "help.commands.version")
 	public static String HELP_CMD_VERSION;
+	
+	@ConfigOption(path = "help.command-descriptions.help")
+	public static String HELP_CMD_DESCRIPTIONS_HELP;
+	@ConfigOption(path = "help.command-descriptions.changeage")
+	public static String HELP_CMD_DESCRIPTIONS_CHANGEAGE;
+	@ConfigOption(path = "help.command-descriptions.profession")
+	public static String HELP_CMD_DESCRIPTIONS_PROFESSION;
+	@ConfigOption(path = "help.command-descriptions.protect")
+	public static String HELP_CMD_DESCRIPTIONS_PROTECT;
+	@ConfigOption(path = "help.command-descriptions.reload")
+	public static String HELP_CMD_DESCRIPTIONS_RELOAD;
+	@ConfigOption(path = "help.command-descriptions.rename")
+	public static String HELP_CMD_DESCRIPTIONS_RENAME;
+	@ConfigOption(path = "help.command-descriptions.version")
+	public static String HELP_CMD_DESCRIPTIONS_VERSION;
 	
 	protected Messages(@NonNull ADPPlugin plugin) {
 		super(plugin);

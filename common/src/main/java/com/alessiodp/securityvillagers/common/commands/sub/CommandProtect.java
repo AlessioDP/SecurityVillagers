@@ -6,21 +6,37 @@ import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
+import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
-import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
 
 public class CommandProtect extends ADPSubCommand {
-	@Getter private final boolean executableByConsole = false;
 	
 	public CommandProtect(ADPPlugin plugin, ADPMainCommand mainCommand) {
-		super(plugin, mainCommand);
+		super(
+				plugin,
+				mainCommand,
+				CommonCommands.PROTECT,
+				SecurityVillagersPermission.ADMIN_PROTECT,
+				ConfigMain.COMMANDS_CMD_PROTECT,
+				false
+		);
+		
+		syntax = String.format("%s [%s/%s]",
+				baseSyntax(),
+				ConfigMain.COMMANDS_SUB_ON,
+				ConfigMain.COMMANDS_SUB_OFF
+		);
+		
+		description = Messages.HELP_CMD_DESCRIPTIONS_PROTECT;
+		help = Messages.HELP_CMD_PROTECT;
 	}
 	
 	@Override
@@ -52,7 +68,8 @@ public class CommandProtect extends ADPSubCommand {
 		
 		Boolean protection = plugin.getCommandManager().getCommandUtils().handleOnOffCommand(protectedEntity.isProtectionEnabled(), commandData.getArgs());
 		if (protection == null) {
-			player.sendMessage(Messages.CMD_PROTECT_WRONGCMD, true);
+			player.sendMessage(Messages.SECURITYVILLAGERS_SYNTAX_WRONGMESSAGE
+					.replace("%syntax%", getSyntaxForUser(commandData.getSender())), true);
 			return;
 		}
 		

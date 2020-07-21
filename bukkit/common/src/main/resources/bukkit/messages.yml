@@ -1,0 +1,119 @@
+# / =========================================== \
+# |  This is the messages file of OreAnnouncer  |
+# \ =========================================== /
+#
+# For any problem be sure to:
+# - Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+# - Join our Discord for further help: https://discord.alessiodp.com/
+#
+
+# / =============================== \
+# |   SECURITYVILLAGERS  MESSAGES   |
+# \ =============================== /
+securityvillagers:
+  # [Special tags]
+  # => %version%     = New version found
+  # => %thisversion% = Version installed
+  update-available: '&6New version of SecurityVillagers found: %version% (Current: %thisversion%)'
+  # [Special tags]
+  # => %config%      = The configuration file name that is outdated
+  configuration-outdated: '&cThe configuration file ''%config%'' of SecurityVillagers is outdated!'
+  # [Special tags]
+  # => %permission%  = Missing permission
+  no-permission: '&cYou do not have access to that command'
+  common-messages:
+    invalid-command: '&cInvalid command'
+    configuration-reloaded: '&aConfiguration reloaded'
+
+  syntax:
+    wrong-message: '&cWrong syntax: Type &7/%syntax%'
+    name: 'name'
+    profession: 'profession'
+
+
+# / =============================== \
+# |        GENERAL  MESSAGES        |
+# \ =============================== /
+general:
+  interact:
+    hit: "&cYou can't hit this mob!"
+    shoot: "&cYou can't shoot this mob!"
+    egg: "&cYou can't use eggs on this mob!"
+    trade: "&cYou can't trade with this mob!"
+
+  selection:
+    selected: "&aMob selected"
+    required: "&cYou have to select a mob first!"
+
+
+# / =============================== \
+# |        COMMANDS MESSAGES        |
+# \ =============================== /
+commands:
+  changeage:
+    baby: "&aTurned the mob into a baby!"
+    adult: "&aTurned the mob into an adult!"
+    cooldown: "&cYou still have to wait %seconds% seconds"
+    failed: "&cYou cannot change the age of this mob!"
+
+  profession:
+    current: "&aThe villager is a %profession%"
+    changed: "&aChanged villager profession to %profession%"
+    cooldown: "&cYou still have to wait %seconds% seconds"
+    not-found: "&cProfession '%profession%' not found!"
+    failed: "&cYou cannot change the profession of this mob!"
+    wrong-command: "&cWrong variables: Type &7/sv profession <profession>"
+
+  protect:
+    protected: "&aThe selected mob is now protected"
+    unprotected: "&cThe selected mob is not protected anymore"
+    wrong-command: "&cWrong variables: Type &7/sv protect [on/off]"
+
+  rename:
+    renamed: "&aThe mob name has been set to %name%"
+    removed: "&aRemoved mob name"
+    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+
+  version:
+    # [Special tags]
+    # => %version%    = Plugin version
+    # => %newversion% = Latest plugin version
+    updated: "&6&lSecurityVillagers &7%version% - Developed by &6AlessioDP"
+    outdated: "&6&lSecurityVillagers &7%version% - Developed by &6AlessioDP\n&aNew version found: &2%newversion%"
+
+
+# / =============================== \
+# |          HELP MESSAGES          |
+# \ =============================== /
+help:
+  header: "&6============ &lSecurityVillagers Help Page &r&6============"
+  footer: ""
+  perform-command: 'Perform the command'
+  console-help:
+    header: 'You can only make these commands:'
+    command: ' > %command% - %description%'
+  commands:
+    # [Special tags]
+    # => %syntax%          = Command syntax
+    # => %description%     = Description
+    # => %run_command%     = Command run syntax
+    # => %perform_command% = Perform command message
+    help: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    changeage: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    profession: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+  command-descriptions:
+    help: 'Show help pages'
+    changeage: 'Change mob age'
+    profession: 'Change villager profession'
+    protect: 'Protect/unprotect mob'
+    reload: 'Reload SecurityVillagers configuration files'
+    rename: 'Change mob name'
+    version: 'Show SecurityVillagers information'
+
+
+dont-edit-this:
+  version: 3

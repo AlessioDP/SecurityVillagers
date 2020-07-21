@@ -37,6 +37,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 	public static boolean		GENERAL_DAMAGE_HIT;
 	@ConfigOption(path = "general.damage.disable-arrow-damage")
 	public static boolean		GENERAL_DAMAGE_ARROW;
+	@ConfigOption(path = "general.damage.disable-dispenser-arrow-damage")
+	public static boolean		GENERAL_DAMAGE_ARROW_DISPENSER;
 	@ConfigOption(path = "general.damage.prevent-worlds")
 	public static List<String>	GENERAL_DAMAGE_WORLDS;
 	
@@ -201,8 +203,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 	// Selection settings
 	@ConfigOption(path = "selection.item")
 	public static String		SELECTION_ITEM;
-	@ConfigOption(path = "selection.clear-on-quit")
-	public static boolean		SELECTION_CLEAR_ON_QUIT;
+	@ConfigOption(path = "selection.clear-selection-on-quit")
+	public static boolean		SELECTION_CLEAR_SELECTION_ON_QUIT;
 	
 	
 	// Profession settings
@@ -261,21 +263,22 @@ public abstract class ConfigMain extends ConfigurationFile {
 	public static String		COMMANDS_DESCRIPTION_SV;
 	
 	@ConfigOption(path = "commands.main-commands.help")
-	public static String		COMMANDS_MAIN_HELP;
+	public static String		COMMANDS_CMD_HELP;
 	@ConfigOption(path = "commands.main-commands.sv")
-	public static String		COMMANDS_MAIN_SV;
+	public static String		COMMANDS_CMD_SV;
 	@ConfigOption(path = "commands.main-commands.changeage")
-	public static String		COMMANDS_MAIN_CHANGEAGE;
+	public static String		COMMANDS_CMD_CHANGEAGE;
 	@ConfigOption(path = "commands.main-commands.profession")
-	public static String		COMMANDS_MAIN_PROFESSION;
+	public static String		COMMANDS_CMD_PROFESSION;
 	@ConfigOption(path = "commands.main-commands.protect")
-	public static String		COMMANDS_MAIN_PROTECT;
+	public static String		COMMANDS_CMD_PROTECT;
 	@ConfigOption(path = "commands.main-commands.reload")
-	public static String		COMMANDS_MAIN_RELOAD;
+	public static String		COMMANDS_CMD_RELOAD;
 	@ConfigOption(path = "commands.main-commands.rename")
-	public static String		COMMANDS_MAIN_RENAME;
+	public static String		COMMANDS_CMD_RENAME;
 	@ConfigOption(path = "commands.main-commands.version")
-	public static String		COMMANDS_MAIN_VERSION;
+	public static String		COMMANDS_CMD_VERSION;
+	
 	@ConfigOption(path = "commands.sub-commands.word-on")
 	public static String		COMMANDS_SUB_ON;
 	@ConfigOption(path = "commands.sub-commands.word-off")

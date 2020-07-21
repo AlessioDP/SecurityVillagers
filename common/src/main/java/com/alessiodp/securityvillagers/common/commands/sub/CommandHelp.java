@@ -2,32 +2,45 @@ package com.alessiodp.securityvillagers.common.commands.sub;
 
 import com.alessiodp.core.common.ADPPlugin;
 import com.alessiodp.core.common.commands.list.ADPCommand;
+import com.alessiodp.core.common.commands.utils.ADPExecutableCommand;
 import com.alessiodp.core.common.commands.utils.ADPMainCommand;
 import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
+import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
-import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class CommandHelp extends ADPSubCommand {
-	@Getter private final boolean executableByConsole = false;
 	
 	public CommandHelp(ADPPlugin plugin, ADPMainCommand mainCommand) {
-		super(plugin, mainCommand);
+		super(
+				plugin,
+				mainCommand,
+				CommonCommands.HELP,
+				SecurityVillagersPermission.ADMIN_HELP,
+				ConfigMain.COMMANDS_CMD_HELP,
+				false
+		);
+		
+		syntax = baseSyntax();
+		
+		description = Messages.HELP_CMD_DESCRIPTIONS_HELP;
+		help = Messages.HELP_CMD_HELP;
 	}
 	
 	@Override
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
 		
-		if (!sender.hasPermission(SecurityVillagersPermission.ADMIN_HELP.toString())) {
-			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, SecurityVillagersPermission.ADMIN_HELP);
+		if (!sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
 			return false;
 		}
 		
@@ -39,23 +52,22 @@ public class CommandHelp extends ADPSubCommand {
 		User player = commandData.getSender();
 		
 		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_HELP
-				.replace("{player}", player.getName())
-				.replace("{page}", commandData.getArgs().length > 1 ? commandData.getArgs()[1] : ""), true);
+				.replace("{player}", player.getName()), true);
 		
 		// Command starts
-		// Get all allowed commands
-		List<String> list = new ArrayList<>();
-		for (ADPCommand cmd : plugin.getPlayerUtils().getAllowedCommands(player)) {
-			if (mainCommand.getEnabledSubCommands().contains(cmd))
-				list.add(cmd.getHelp());
-		}
-		
-		
-		// Start printing
 		player.sendMessage(Messages.HELP_HEADER, true);
-		for (String string : list) {
-			player.sendMessage(string, true);
+		
+		List<ADPCommand> allowedCommands = plugin.getPlayerUtils().getAllowedCommands(player);
+		for(Map.Entry<ADPCommand, ADPExecutableCommand> e : plugin.getCommandManager().getOrderedCommands().entrySet()) {
+			if (allowedCommands.contains(e.getKey()) && e.getValue().isListedInHelp()) {
+				player.sendMessage(e.getValue().getHelp()
+						.replace("%syntax%", e.getValue().getSyntaxForUser(commandData.getSender()))
+						.replace("%description%", e.getValue().getDescription())
+						.replace("%run_command%", e.getValue().getRunCommand())
+						.replace("%perform_command%", Messages.HELP_PERFORM_COMMAND), true);
+			}
 		}
+		
 		player.sendMessage(Messages.HELP_FOOTER, true);
 	}
 }

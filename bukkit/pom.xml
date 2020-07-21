@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<artifactId>securityvillagers</artifactId>
+		<groupId>com.alessiodp.securityvillagers</groupId>
+		<version>2.12.0</version>
+	</parent>
+	
+	<artifactId>securityvillagers-bukkit</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>common</module>
+		<module>v1_8_R3</module>
+		<module>v1_9_R1</module>
+		<module>v1_9_R2</module>
+		<module>v1_10_R1</module>
+		<module>v1_11_R1</module>
+		<module>v1_12_R1</module>
+		<module>v1_13_R1</module>
+		<module>v1_13_R2</module>
+		<module>v1_14_R1</module>
+		<module>v1_15_R1</module>
+		<module>v1_16_R1</module>
+		<module>output</module>
+	</modules>
+	
+	<build>
+		<defaultGoal>clean package install</defaultGoal>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources/</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven.shade.version}</version>
+				<configuration>
+					<artifactSet>
+						<includes>
+							<include>com.alessiodp.securityvillagers:securityvillagers-common</include>
+							<include>com.alessiodp.core:core-bukkit</include>
+						</includes>
+					</artifactSet>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<repositories>
+		<repository>
+			<!-- CodeMC repo -->
+			<id>codemc-repo</id>
+			<url>https://repo.codemc.io/repository/nms/</url>
+		</repository>
+	</repositories>
+</project>

@@ -6,27 +6,42 @@ import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
-import lombok.Getter;
 
 public class CommandRename extends ADPSubCommand {
-	@Getter private final boolean executableByConsole = false;
 	
 	public CommandRename(ADPPlugin plugin, ADPMainCommand mainCommand) {
-		super(plugin, mainCommand);
+		super(
+				plugin,
+				mainCommand,
+				CommonCommands.RENAME,
+				SecurityVillagersPermission.ADMIN_RENAME,
+				ConfigMain.COMMANDS_CMD_RENAME,
+				false
+		);
+		
+		syntax = String.format("%s <%s/%s>",
+				baseSyntax(),
+				Messages.SECURITYVILLAGERS_SYNTAX_NAME,
+				ConfigMain.COMMANDS_SUB_REMOVE
+		);
+		
+		description = Messages.HELP_CMD_DESCRIPTIONS_RENAME;
+		help = Messages.HELP_CMD_RENAME;
 	}
 	
 	@Override
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
 		
-		if (!sender.hasPermission(SecurityVillagersPermission.ADMIN_RENAME.toString())) {
-			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, SecurityVillagersPermission.ADMIN_RENAME);
+		if (!sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
 			return false;
 		}
 		
@@ -49,7 +64,8 @@ public class CommandRename extends ADPSubCommand {
 		}
 		
 		if (commandData.getArgs().length == 1) {
-			player.sendMessage(Messages.CMD_RENAME_WRONGCMD, true);
+			player.sendMessage(Messages.SECURITYVILLAGERS_SYNTAX_WRONGMESSAGE
+					.replace("%syntax%", getSyntaxForUser(commandData.getSender())), true);
 			return;
 		}
 		

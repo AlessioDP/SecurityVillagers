@@ -2,6 +2,7 @@ package com.alessiodp.securityvillagers.common.villagers.objects;
 
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
+import com.alessiodp.securityvillagers.common.utils.WorldUtils;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -142,7 +143,7 @@ public abstract class ProtectedEntity {
 				// Not supported
 				break;
 		}
-		return ret && (worlds.contains("*") || worlds.contains(world));
+		return ret && WorldUtils.containsWorld(worlds, world);
 	}
 	
 	public abstract UUID getUuid();

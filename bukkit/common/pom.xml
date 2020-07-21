@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>securityvillagers-bukkit</artifactId>
+		<groupId>com.alessiodp.securityvillagers</groupId>
+		<version>2.12.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>securityvillagers-bukkit-common</artifactId>
+	
+	<repositories>
+		<repository>
+			<!-- ProtocolLib repo -->
+			<id>dmulloy2-repo</id>
+			<url>https://repo.dmulloy2.net/nexus/repository/public/</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.alessiodp.core</groupId>
+			<artifactId>core-bukkit</artifactId>
+			<version>${libs.adpcore}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alessiodp.securityvillagers</groupId>
+			<artifactId>securityvillagers-common</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.comphenix.protocol</groupId>
+			<artifactId>ProtocolLib</artifactId>
+			<version>${libs.protocolLib}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.massivecraft</groupId>
+			<artifactId>factions</artifactId>
+			<version>${libs.factionsMassiveCraft}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/FactionsMassiveCraft-${libs.factionsMassiveCraft}.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.massivecraft</groupId>
+			<artifactId>massivecore</artifactId>
+			<version>${libs.factionsMassiveCraftCore}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/MassiveCore-${libs.factionsMassiveCraftCore}.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.massivecraft</groupId>
+			<artifactId>SavageFactions</artifactId>
+			<version>${libs.savageFactions}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/SavageFactions-${libs.savageFactions}.jar</systemPath>
+		</dependency>
+	</dependencies>
+</project>

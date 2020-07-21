@@ -1,11 +1,12 @@
 package com.alessiodp.securityvillagers.common.storage.dispatchers;
 
 import com.alessiodp.core.common.ADPPlugin;
-import com.alessiodp.core.common.addons.libraries.ILibrary;
 import com.alessiodp.core.common.configuration.Constants;
 import com.alessiodp.core.common.storage.StorageType;
 import com.alessiodp.core.common.storage.dispatchers.FileDispatcher;
+import com.alessiodp.core.common.storage.file.FileUpgradeManager;
 import com.alessiodp.core.common.storage.file.YAMLDao;
+import com.alessiodp.core.common.storage.interfaces.IDatabaseFile;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
@@ -17,21 +18,23 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class SVFileDispatcher extends FileDispatcher {
-	public SVFileDispatcher(@NonNull ADPPlugin plugin) {
-		super(plugin);
+	
+	public SVFileDispatcher(@NonNull ADPPlugin plugin, @NonNull StorageType storageType) {
+		super(plugin, storageType);
 	}
 	
 	@Override
-	public void init(StorageType type) {
-		// Configurate is necessary to handle every type of file database, loading core
-		if (plugin.getLibraryManager().initLibrary(ILibrary.CONFIGURATE_CORE)) {
-			database = new YAMLDao(
-					plugin,
-					ConfigMain.STORAGE_DATABASE_FILE,
-					SVConstants.VERSION_DATABASE_YAML);
-			database.initFile();
-		}
+	protected IDatabaseFile initDao() {
+		plugin.getLibraryManager().setupLibrariesForYAML();
+		
+		return new YAMLDao(plugin, ConfigMain.STORAGE_DATABASE_FILE, SVConstants.VERSION_DATABASE_YAML);
 	}
+	
+	@Override
+	protected FileUpgradeManager initUpgradeManager() {
+		return null; // Nothing to upgrade
+	}
+	
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {
 		ConfigurationNode node = database.getRootNode().getNode("mobs", protectedEntity.getUuid().toString());

@@ -17,7 +17,7 @@ public abstract class JoinLeaveListener{
 	protected void onPlayerQuit(User user) {
 		// Make it async
 		plugin.getScheduler().runAsync(() -> {
-			if (ConfigMain.SELECTION_CLEAR_ON_QUIT) {
+			if (ConfigMain.SELECTION_CLEAR_SELECTION_ON_QUIT) {
 				plugin.getVillagerManager().getSelectedEntities().remove(user.getUUID());
 			}
 		});

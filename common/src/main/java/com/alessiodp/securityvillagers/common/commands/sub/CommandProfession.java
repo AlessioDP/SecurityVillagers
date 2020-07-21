@@ -6,7 +6,8 @@ import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
@@ -14,7 +15,6 @@ import com.alessiodp.securityvillagers.common.tasks.ProfessionCooldown;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import com.alessiodp.securityvillagers.common.villagers.objects.VillagerProfession;
-import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.ArrayList;
@@ -22,21 +22,36 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommandProfession extends ADPSubCommand {
-	@Getter private final boolean executableByConsole = false;
 	
 	public CommandProfession(ADPPlugin plugin, ADPMainCommand mainCommand) {
-		super(plugin, mainCommand);
+		super(
+				plugin,
+				mainCommand,
+				CommonCommands.PROFESSION,
+				SecurityVillagersPermission.ADMIN_PROFESSION,
+				ConfigMain.COMMANDS_CMD_PROFESSION,
+				false
+		);
+		
+		syntax = String.format("%s [%s]",
+				baseSyntax(),
+				Messages.SECURITYVILLAGERS_SYNTAX_PROFESSION
+		);
+		
+		description = Messages.HELP_CMD_DESCRIPTIONS_PROFESSION;
+		help = Messages.HELP_CMD_PROFESSION;
 	}
 	
 	@Override
 	public boolean preRequisites(CommandData commandData) {
 		User sender = commandData.getSender();
 		
-		if (!sender.hasPermission(SecurityVillagersPermission.ADMIN_PROFESSION.toString())) {
-			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, SecurityVillagersPermission.ADMIN_PROFESSION);
+		if (!sender.hasPermission(permission)) {
+			((SVPlayerUtils) plugin.getPlayerUtils()).sendNoPermissionMessage(sender, permission);
 			return false;
 		}
 		
+		commandData.addPermission(SecurityVillagersPermission.ADMIN_PROFESSION_CD_BYPASS);
 		return true;
 	}
 	
@@ -61,7 +76,7 @@ public class CommandProfession extends ADPSubCommand {
 		}
 		
 		if (ConfigMain.PROFESSION_COOLDOWN > 0
-				&& !player.hasPermission(SecurityVillagersPermission.ADMIN_PROFESSION_CD_BYPASS.toString())) {
+				&& !commandData.havePermission(SecurityVillagersPermission.ADMIN_PROFESSION_CD_BYPASS)) {
 			Long unixTimestamp = ((SecurityVillagersPlugin) plugin).getProfessionCooldown().get(player.getUUID());
 			long unixNow = System.currentTimeMillis() / 1000L;
 			// Check cooldown
@@ -95,7 +110,8 @@ public class CommandProfession extends ADPSubCommand {
 			player.sendMessage(Messages.CMD_PROFESSION_CHANGED
 					.replace("%profession%", profession.getName()), true);
 		} else {
-			player.sendMessage(Messages.CMD_PROFESSION_WRONGCMD, true);
+			player.sendMessage(Messages.SECURITYVILLAGERS_SYNTAX_WRONGMESSAGE
+					.replace("%syntax%", getSyntaxForUser(commandData.getSender())), true);
 		}
 	}
 	

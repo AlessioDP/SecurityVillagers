@@ -2,7 +2,7 @@ package com.alessiodp.securityvillagers.common.listeners;
 
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;

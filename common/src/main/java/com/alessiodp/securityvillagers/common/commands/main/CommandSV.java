@@ -1,7 +1,11 @@
 package com.alessiodp.securityvillagers.common.commands.main;
 
+import com.alessiodp.core.common.commands.list.ADPCommand;
+import com.alessiodp.core.common.commands.utils.ADPExecutableCommand;
 import com.alessiodp.core.common.commands.utils.ADPMainCommand;
 import com.alessiodp.core.common.user.User;
+import com.alessiodp.core.common.utils.Color;
+import com.alessiodp.core.common.utils.CommonUtils;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.commands.sub.CommandChangeAge;
@@ -14,35 +18,34 @@ import com.alessiodp.securityvillagers.common.commands.sub.CommandVersion;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CommandSV extends ADPMainCommand {
 	
 	public CommandSV(SecurityVillagersPlugin plugin) {
-		super(plugin);
+		super(plugin, CommonCommands.SV, ConfigMain.COMMANDS_CMD_SV, true);
 		
-		commandName = ConfigMain.COMMANDS_MAIN_SV;
 		description = ConfigMain.COMMANDS_DESCRIPTION_SV;
 		subCommands = new HashMap<>();
-		enabledSubCommands = new ArrayList<>();
+		subCommandsByEnum = new HashMap<>();
 		tabSupport = ConfigMain.COMMANDS_TABSUPPORT;
 		
-		register(CommonCommands.HELP, new CommandHelp(plugin, this));
-		register(CommonCommands.RELOAD, new CommandReload(plugin, this));
-		register(CommonCommands.VERSION, new CommandVersion(plugin, this));
+		register(new CommandHelp(plugin, this));
+		register(new CommandReload(plugin, this));
+		register(new CommandVersion(plugin, this));
 		
 		if (ConfigMain.CHANGEAGE_ENABLE)
-			register(CommonCommands.CHANGEAGE, new CommandChangeAge(plugin, this));
+			register(new CommandChangeAge(plugin, this));
 		
 		if (ConfigMain.PROFESSION_ENABLE)
-			register(CommonCommands.PROFESSION, new CommandProfession(plugin, this));
+			register(new CommandProfession(plugin, this));
 		
 		if (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.CUSTOM)
-			register(CommonCommands.PROTECT, new CommandProtect(plugin, this));
+			register(new CommandProtect(plugin, this));
 		
 		if (ConfigMain.RENAME_ENABLE)
-			register(CommonCommands.RENAME, new CommandRename(plugin, this));
+			register(new CommandRename(plugin, this));
 	}
 	
 	@Override
@@ -51,9 +54,9 @@ public class CommandSV extends ADPMainCommand {
 		if (sender.isPlayer()) {
 			if (args.length == 0) {
 				// Set /sv to /sv help
-				subCommand = ConfigMain.COMMANDS_MAIN_HELP.toLowerCase();
+				subCommand = CommonUtils.toLowerCase(ConfigMain.COMMANDS_CMD_HELP);
 			} else {
-				subCommand = args[0].toLowerCase();
+				subCommand = CommonUtils.toLowerCase(args[0]);
 			}
 			
 			if (exists(subCommand)) {
@@ -64,16 +67,21 @@ public class CommandSV extends ADPMainCommand {
 		} else {
 			// Console
 			if (args.length > 0) {
-				subCommand = args[0].toLowerCase();
+				subCommand = CommonUtils.toLowerCase(args[0]);
 				if (exists(subCommand) && getSubCommand(subCommand).isExecutableByConsole()) {
 					plugin.getCommandManager().getCommandUtils().executeCommand(sender, getCommandName(), getSubCommand(subCommand), args);
 				} else {
-					plugin.logConsole(plugin.getColorUtils().removeColors(Messages.SECURITYVILLAGERS_COMMON_INVALIDCMD), false);
+					plugin.logConsole(Color.translateAndStripColor(Messages.SECURITYVILLAGERS_COMMON_INVALIDCMD), false);
 				}
 			} else {
 				// Print help
-				for (String str : Messages.HELP_CONSOLEHELP) {
-					plugin.logConsole(str, false);
+				plugin.logConsole(Messages.HELP_CONSOLEHELP_HEADER, false);
+				for(Map.Entry<ADPCommand, ADPExecutableCommand> e : plugin.getCommandManager().getOrderedCommands().entrySet()) {
+					if (e.getValue().isExecutableByConsole()  && e.getValue().isListedInHelp()) {
+						plugin.logConsole(Messages.HELP_CONSOLEHELP_COMMAND
+								.replace("%command%", e.getValue().getConsoleSyntax())
+								.replace("%description%", e.getValue().getDescription()), false);
+					}
 				}
 			}
 		}

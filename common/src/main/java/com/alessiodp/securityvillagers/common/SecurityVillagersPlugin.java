@@ -4,7 +4,7 @@ import com.alessiodp.core.common.ADPPlugin;
 import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
 import com.alessiodp.core.common.logging.ConsoleColor;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
@@ -21,6 +21,7 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	@Getter private final String pluginName = SVConstants.PLUGIN_NAME;
 	@Getter private final String pluginFallbackName = SVConstants.PLUGIN_FALLBACK;
 	@Getter private final ConsoleColor consoleColor = SVConstants.PLUGIN_CONSOLECOLOR;
+	@Getter private final String packageName = SVConstants.PLUGIN_PACKAGENAME;
 	
 	// SecurityVillagers fields
 	@Getter protected VillagerManager villagerManager;
@@ -98,7 +99,7 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 				SVConstants.PLUGIN_SPIGOTCODE,
 				ConfigMain.SECURITYVILLAGERS_UPDATES_CHECK,
 				ConfigMain.SECURITYVILLAGERS_UPDATES_WARN,
-				SecurityVillagersPermission.ADMIN_ALERTS.toString(),
+				SecurityVillagersPermission.ADMIN_ALERTS,
 				Messages.SECURITYVILLAGERS_UPDATEAVAILABLE
 		);
 		getAdpUpdater().asyncTaskCheckUpdates();

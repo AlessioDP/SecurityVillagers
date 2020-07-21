@@ -2,9 +2,10 @@ package com.alessiodp.securityvillagers.common.listeners;
 
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.commands.utils.SecurityVillagersPermission;
+import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
+import com.alessiodp.securityvillagers.common.utils.WorldUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import lombok.RequiredArgsConstructor;
 
@@ -36,8 +37,7 @@ public abstract class InteractListener {
 	}
 	
 	private boolean isInteractProtected(User user, ProtectedEntity protectedEntity) {
-		return (ConfigMain.GENERAL_INTERACT_WORLDS.contains("*")
-				|| ConfigMain.GENERAL_INTERACT_WORLDS.contains(protectedEntity.getWorld()))
+		return WorldUtils.containsWorld(ConfigMain.GENERAL_INTERACT_WORLDS, protectedEntity.getWorld())
 				&& (ConfigMain.GENERAL_PROTECTIONTYPE != ConfigMain.ProtectionType.FACTIONS || isFactionProtected(user, protectedEntity));
 	}
 	

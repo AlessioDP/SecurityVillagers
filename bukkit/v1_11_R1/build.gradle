@@ -1,8 +1,0 @@
-dependencies {
-    api (project(':bukkit')) {
-        exclude group: 'org.spigotmc'
-        exclude group: 'org.bukkit'
-    }
-
-    compileOnly group: 'org.spigotmc', name: 'spigot', version: '1.11-R0.1-SNAPSHOT'
-}
