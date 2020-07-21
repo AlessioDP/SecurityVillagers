@@ -80,6 +80,11 @@
 			<url>https://repo.maven.apache.org/</url>
 		</repository>
 		<repository>
+			<!-- AlessioDP repo -->
+			<id>alessiodp-repo</id>
+			<url>https://repo.alessiodp.com/releases/</url>
+		</repository>
+		<repository>
 			<!-- Spigot repo -->
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
