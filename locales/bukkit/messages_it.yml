@@ -1,24 +1,34 @@
 ---
-#Messages configuration file
-#/ = = = = = = = = = = = = = = = = \
-#|    SECURITYVILLAGER MESSAGES    |
-#\ = = = = = = = = = = = = = = = = /
+#/ =========================================== \
+#|  This is the messages file of OreAnnouncer  |
+#\ =========================================== /
+#For any problem be sure to:
+#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Join our Discord for further help: https://discord.alessiodp.com/
+#/ =============================== \
+#|   SECURITYVILLAGERS  MESSAGES   |
+#\ =============================== /
 securityvillagers:
-  #Special tags:
+  #[Special tags]
   #=> %version%     = New version found
   #=> %thisversion% = Version installed
-  update-available: "&2Nuova versione di SecurityVillagers trovata: %version% (Attuale: %thisversion%)"
-  #Special tag: %permission% = Missing permission
-  no-permission: "&cNon hai accesso a questo comando"
-  #Special tag:
+  update-available: '&2Nuova versione di SecurityVillagers trovata: %version% (Attuale: %thisversion%)'
+  #[Special tags]
   #=> %config%      = The configuration file name that is outdated
-  configuration-outdated: "&cIl file di configurazione '%config%' di SecurityVillagers è obsoleto!"
+  configuration-outdated: '&cIl file di configurazione ''%config%'' di SecurityVillagers è obsoleto!'
+  #[Special tags]
+  #=> %permission%  = Missing permission
+  no-permission: '&cNon hai accesso a questo comando'
   common-messages:
-    invalid-command: "&cComando non valido"
-    configuration-reloaded: "&aConfigurazione ricaricata"
-#/ = = = = = = = = = = = = = = = = \
-#|        GENERAL MESSAGES        |
-#\ = = = = = = = = = = = = = = = = /
+    invalid-command: '&cComando non valido'
+    configuration-reloaded: '&aConfigurazione ricaricata'
+  syntax:
+    wrong-message: '&cSintassi errata: Digita &7/%syntax%'
+    name: 'nome'
+    profession: 'professione'
+#/ =============================== \
+#|        GENERAL  MESSAGES        |
+#\ =============================== /
 general:
   interact:
     hit: "&cNon puoi colpire questo mob!"
@@ -28,9 +38,9 @@ general:
   selection:
     selected: "&aMob selezionato"
     required: "&cDevi selezionare un mob prima!"
-#/ = = = = = = = = = = = = = = = = \
+#/ =============================== \
 #|        COMMANDS MESSAGES        |
-#\ = = = = = = = = = = = = = = = = /
+#\ =============================== /
 commands:
   changeage:
     baby: "&aTrasformato il mob in un bambino!"
@@ -53,28 +63,41 @@ commands:
     removed: "&aRimosso nome dal mob"
     wrong-command: "&cComando sbagliato: Esegui &7/sv rename <nome/remove>"
   version:
-    #Special tags:
+    #[Special tags]
     #=> %version%    = Plugin version
     #=> %newversion% = Latest plugin version
     updated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP"
     outdated: "&6&lSecurityVillagers &7%version% - Sviluppato da &6AlessioDP\n&aNuova versione trovata: &2%newversion%"
-#/ = = = = = = = = = = = = = = = = \
+#/ =============================== \
 #|          HELP MESSAGES          |
-#\ = = = = = = = = = = = = = = = = /
+#\ =============================== /
 help:
   header: "&6===== &lPagina d'aiuto di SecurityVillagers &r&6====="
   footer: ""
+  perform-command: 'Esegui il comando'
   console-help:
-    - "Puoi solamente far questi comandi:"
-    - " > sv reload - Ricarica i file di configurazione"
-    - " > sv version - Mostra informazioni sul plugin"
+    header: 'Puoi solamente far questi comandi:'
+    command: ' > %command% - %description%'
   commands:
-    help: '{"text":"","extra":[{"text":"/sv help","color":"gold"},{"text":" - Mostra la pagina d''aiuto","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv help "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    changeage: '{"text":"","extra":[{"text":"/sv changeage","color":"gold"},{"text":" - Cambia età del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv changeage"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    profession: '{"text":"","extra":[{"text":"/sv profession <professione>","color":"gold"},{"text":" - Cambia la professione del villico","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv profession "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    protect: '{"text":"","extra":[{"text":"/sv protect [on/off]","color":"gold"},{"text":" - Attiva/disattiva protezione mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv protect"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    reload: '{"text":"","extra":[{"text":"/sv reload","color":"gold"},{"text":" - Ricarica i file di configurazione","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv reload"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    rename: '{"text":"","extra":[{"text":"/sv rename <nome/remove>","color":"gold"},{"text":" - Cambia nome del mob","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv rename "},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
-    version: '{"text":"","extra":[{"text":"/sv version","color":"gold"},{"text":" - Mostra informazioni sul plugin","color":"gray"}],"clickEvent":{"action":"suggest_command","value":"/sv version"},"hoverEvent":{"action":"show_text","value":{"text":"Esegui il comando","color":"gold"}}}'
+    #[Special tags]
+    #=> %syntax%          = Command syntax
+    #=> %description%     = Description
+    #=> %run_command%     = Command run syntax
+    #=> %perform_command% = Perform command message
+    help: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    changeage: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    profession: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+  command-descriptions:
+    help: 'Mostra le pagine d''aiuto'
+    changeage: 'Cambia l''età del mob'
+    profession: 'Cambia professione del villico'
+    protect: 'Proteggi/sproteggi mob'
+    reload: 'Ricarica i file di configurazione di SecurityVillagers'
+    rename: 'Cambia nome del mob'
+    version: 'Mostra le informazioni su SecurityVillagers'
 dont-edit-this:
-  version: 2
+  version: 3
