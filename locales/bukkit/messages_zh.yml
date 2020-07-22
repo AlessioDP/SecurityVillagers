@@ -21,7 +21,7 @@ securityvillagers:
   no-permission: '&cYou do not have access to that command'
   common-messages:
     invalid-command: '&cInvalid command'
-    configuration-reloaded: '&aConfiguration reloaded'
+    configuration-reloaded: '&a已重载配置文件'
   syntax:
     wrong-message: '&cWrong syntax: Type &7/%syntax%'
     name: 'name'
