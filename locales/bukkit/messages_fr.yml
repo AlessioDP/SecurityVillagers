@@ -23,8 +23,8 @@ securityvillagers:
     invalid-command: '&cCommande invalide'
     configuration-reloaded: '&aConfiguration rechargée'
   syntax:
-    wrong-message: '&cWrong syntax: Type &7/%syntax%'
-    name: 'name'
+    wrong-message: '&cSyntaxe incorrecte : Tapez &7/%syntax%'
+    name: 'nom'
     profession: 'profession'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -74,7 +74,7 @@ commands:
 help:
   header: "&6============ &lPage d'aide de SecurityVillagers &r&6============"
   footer: ""
-  perform-command: 'Perform the command'
+  perform-command: 'Exécuter la commande'
   console-help:
     header: 'Vous ne pouvez exécuter que ces commandes :'
     command: ' > %command% - %description%'
@@ -92,12 +92,12 @@ help:
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
-    help: 'Show help pages'
-    changeage: 'Change mob age'
-    profession: 'Change villager profession'
-    protect: 'Protect/unprotect mob'
-    reload: 'Reload SecurityVillagers configuration files'
-    rename: 'Change mob name'
-    version: 'Show SecurityVillagers information'
+    help: 'Afficher les pages d''aide'
+    changeage: 'Changer l''âge d''une créature'
+    profession: 'Changer la profession d''un villageois'
+    protect: 'Protéger/déprotéger une créature'
+    reload: 'Recharger les fichiers de configuration de SecurityVillagers'
+    rename: 'Changer le nom d''une créature'
+    version: 'Afficher les informations sur SecurityVillagers'
 dont-edit-this:
   version: 3
