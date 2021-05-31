@@ -25,6 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cSyntaxe incorrecte : Tapez &7/%syntax%'
     name: 'nom'
+    player: 'player'
     profession: 'profession'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -53,15 +54,15 @@ commands:
     cooldown: "&cVous devez encore attendre %seconds% secondes"
     not-found: "&cLa profession \"%profession%\" n'a pas été trouvée !"
     failed: "&cVous ne pouvez pas changer la profession de cette créature !"
-    wrong-command: "&cVariables incorrectes : Tapez &7/sv profession <profession>"
   protect:
     protected: "&aLa créature sélectionnée est maintenant protégée"
     unprotected: "&cLa créature sélectionnée n'est plus protégée"
-    wrong-command: "&cVariables incorrectes : Tapez &7/sv protect [on/off]"
   rename:
     renamed: "&aLa créature a été renommée en %name%"
     removed: "&aNom de la créature supprimé"
-    wrong-command: "&cVariables incorrectes : Tapez &7/sv rename <nom/remove>"
+  teleport:
+    teleported: "&aThe mob has been teleported to %player%"
+    player-not-found: "&cPlayer '%player%' not found"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -90,6 +91,7 @@ help:
     protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
     help: 'Afficher les pages d''aide'
@@ -98,6 +100,7 @@ help:
     protect: 'Protéger/déprotéger une créature'
     reload: 'Recharger les fichiers de configuration de SecurityVillagers'
     rename: 'Changer le nom d''une créature'
+    teleport: 'Teleport mob'
     version: 'Afficher les informations sur SecurityVillagers'
 dont-edit-this:
-  version: 3
+  version: 4
