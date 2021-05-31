@@ -25,6 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&c错误的语法: 类型 &7/%syntax%'
     name: '名称'
+    player: 'player'
     profession: '职业'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -53,15 +54,15 @@ commands:
     cooldown: "&c你需要等待%seconds%秒"
     not-found: "&c未找到%profession%这个职业！"
     failed: "&c你不能改变这个生物的职业"
-    wrong-command: "&c错误的变量：类型&7/sv rename <profession>"
   protect:
     protected: "&a该生物现在已受到保护"
     unprotected: "&c该生物已不再受保护"
-    wrong-command: "&c错误的变量：类型&7/sv protect [on/off]"
   rename:
     renamed: "&a已将该生物的名称改为%name%"
     removed: "&a移除该生物的名称"
-    wrong-command: "&c错误的变量：查看类型&7/sv rename <name/remove>"
+  teleport:
+    teleported: "&aThe mob has been teleported to %player%"
+    player-not-found: "&cPlayer '%player%' not found"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -90,6 +91,7 @@ help:
     protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
     help: '查看帮助界面'
@@ -98,6 +100,7 @@ help:
     protect: '保护/取消保护 生物'
     reload: '重载配置文件'
     rename: '更改生物名称'
+    teleport: 'Teleport mob'
     version: '关于SecurityVillagers'
 dont-edit-this:
-  version: 3
+  version: 4
