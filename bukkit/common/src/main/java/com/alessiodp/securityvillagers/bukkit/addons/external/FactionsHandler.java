@@ -7,20 +7,18 @@ import com.alessiodp.securityvillagers.bukkit.addons.external.factions.IFaction;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+@RequiredArgsConstructor
 public class FactionsHandler {
-	private static SecurityVillagersPlugin plugin;
+	@NonNull private final SecurityVillagersPlugin plugin;
 	private static final String ADDON_NAME = "Factions";
 	private static boolean active;
 	
 	private static IFaction handler;
-	
-	public FactionsHandler(@NonNull SecurityVillagersPlugin sv) {
-		plugin = sv;
-	}
 	
 	public void init() {
 		active = false;

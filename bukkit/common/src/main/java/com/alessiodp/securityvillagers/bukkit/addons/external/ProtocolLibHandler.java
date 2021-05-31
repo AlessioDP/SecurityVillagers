@@ -5,17 +5,15 @@ import com.alessiodp.securityvillagers.bukkit.addons.external.hooks.ProtocolLibH
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 
+@RequiredArgsConstructor
 public class ProtocolLibHandler {
-	private static SecurityVillagersPlugin plugin;
+	@NonNull private final SecurityVillagersPlugin plugin;
 	private static final String ADDON_NAME = "ProtocolLib";
 	
 	private static ProtocolLibHook hook;
-	
-	public ProtocolLibHandler(@NonNull SecurityVillagersPlugin sv) {
-		plugin = sv;
-	}
 	
 	public void init() {
 		boolean active = false;
