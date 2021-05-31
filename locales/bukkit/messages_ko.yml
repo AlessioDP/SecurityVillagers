@@ -25,6 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&c구문 오류: &7/%syntax% 형식'
     name: '이름'
+    player: 'player'
     profession: '직업'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -53,15 +54,15 @@ commands:
     cooldown: "&c당신은 아직 %seconds%초 동안 기다리셔야 합니다"
     not-found: "&c'%profession%' 직업을 찾을 수 없습니다!"
     failed: "&c당신은 이 몹의 직업을 변경할 수 없습니다!"
-    wrong-command: "&c잘못된 변수: &7/sv profession <profession> 형식"
   protect:
     protected: "&a선택된 몹이 이제 보호됩니다"
     unprotected: "&c선택된 몹이 이제 보호되지 않습니다"
-    wrong-command: "&c잘못된 변수: &7/sv protect [on/off] 형식"
   rename:
     renamed: "&a이 몹의 이름이 %name%(으)로 설정되었습니다"
     removed: "&a몹 이름 삭제"
-    wrong-command: "&c잘못된 변수: &7/sv rename <name/remove> 형식"
+  teleport:
+    teleported: "&aThe mob has been teleported to %player%"
+    player-not-found: "&cPlayer '%player%' not found"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -90,6 +91,7 @@ help:
     protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
     help: '도움말 페이지 열기'
@@ -98,6 +100,7 @@ help:
     protect: '몹 보호/보호하지 않기'
     reload: 'SecurityVillagers의 배치 파일 다시 불러오기'
     rename: '몹 이름 변경'
+    teleport: 'Teleport mob'
     version: 'SecurityVillagers 정보 열기'
 dont-edit-this:
-  version: 3
+  version: 4
