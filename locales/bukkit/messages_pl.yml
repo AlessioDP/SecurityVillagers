@@ -25,6 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cNiepoprawna składnia: Wpisz &7/%syntax%'
     name: 'nazwa'
+    player: 'player'
     profession: 'profesja'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -53,15 +54,15 @@ commands:
     cooldown: "&cNadal musisz poczekać %seconds% sekund"
     not-found: "&cProfesja '%profession%' nie znaleziona!"
     failed: "&cNie możesz zmienić zawodu tego moba!"
-    wrong-command: "&cBłędne użycie: Wpisz &7/sv profession <profession>"
   protect:
     protected: "&aWybrane moby są teraz chronione"
     unprotected: "&cWybrany mob nie jest już chroniony"
-    wrong-command: "&cBłędne użycie: Wpisz &7/sv protect [on/off]"
   rename:
     renamed: "&aNazwa moba została ustawiona na %name%"
     removed: "&aUsunięto nazwę moba"
-    wrong-command: "&cBłędne użycie: Wpisz &7/sv rename <name/remove>"
+  teleport:
+    teleported: "&aThe mob has been teleported to %player%"
+    player-not-found: "&cPlayer '%player%' not found"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -90,6 +91,7 @@ help:
     protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
     help: 'Pokaż strony pomocy'
@@ -98,6 +100,7 @@ help:
     protect: 'Chroń/Niechroń moba'
     reload: 'Przeładuj pliki konfiguracyjne SecurityVillagers'
     rename: 'Zmień nazwę moba'
+    teleport: 'Teleport mob'
     version: 'Pokaż informacje o SecurityVillagers'
 dont-edit-this:
-  version: 3
+  version: 4
