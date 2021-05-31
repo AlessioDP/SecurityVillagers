@@ -9,7 +9,6 @@ import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
-import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
@@ -25,14 +24,14 @@ public class CommandProtect extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.PROTECT,
 				SecurityVillagersPermission.ADMIN_PROTECT,
-				ConfigMain.COMMANDS_CMD_PROTECT,
+				ConfigMain.COMMANDS_SUB_PROTECT,
 				false
 		);
 		
 		syntax = String.format("%s [%s/%s]",
 				baseSyntax(),
-				ConfigMain.COMMANDS_SUB_ON,
-				ConfigMain.COMMANDS_SUB_OFF
+				ConfigMain.COMMANDS_MISC_ON,
+				ConfigMain.COMMANDS_MISC_OFF
 		);
 		
 		description = Messages.HELP_CMD_DESCRIPTIONS_PROTECT;
@@ -55,12 +54,8 @@ public class CommandProtect extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_PROTECT
-				.replace("{player}", player.getName())
-				.replace("{value}", commandData.getArgs().length > 1 ? commandData.getArgs()[1] : ""), true);
-		
 		// Command handling
-		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntities().get(player.getUUID());
+		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntityBy(player.getUUID());
 		if (protectedEntity == null) {
 			player.sendMessage(Messages.GENERAL_SELECTION_REQUIRED, true);
 			return;

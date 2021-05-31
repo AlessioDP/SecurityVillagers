@@ -33,4 +33,8 @@ public class NMSManager {
 	public Material getVillagerEgg() {
 		return dataNMS.getVillagerEgg();
 	}
+	
+	public boolean isHarvestable(Material material) {
+		return dataNMS.isHarvestable(material);
+	}
 }

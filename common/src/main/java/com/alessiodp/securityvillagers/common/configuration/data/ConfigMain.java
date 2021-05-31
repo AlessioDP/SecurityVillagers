@@ -60,6 +60,13 @@ public abstract class ConfigMain extends ConfigurationFile {
 	@ConfigOption(path = "general.target.prevent-worlds")
 	public static List<String>	GENERAL_TARGET_WORLDS;
 	
+	@ConfigOption(path = "general.farming.disable-planting")
+	public static boolean		GENERAL_FARMING_PLANTING;
+	@ConfigOption(path = "general.farming.disable-harvesting")
+	public static boolean		GENERAL_FARMING_HARVESTING;
+	@ConfigOption(path = "general.farming.prevent-worlds")
+	public static List<String>	GENERAL_FARMING_WORLDS;
+	
 	@ConfigOption(path = "general.factions.members-bypass-protection")
 	public static boolean		GENERAL_FACTIONS_MEMBERBYPASS_PROTECTION;
 	@ConfigOption(path = "general.factions.members-bypass-interact")
@@ -256,35 +263,49 @@ public abstract class ConfigMain extends ConfigurationFile {
 	public static boolean		RENAME_ENABLE;
 	
 	
+	// Teleport settings
+	@ConfigOption(path = "teleport.enable")
+	public static boolean		TELEPORT_ENABLE;
+	
+	
 	// Commands settings
 	@ConfigOption(path = "commands.tab-support")
 	public static boolean		COMMANDS_TABSUPPORT;
-	@ConfigOption(path = "commands.sv-description")
-	public static String		COMMANDS_DESCRIPTION_SV;
 	
-	@ConfigOption(path = "commands.main-commands.help")
-	public static String		COMMANDS_CMD_HELP;
-	@ConfigOption(path = "commands.main-commands.sv")
-	public static String		COMMANDS_CMD_SV;
-	@ConfigOption(path = "commands.main-commands.changeage")
-	public static String		COMMANDS_CMD_CHANGEAGE;
-	@ConfigOption(path = "commands.main-commands.profession")
-	public static String		COMMANDS_CMD_PROFESSION;
-	@ConfigOption(path = "commands.main-commands.protect")
-	public static String		COMMANDS_CMD_PROTECT;
-	@ConfigOption(path = "commands.main-commands.reload")
-	public static String		COMMANDS_CMD_RELOAD;
-	@ConfigOption(path = "commands.main-commands.rename")
-	public static String		COMMANDS_CMD_RENAME;
-	@ConfigOption(path = "commands.main-commands.version")
-	public static String		COMMANDS_CMD_VERSION;
+	@ConfigOption(path = "commands.main-commands.sv.command")
+	public static String		COMMANDS_MAIN_SV_COMMAND;
+	@ConfigOption(path = "commands.main-commands.sv.description")
+	public static String		COMMANDS_MAIN_SV_DESCRIPTION;
+	@ConfigOption(path = "commands.main-commands.sv.aliases")
+	public static List<String>	COMMANDS_MAIN_SV_ALIASES;
 	
-	@ConfigOption(path = "commands.sub-commands.word-on")
-	public static String		COMMANDS_SUB_ON;
-	@ConfigOption(path = "commands.sub-commands.word-off")
-	public static String		COMMANDS_SUB_OFF;
-	@ConfigOption(path = "commands.sub-commands.remove")
-	public static String		COMMANDS_SUB_REMOVE;
+	@ConfigOption(path = "commands.sub-commands.help")
+	public static String		COMMANDS_SUB_HELP;
+	@ConfigOption(path = "commands.sub-commands.changeage")
+	public static String		COMMANDS_SUB_CHANGEAGE;
+	@ConfigOption(path = "commands.sub-commands.profession")
+	public static String		COMMANDS_SUB_PROFESSION;
+	@ConfigOption(path = "commands.sub-commands.protect")
+	public static String		COMMANDS_SUB_PROTECT;
+	@ConfigOption(path = "commands.sub-commands.reload")
+	public static String		COMMANDS_SUB_RELOAD;
+	@ConfigOption(path = "commands.sub-commands.rename")
+	public static String		COMMANDS_SUB_RENAME;
+	@ConfigOption(path = "commands.sub-commands.teleport")
+	public static String		COMMANDS_SUB_TELEPORT;
+	@ConfigOption(path = "commands.sub-commands.version")
+	public static String		COMMANDS_SUB_VERSION;
+	
+	@ConfigOption(path = "commands.misc-commands.adult")
+	public static String		COMMANDS_MISC_ADULT;
+	@ConfigOption(path = "commands.misc-commands.baby")
+	public static String		COMMANDS_MISC_BABY;
+	@ConfigOption(path = "commands.misc-commands.word-on")
+	public static String		COMMANDS_MISC_ON;
+	@ConfigOption(path = "commands.misc-commands.word-off")
+	public static String		COMMANDS_MISC_OFF;
+	@ConfigOption(path = "commands.misc-commands.remove")
+	public static String		COMMANDS_MISC_REMOVE;
 	
 	protected ConfigMain(@NonNull ADPPlugin plugin) {
 		super(plugin);

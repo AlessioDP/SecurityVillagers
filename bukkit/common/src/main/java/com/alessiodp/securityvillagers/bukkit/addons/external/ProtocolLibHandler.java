@@ -27,16 +27,14 @@ public class ProtocolLibHandler {
 				active = hook.init();
 				
 				if (active) {
-					plugin.getLoggerManager().log(Constants.DEBUG_ADDON_HOOKED
-							.replace("{addon}", ADDON_NAME), true);
+					plugin.getLoggerManager().log(String.format(Constants.DEBUG_ADDON_HOOKED, ADDON_NAME), true);
 				}
 			}
 			
 			if (!active) {
 				ConfigMain.GENERAL_MUTE_SOUND = false;
 				
-				plugin.getLoggerManager().log(Constants.DEBUG_ADDON_FAILED
-						.replace("{addon}", ADDON_NAME), true);
+				plugin.getLoggerManager().log(String.format(Constants.DEBUG_ADDON_FAILED, ADDON_NAME), true);
 			}
 		}
 		

@@ -29,7 +29,7 @@ public class CommandProfession extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.PROFESSION,
 				SecurityVillagersPermission.ADMIN_PROFESSION,
-				ConfigMain.COMMANDS_CMD_PROFESSION,
+				ConfigMain.COMMANDS_SUB_PROFESSION,
 				false
 		);
 		
@@ -59,12 +59,8 @@ public class CommandProfession extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_PROFESSION
-				.replace("{player}", player.getName())
-				.replace("{value}", commandData.getArgs().length > 1 ? commandData.getArgs()[1] : ""), true);
-		
 		// Command handling
-		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntities().get(player.getUUID());
+		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntityBy(player.getUUID());
 		if (protectedEntity == null) {
 			player.sendMessage(Messages.GENERAL_SELECTION_REQUIRED, true);
 			return;
@@ -89,9 +85,10 @@ public class CommandProfession extends ADPSubCommand {
 			((SecurityVillagersPlugin) plugin).getProfessionCooldown().put(player.getUUID(), unixNow);
 			plugin.getScheduler().scheduleAsyncLater(new ProfessionCooldown((SecurityVillagersPlugin) plugin, player.getUUID()), ConfigMain.PROFESSION_COOLDOWN, TimeUnit.SECONDS);
 			
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_PROFESSION_TASK
-					.replace("{value}", Integer.toString(ConfigMain.PROFESSION_COOLDOWN))
-					.replace("{player}", player.getName()), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_TASK_PROFESSION_START,
+					ConfigMain.PROFESSION_COOLDOWN,
+					player.getName()
+			), true);
 		}
 		
 		// Command starts

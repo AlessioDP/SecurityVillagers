@@ -11,6 +11,7 @@ public enum CommonCommands implements ADPCommand {
 	PROTECT,
 	RELOAD,
 	RENAME,
+	TELEPORT,
 	VERSION;
 	
 	@Override

@@ -17,7 +17,7 @@ public class BukkitSVCommandManager extends SVCommandManager {
 	@Override
 	public void prepareCommands() {
 		commandOrder = null; // Command order disabled
-		commandUtils = new BukkitCommandUtils(plugin, ConfigMain.COMMANDS_SUB_ON, ConfigMain.COMMANDS_SUB_OFF);
+		commandUtils = new BukkitCommandUtils(plugin, ConfigMain.COMMANDS_MISC_ON, ConfigMain.COMMANDS_MISC_OFF);
 	}
 	
 	@Override

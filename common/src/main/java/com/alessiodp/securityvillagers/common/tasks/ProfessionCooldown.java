@@ -16,7 +16,6 @@ public class ProfessionCooldown implements Runnable {
 	public void run() {
 		plugin.getProfessionCooldown().remove(uuid);
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_TASK_PROFESSION_EXPIRE
-				.replace("{uuid}", uuid.toString()), true);
+		plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_TASK_PROFESSION_EXPIRE, uuid.toString()), true);
 	}
 }

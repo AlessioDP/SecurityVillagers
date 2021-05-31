@@ -28,6 +28,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cWrong syntax: Type &7/%syntax%'
     name: 'name'
+    player: 'player'
     profession: 'profession'
 
 
@@ -62,17 +63,18 @@ commands:
     cooldown: "&cYou still have to wait %seconds% seconds"
     not-found: "&cProfession '%profession%' not found!"
     failed: "&cYou cannot change the profession of this mob!"
-    wrong-command: "&cWrong variables: Type &7/sv profession <profession>"
 
   protect:
     protected: "&aThe selected mob is now protected"
     unprotected: "&cThe selected mob is not protected anymore"
-    wrong-command: "&cWrong variables: Type &7/sv protect [on/off]"
 
   rename:
     renamed: "&aThe mob name has been set to %name%"
     removed: "&aRemoved mob name"
-    wrong-command: "&cWrong variables: Type &7/sv rename <name/remove>"
+
+  teleport:
+    teleported: "&aThe mob has been teleported to %player%"
+    player-not-found: "&cPlayer '%player%' not found"
 
   version:
     # [Special tags]
@@ -104,6 +106,7 @@ help:
     protect: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     reload: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     rename: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
+    teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
     help: 'Show help pages'
@@ -112,8 +115,9 @@ help:
     protect: 'Protect/unprotect mob'
     reload: 'Reload SecurityVillagers configuration files'
     rename: 'Change mob name'
+    teleport: 'Teleport mob'
     version: 'Show SecurityVillagers information'
 
 
 dont-edit-this:
-  version: 3
+  version: 4

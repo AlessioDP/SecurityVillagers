@@ -14,37 +14,27 @@ public class SVConstants {
 	
 	
 	// Versions
-	public static final int VERSION_BUKKIT_CONFIG = 3;
-	public static final int VERSION_BUKKIT_MESSAGES = 3;
+	public static final int VERSION_BUKKIT_CONFIG = 4;
+	public static final int VERSION_BUKKIT_MESSAGES = 4;
 	public static final int VERSION_DATABASE_YAML = 1;
 	
 	
 	// Debug messages
-	public static final String DEBUG_CMD_CHANGEAGE = "{player} performed changeage command with '{value}'";
-	public static final String DEBUG_CMD_CHANGEAGE_TASK = "Started ChangeAgeCooldown for {value} by {player}";
-	public static final String DEBUG_CMD_HELP = "{player} performed help command";
-	public static final String DEBUG_CMD_PROFESSION = "{player} performed profession command with '{value}'";
-	public static final String DEBUG_CMD_PROFESSION_TASK = "Started ProfessionCooldown for {value} by {player}";
-	public static final String DEBUG_CMD_PROTECT = "{player} performed protect command with '{value}'";
-	public static final String DEBUG_CMD_RELOAD = "{player} performed reload command";
-	public static final String DEBUG_CMD_RELOAD_CONSOLE = "Console performed reload command";
-	public static final String DEBUG_CMD_RELOADED = "Configuration reloaded by {player}";
-	public static final String DEBUG_CMD_RELOADED_CONSOLE = "Configuration reloaded";
-	public static final String DEBUG_CMD_RENAME = "{player} performed rename command with '{value}'";
-	public static final String DEBUG_CMD_VERSION = "{player} performed version command";
-	public static final String DEBUG_CMD_VERSION_CONSOLE = "Performed version command";
+	public static final String DEBUG_CMD_RELOADED = "%s reloaded the configuration";
 	
-	public static final String DEBUG_DB_UPDATEENTITY = "Update entity request for {mob} [{uuid}]";
+	public static final String DEBUG_DB_UPDATEENTITY = "Update entity request for %s [%s]";
 	public static final String DEBUG_DB_GETALLPROTECTED = "Get all protected entities request";
 	
-	public static final String DEBUG_PROTECTION_IMMORTAL = "Bypass damage due to immortal protection on {entity}";
-	public static final String DEBUG_PROTECTION_HIT_PLAYER = "Prevented damage by player '{player}' hit on {entity}";
-	public static final String DEBUG_PROTECTION_HIT_MOB = "Prevented damage/target by {mob} hit on {entity}";
-	public static final String DEBUG_PROTECTION_PROJECTILE_PLAYER = "Prevented damage by player '{player}' projectile shoot on {entity}";
-	public static final String DEBUG_PROTECTION_PROJECTILE_MOB = "Prevented damage by {mob} projectile shoot on {entity}";
-	public static final String DEBUG_PROTECTION_PROJECTILE_DISPENSER = "Prevented damage by dispenser projectile shoot on {entity}";
-	public static final String DEBUG_DEATH_PROTECTEDENTITY = "The protected entity {mob} [{uuid}] is dead due to {cause}";
+	public static final String DEBUG_PROTECTION_IMMORTAL = "Bypass damage due to immortal protection on %s";
+	public static final String DEBUG_PROTECTION_HIT_PLAYER = "Prevented damage by player '%s' hit on %s";
+	public static final String DEBUG_PROTECTION_HIT_MOB = "Prevented damage/target by mob '%s' hit on %s";
+	public static final String DEBUG_PROTECTION_PROJECTILE_PLAYER = "Prevented damage by player '%s' projectile shoot on %s";
+	public static final String DEBUG_PROTECTION_PROJECTILE_MOB = "Prevented damage by mob '%s' projectile shoot on %s";
+	public static final String DEBUG_PROTECTION_PROJECTILE_DISPENSER = "Prevented damage by dispenser projectile shoot on %s";
+	public static final String DEBUG_DEATH_PROTECTEDENTITY = "The protected entity %s [%s] is dead due to %s";
 	
-	public static final String DEBUG_TASK_CHANGEAGE_EXPIRE = "ChangeAge cooldown expired for {uuid}";
-	public static final String DEBUG_TASK_PROFESSION_EXPIRE = "Profession cooldown expired for {uuid}";
+	public static final String DEBUG_TASK_CHANGEAGE_START = "ChangeAge cooldown of %d started for %s";
+	public static final String DEBUG_TASK_CHANGEAGE_EXPIRE = "ChangeAge cooldown expired for %s";
+	public static final String DEBUG_TASK_PROFESSION_START = "Profession cooldown of %d started for %s";
+	public static final String DEBUG_TASK_PROFESSION_EXPIRE = "Profession cooldown expired for %s";
 }

@@ -5,7 +5,7 @@ website: ${plugin.website}
 version: ${plugin.version}
 main: com.alessiodp.securityvillagers.bukkit.bootstrap.BukkitSecurityVillagersBootstrap
 api-version: 1.13
-softdepend: [Factions, ProtocolLib]
+softdepend: [Factions, GlowAPI, ProtocolLib]
 permissions:
   securityvillagers.user.egg:
     description: Allow use of eggs on mobs
@@ -35,6 +35,8 @@ permissions:
     description: Allow access to /sv reload
   securityvillagers.admin.rename:
     description: Allow access to /sv rename
+  securityvillagers.admin.teleport:
+    description: Allow access to /sv teleport
   securityvillagers.admin.select:
     description: Allow to use an item to select mobs
   securityvillagers.admin.version:
@@ -65,6 +67,7 @@ permissions:
       securityvillagers.admin.protect: true
       securityvillagers.admin.reload: true
       securityvillagers.admin.rename: true
+      securityvillagers.admin.teleport: true
       securityvillagers.admin.select: true
       securityvillagers.admin.version: true
       securityvillagers.admin.warnings: true

@@ -3,7 +3,7 @@
   <parent>
     <artifactId>securityvillagers-bukkit</artifactId>
     <groupId>com.alessiodp.securityvillagers</groupId>
-    <version>2.12.0</version>
+    <version>2.13.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>securityvillagers-bukkit-output</artifactId>
@@ -26,9 +26,19 @@
         <configuration>
           <artifactSet>
             <includes>
-              <include>com.alessiodp.securityvillagers:*</include>
+              <include>com.alessiodp.securityvillagers:securityvillagers-bukkit-common</include>
+              <include>com.alessiodp.securityvillagers:v*</include>
             </includes>
           </artifactSet>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/MANIFEST.MF</exclude>
+                <exclude>META-INF/**</exclude>
+              </excludes>
+            </filter>
+          </filters>
         </configuration>
       </plugin>
     </plugins>
@@ -37,13 +47,13 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
+      <version>1.18.20</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-module-junit4</artifactId>
-      <version>2.0.7</version>
+      <version>2.0.9</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -63,7 +73,7 @@
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-api-mockito2</artifactId>
-      <version>2.0.7</version>
+      <version>2.0.9</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>

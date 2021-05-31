@@ -14,6 +14,7 @@ import com.alessiodp.securityvillagers.common.commands.sub.CommandProfession;
 import com.alessiodp.securityvillagers.common.commands.sub.CommandProtect;
 import com.alessiodp.securityvillagers.common.commands.sub.CommandReload;
 import com.alessiodp.securityvillagers.common.commands.sub.CommandRename;
+import com.alessiodp.securityvillagers.common.commands.sub.CommandTeleport;
 import com.alessiodp.securityvillagers.common.commands.sub.CommandVersion;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
@@ -24,9 +25,10 @@ import java.util.Map;
 public class CommandSV extends ADPMainCommand {
 	
 	public CommandSV(SecurityVillagersPlugin plugin) {
-		super(plugin, CommonCommands.SV, ConfigMain.COMMANDS_CMD_SV, true);
+		super(plugin, CommonCommands.SV, ConfigMain.COMMANDS_MAIN_SV_COMMAND, true);
 		
-		description = ConfigMain.COMMANDS_DESCRIPTION_SV;
+		description = ConfigMain.COMMANDS_MAIN_SV_DESCRIPTION;
+		aliases = ConfigMain.COMMANDS_MAIN_SV_ALIASES;
 		subCommands = new HashMap<>();
 		subCommandsByEnum = new HashMap<>();
 		tabSupport = ConfigMain.COMMANDS_TABSUPPORT;
@@ -46,6 +48,9 @@ public class CommandSV extends ADPMainCommand {
 		
 		if (ConfigMain.RENAME_ENABLE)
 			register(new CommandRename(plugin, this));
+		
+		if (ConfigMain.TELEPORT_ENABLE)
+			register(new CommandTeleport(plugin, this));
 	}
 	
 	@Override
@@ -54,7 +59,7 @@ public class CommandSV extends ADPMainCommand {
 		if (sender.isPlayer()) {
 			if (args.length == 0) {
 				// Set /sv to /sv help
-				subCommand = CommonUtils.toLowerCase(ConfigMain.COMMANDS_CMD_HELP);
+				subCommand = CommonUtils.toLowerCase(ConfigMain.COMMANDS_SUB_HELP);
 			} else {
 				subCommand = CommonUtils.toLowerCase(args[0]);
 			}

@@ -2,6 +2,7 @@ package com.alessiodp.securityvillagers.bukkit;
 
 import com.alessiodp.core.bukkit.addons.internal.json.BukkitJsonHandler;
 import com.alessiodp.core.bukkit.addons.internal.json.SpigotJsonHandler;
+import com.alessiodp.core.bukkit.addons.internal.title.BukkitTitleHandler;
 import com.alessiodp.core.bukkit.scheduling.ADPBukkitScheduler;
 import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
@@ -12,6 +13,7 @@ import com.alessiodp.securityvillagers.bukkit.commands.BukkitSVCommandManager;
 import com.alessiodp.securityvillagers.bukkit.configuration.BukkitSVConfigurationManager;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitDamageListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitDeathListener;
+import com.alessiodp.securityvillagers.bukkit.listeners.BukkitFarmListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitFightListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitInteractListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitJoinLeaveListener;
@@ -70,11 +72,17 @@ public class BukkitSecurityVillagersPlugin extends SecurityVillagersPlugin {
 	}
 	
 	@Override
+	protected void initializeTitleHandler() {
+		titleHandler = new BukkitTitleHandler();
+	}
+	
+	@Override
 	protected void registerListeners() {
 		getLoggerManager().logDebug(Constants.DEBUG_PLUGIN_REGISTERING, true);
 		PluginManager pm = ((Plugin) getBootstrap()).getServer().getPluginManager();
 		pm.registerEvents(new BukkitDamageListener(this), ((Plugin) getBootstrap()));
 		pm.registerEvents(new BukkitDeathListener(this), ((Plugin) getBootstrap()));
+		pm.registerEvents(new BukkitFarmListener(this), ((Plugin) getBootstrap()));
 		pm.registerEvents(new BukkitFightListener(this), ((Plugin) getBootstrap()));
 		pm.registerEvents(new BukkitInteractListener(this), ((Plugin) getBootstrap()));
 		pm.registerEvents(new BukkitJoinLeaveListener(this), ((Plugin) getBootstrap()));

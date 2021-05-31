@@ -13,15 +13,18 @@ public abstract class DeathListener {
 	protected final SecurityVillagersPlugin plugin;
 	
 	protected void onDeath(ProtectedEntity protectedEntity, String damageCause) {
+		// Unselect the entity
+		plugin.getVillagerManager().unselectEntity(protectedEntity);
+		
 		if (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.CUSTOM) {
 			// Remove protected entity
 			protectedEntity.setProtectionEnabled(false);
 			protectedEntity.updateProtectedEntity();
 			
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_DEATH_PROTECTEDENTITY
-					.replace("{mob}", protectedEntity.getType().name())
-					.replace("{uuid}", protectedEntity.getUuid().toString())
-					.replace("{cause}", damageCause), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_DEATH_PROTECTEDENTITY,
+					protectedEntity.getType().name(),
+					protectedEntity.getUuid().toString(),
+					damageCause), true);
 		}
 	}
 }

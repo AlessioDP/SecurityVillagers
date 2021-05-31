@@ -9,7 +9,6 @@ import com.alessiodp.core.common.utils.Color;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
-import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 
@@ -21,7 +20,7 @@ public class CommandVersion extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.VERSION,
 				SecurityVillagersPermission.ADMIN_VERSION,
-				ConfigMain.COMMANDS_CMD_VERSION,
+				ConfigMain.COMMANDS_SUB_VERSION,
 				true
 		);
 		
@@ -46,19 +45,13 @@ public class CommandVersion extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		if (player.isPlayer())
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_VERSION
-					.replace("{player}", player.getName()), true);
-		else
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_VERSION_CONSOLE, true);
-		
 		// Command starts
 		String version = plugin.getVersion();
 		String newVersion = plugin.getAdpUpdater().getFoundVersion().isEmpty() ? version : plugin.getAdpUpdater().getFoundVersion();
 		String message = (version.equals(newVersion) ? Messages.CMD_VERSION_UPDATED : Messages.CMD_VERSION_OUTDATED)
 				.replace("%version%", version)
 				.replace("%newversion%", newVersion)
-				.replace("%platform%", plugin.getPlatform());
+				.replace("%platform%", plugin.getPlatform().getName());
 		
 		if (player.isPlayer()) {
 			player.sendMessage(message, true);

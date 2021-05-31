@@ -17,7 +17,8 @@ public abstract class SelectListener {
 		if (ConfigMain.SELECTION_ITEM.equals(item)
 				&& user.hasPermission(SecurityVillagersPermission.ADMIN_SELECT.toString())) {
 			// Select villager
-			plugin.getVillagerManager().getSelectedEntities().put(user.getUUID(), protectedEntity);
+			plugin.getVillagerManager().unselectEntityBySelector(user.getUUID());
+			plugin.getVillagerManager().selectEntity(user.getUUID(), protectedEntity);
 			
 			user.sendMessage(Messages.GENERAL_SELECTION_SELECTED, true);
 			return true;

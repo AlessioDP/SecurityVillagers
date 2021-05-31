@@ -21,7 +21,7 @@ public class CommandReload extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.RELOAD,
 				SecurityVillagersPermission.ADMIN_RELOAD,
-				ConfigMain.COMMANDS_CMD_RELOAD,
+				ConfigMain.COMMANDS_SUB_RELOAD,
 				true
 		);
 		
@@ -45,21 +45,14 @@ public class CommandReload extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		if (player.isPlayer())
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_RELOAD
-					.replace("{player}", player.getName()), true);
-		else
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_RELOAD_CONSOLE, true);
-		
 		plugin.reloadConfiguration();
+		
 		
 		if (player.isPlayer()) {
 			player.sendMessage(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD, true);
-			
-			plugin.getLoggerManager().log(SVConstants.DEBUG_CMD_RELOADED
-					.replace("{player}", player.getName()), true);
-		} else {
-			plugin.getLoggerManager().log(SVConstants.DEBUG_CMD_RELOADED_CONSOLE, true);
 		}
+		
+		plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_CMD_RELOADED,
+				player.getName()), true);
 	}
 }

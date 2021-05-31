@@ -10,12 +10,11 @@ import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
-import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class CommandHelp extends ADPSubCommand {
 	
@@ -25,7 +24,7 @@ public class CommandHelp extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.HELP,
 				SecurityVillagersPermission.ADMIN_HELP,
-				ConfigMain.COMMANDS_CMD_HELP,
+				ConfigMain.COMMANDS_SUB_HELP,
 				false
 		);
 		
@@ -51,13 +50,10 @@ public class CommandHelp extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_HELP
-				.replace("{player}", player.getName()), true);
-		
 		// Command starts
 		player.sendMessage(Messages.HELP_HEADER, true);
 		
-		List<ADPCommand> allowedCommands = plugin.getPlayerUtils().getAllowedCommands(player);
+		Set<ADPCommand> allowedCommands = plugin.getPlayerUtils().getAllowedCommands(player);
 		for(Map.Entry<ADPCommand, ADPExecutableCommand> e : plugin.getCommandManager().getOrderedCommands().entrySet()) {
 			if (allowedCommands.contains(e.getKey()) && e.getValue().isListedInHelp()) {
 				player.sendMessage(e.getValue().getHelp()

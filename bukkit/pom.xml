@@ -7,7 +7,7 @@
 	<parent>
 		<artifactId>securityvillagers</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.12.0</version>
+		<version>2.13.0</version>
 	</parent>
 	
 	<artifactId>securityvillagers-bukkit</artifactId>
@@ -26,6 +26,8 @@
 		<module>v1_14_R1</module>
 		<module>v1_15_R1</module>
 		<module>v1_16_R1</module>
+		<module>v1_16_R2</module>
+		<module>v1_16_R3</module>
 		<module>output</module>
 	</modules>
 	
@@ -57,6 +59,14 @@
 							<include>com.alessiodp.core:core-bukkit</include>
 						</includes>
 					</artifactSet>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/MANIFEST.MF</exclude>
+							</excludes>
+						</filter>
+					</filters>
 				</configuration>
 				<executions>
 					<execution>

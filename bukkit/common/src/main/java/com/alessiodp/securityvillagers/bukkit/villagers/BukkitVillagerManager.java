@@ -1,6 +1,7 @@
 package com.alessiodp.securityvillagers.bukkit.villagers;
 
 import com.alessiodp.securityvillagers.bukkit.addons.external.FactionsHandler;
+import com.alessiodp.securityvillagers.bukkit.addons.external.GlowHandler;
 import com.alessiodp.securityvillagers.bukkit.villagers.objects.BukkitProtectedEntity;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
@@ -27,10 +28,33 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.projectiles.BlockProjectileSource;
 import org.bukkit.projectiles.ProjectileSource;
 
+import java.util.UUID;
+
 public class BukkitVillagerManager extends VillagerManager {
 	
 	public BukkitVillagerManager(@NonNull SecurityVillagersPlugin plugin) {
 		super(plugin);
+	}
+	
+	@Override
+	public void selectEntity(UUID selector, ProtectedEntity entity) {
+		super.selectEntity(selector, entity);
+		GlowHandler.glowEntity(entity, selector);
+	}
+	
+	@Override
+	public void unselectEntity(ProtectedEntity entity) {
+		getSelectedEntities().forEach((s, e) -> {
+			if (e.getUuid().equals(entity.getUuid()))
+				GlowHandler.unglowEntity(e, s);
+		});
+		super.unselectEntity(entity);
+	}
+	
+	@Override
+	public void unselectEntityBySelector(UUID selector) {
+		GlowHandler.unglowEntity(getSelectedEntities().get(selector), selector);
+		super.unselectEntityBySelector(selector);
 	}
 	
 	@Override
@@ -101,8 +125,21 @@ public class BukkitVillagerManager extends VillagerManager {
 		
 		// Check if immortal
 		if (ConfigMain.GENERAL_DAMAGE_IMMORTAL) {
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_IMMORTAL
-					.replace("{entity}", protectedEntity.getType().name()), true);
+			Player playerAttacker;
+			if (attacker instanceof Projectile) {
+				playerAttacker = ((Projectile) attacker).getShooter() instanceof Player ? (Player) ((Projectile) attacker).getShooter() : null;
+			} else {
+				playerAttacker = attacker instanceof Player ? (Player) attacker : null;
+			}
+			
+			if (playerAttacker != null && playerAttacker.hasPermission(
+					(attacker instanceof Projectile ? SecurityVillagersPermission.USER_SHOOT.toString() : SecurityVillagersPermission.USER_HIT).toString())
+			) {
+				return AttackResult.SUCCESS;
+			}
+			
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_IMMORTAL,
+					protectedEntity.getType().name()), true);
 			
 			return attacker instanceof Projectile ? AttackResult.SHOOT : AttackResult.HIT;
 		}
@@ -110,9 +147,9 @@ public class BukkitVillagerManager extends VillagerManager {
 		// Player attack
 		if (attacker instanceof Player) {
 			if (!canBeAttackedFromPlayer((Player) attacker, true)) {
-				plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_HIT_PLAYER
-						.replace("{entity}", protectedEntity.getType().name())
-						.replace("{player}", ((Player) attacker).getName()), true);
+				plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_HIT_PLAYER,
+						((Player) attacker).getName(),
+						protectedEntity.getType().name()), true);
 				
 				return AttackResult.HIT;
 			}
@@ -125,22 +162,22 @@ public class BukkitVillagerManager extends VillagerManager {
 			if (shooter != null) {
 				if (shooter instanceof Player) {
 					if (!canBeAttackedFromPlayer((Player) shooter, false)) {
-						plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_PROJECTILE_PLAYER
-								.replace("{entity}", protectedEntity.getType().name())
-								.replace("{player}", ((Player) shooter).getName()), true);
+						plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_PROJECTILE_PLAYER,
+								((Player) shooter).getName(),
+								protectedEntity.getType().name()), true);
 						
 						return AttackResult.SHOOT;
 					}
 				} else if (shooter instanceof Entity && !canBeAttackedFromMob((Entity) shooter)) {
-					plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_PROJECTILE_MOB
-							.replace("{entity}", protectedEntity.getType().name())
-							.replace("{mob}", ((Entity) shooter).getName()), true);
+					plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_PROJECTILE_MOB,
+							((Entity) shooter).getName(),
+							protectedEntity.getType().name()), true);
 					
 					return AttackResult.SHOOT;
 				} else if (shooter instanceof BlockProjectileSource) {
 					if (((BlockProjectileSource) shooter).getBlock().getType() == Material.DISPENSER && ConfigMain.GENERAL_DAMAGE_ARROW_DISPENSER) {
-						plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_PROJECTILE_DISPENSER
-								.replace("{entity}", protectedEntity.getType().name()), true);
+						plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_PROJECTILE_DISPENSER,
+								protectedEntity.getType().name()), true);
 						return AttackResult.SHOOT;
 					}
 				}
@@ -149,9 +186,9 @@ public class BukkitVillagerManager extends VillagerManager {
 		
 		// Attack from mob
 		if (!canBeAttackedFromMob((Entity) attacker)) {
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_HIT_MOB
-					.replace("{entity}", protectedEntity.getType().name())
-					.replace("{mob}", ((Entity) attacker).getName()), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_HIT_MOB,
+					((Entity) attacker).getName(),
+					protectedEntity.getType().name()), true);
 			
 			return AttackResult.HIT;
 		}
@@ -165,8 +202,8 @@ public class BukkitVillagerManager extends VillagerManager {
 		
 		// Check if immortal
 		if (ConfigMain.GENERAL_DAMAGE_IMMORTAL) {
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_PROTECTION_IMMORTAL
-					.replace("{entity}", protectedEntity.getType().name()), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_PROTECTION_IMMORTAL,
+					protectedEntity.getType().name()), true);
 			
 			return false;
 		}

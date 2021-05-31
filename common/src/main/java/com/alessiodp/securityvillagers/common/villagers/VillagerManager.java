@@ -29,6 +29,22 @@ public abstract class VillagerManager {
 			protectedEntities = plugin.getDatabaseManager().getAllProtectedEntities();
 	}
 	
+	public void selectEntity(UUID selector, ProtectedEntity entity) {
+		selectedEntities.put(selector, entity);
+	}
+	
+	public void unselectEntity(ProtectedEntity entity) {
+		selectedEntities.values().removeIf(pe -> pe.getUuid().equals(entity.getUuid()));
+	}
+	
+	public void unselectEntityBySelector(UUID selector) {
+		selectedEntities.remove(selector);
+	}
+	
+	public ProtectedEntity getSelectedEntityBy(UUID selector) {
+		return selectedEntities.get(selector);
+	}
+	
 	public abstract ProtectedEntity initializeProtectedEntity(Object protectedEntity);
 	
 	public abstract ProtectedEntityType getEntityType(Object entity);

@@ -93,6 +93,14 @@ general:
     prevent-worlds:
       - '*'
 
+  # [Farming settings]
+  # Farmer villagers automatically farm/harvest/plant seeds.
+  farming:
+    disable-planting: false
+    disable-harvesting: false
+    prevent-worlds:
+      - '*'
+
   # [Factions settings]
   # Enable protection only for factions
   # Supported plugins: Factions and SavageFactions
@@ -244,6 +252,11 @@ selection:
   # Used to perform some commands.
   item: BLAZE_ROD
   clear-selection-on-quit: true
+  # Add support for GlowAPI plugin
+  # Selected entity will glow!
+  glowapi:
+    enable: false
+    color: YELLOW
 
 
 # / =============================== \
@@ -295,26 +308,43 @@ rename:
 
 
 # / =============================== \
+# |        TELEPORT SETTINGS        |
+# \ =============================== /
+teleport:
+  # Enable a teleport command to move the villager to any player
+  # with the command /sv teleport
+  # It requires selection system enabled
+  enable: true
+
+
+# / =============================== \
 # |        COMMANDS SETTINGS        |
 # \ =============================== /
 commands:
   # Enable tab support (/sv <tab> to see every allowed command)
   tab-support: true
-  sv-description: "SecurityVillagers help page"
   main-commands:
+    sv:
+      command: 'sv'
+      description: 'SecurityVillagers help page'
+      aliases:
+        - securityvillagers
+  sub-commands:
     help: 'help'
-    sv: 'sv'
     changeage: 'changeage'
     profession: 'profession'
     protect: 'protect'
     reload: 'reload'
     rename: 'rename'
+    teleport: 'teleport'
     version: 'version'
-  sub-commands:
+  misc-commands:
+    adult: 'adult'
+    baby: 'baby'
     word-on: 'on'
     word-off: 'off'
     remove: 'remove'
 
 
 dont-edit-this:
-  version: 3
+  version: 4

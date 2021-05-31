@@ -8,7 +8,6 @@ import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
-import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
@@ -22,14 +21,14 @@ public class CommandRename extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.RENAME,
 				SecurityVillagersPermission.ADMIN_RENAME,
-				ConfigMain.COMMANDS_CMD_RENAME,
+				ConfigMain.COMMANDS_SUB_RENAME,
 				false
 		);
 		
 		syntax = String.format("%s <%s/%s>",
 				baseSyntax(),
 				Messages.SECURITYVILLAGERS_SYNTAX_NAME,
-				ConfigMain.COMMANDS_SUB_REMOVE
+				ConfigMain.COMMANDS_MISC_REMOVE
 		);
 		
 		description = Messages.HELP_CMD_DESCRIPTIONS_RENAME;
@@ -52,12 +51,8 @@ public class CommandRename extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_RENAME
-				.replace("{player}", player.getName())
-				.replace("{value}", commandData.getArgs().length > 1 ? commandData.getArgs()[1] : ""), true);
-		
 		// Command handling
-		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntities().get(player.getUUID());
+		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntityBy(player.getUUID());
 		if (protectedEntity == null) {
 			player.sendMessage(Messages.GENERAL_SELECTION_REQUIRED, true);
 			return;
@@ -70,7 +65,7 @@ public class CommandRename extends ADPSubCommand {
 		}
 		
 		String name = "";
-		if (!commandData.getArgs()[1].equalsIgnoreCase(ConfigMain.COMMANDS_SUB_REMOVE)) {
+		if (!commandData.getArgs()[1].equalsIgnoreCase(ConfigMain.COMMANDS_MISC_REMOVE)) {
 			StringBuilder sb = new StringBuilder();
 			for (int word = 1; word < commandData.getArgs().length; word++) {
 				if (sb.length() > 0)

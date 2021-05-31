@@ -16,6 +16,7 @@ import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import lombok.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -27,11 +28,15 @@ public class CommandChangeAge extends ADPSubCommand {
 				mainCommand,
 				CommonCommands.CHANGEAGE,
 				SecurityVillagersPermission.ADMIN_CHANGEAGE,
-				ConfigMain.COMMANDS_CMD_CHANGEAGE,
+				ConfigMain.COMMANDS_SUB_CHANGEAGE,
 				false
 		);
 		
-		syntax = baseSyntax();
+		syntax = String.format("%s [%s/%s]",
+				baseSyntax(),
+				ConfigMain.COMMANDS_MISC_ADULT,
+				ConfigMain.COMMANDS_MISC_BABY
+		);
 		
 		description = Messages.HELP_CMD_DESCRIPTIONS_CHANGEAGE;
 		help = Messages.HELP_CMD_CHANGEAGE;
@@ -54,12 +59,8 @@ public class CommandChangeAge extends ADPSubCommand {
 	public void onCommand(CommandData commandData) {
 		User player = commandData.getSender();
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_CHANGEAGE
-				.replace("{player}", player.getName())
-				.replace("{value}", commandData.getArgs().length > 1 ? commandData.getArgs()[1] : ""), true);
-		
 		// Command handling
-		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntities().get(player.getUUID());
+		ProtectedEntity protectedEntity = ((SecurityVillagersPlugin) plugin).getVillagerManager().getSelectedEntityBy(player.getUUID());
 		if (protectedEntity == null) {
 			player.sendMessage(Messages.GENERAL_SELECTION_REQUIRED, true);
 			return;
@@ -84,13 +85,23 @@ public class CommandChangeAge extends ADPSubCommand {
 			((SecurityVillagersPlugin) plugin).getChangeAgeCooldown().put(player.getUUID(), unixNow);
 			plugin.getScheduler().scheduleAsyncLater(new ChangeAgeCooldown((SecurityVillagersPlugin) plugin, player.getUUID()), ConfigMain.CHANGEAGE_COOLDOWN, TimeUnit.SECONDS);
 			
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_CMD_CHANGEAGE_TASK
-					.replace("{value}", Integer.toString(ConfigMain.CHANGEAGE_COOLDOWN))
-					.replace("{player}", player.getName()), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_TASK_CHANGEAGE_START,
+					ConfigMain.CHANGEAGE_COOLDOWN,
+					player.getName()
+			), true);
+		}
+		
+		boolean toBaby = protectedEntity.isAdult();
+		
+		if (commandData.getArgs().length > 1) {
+			if (commandData.getArgs()[1].equalsIgnoreCase(ConfigMain.COMMANDS_MISC_BABY))
+				toBaby = true;
+			if (commandData.getArgs()[1].equalsIgnoreCase(ConfigMain.COMMANDS_MISC_ADULT))
+				toBaby = false;
 		}
 		
 		// Command starts
-		if (protectedEntity.isAdult()) {
+		if (toBaby) {
 			protectedEntity.setToBaby();
 			player.sendMessage(Messages.CMD_CHANGEAGE_BABY, true);
 		} else {
@@ -101,6 +112,11 @@ public class CommandChangeAge extends ADPSubCommand {
 	
 	@Override
 	public List<String> onTabComplete(@NonNull User sender, String[] args) {
-		return null;
+		ArrayList<String> ret = new ArrayList<>();
+		if (args.length == 2) {
+			ret.add(ConfigMain.COMMANDS_MISC_ADULT);
+			ret.add(ConfigMain.COMMANDS_MISC_BABY);
+		}
+		return ret;
 	}
 }

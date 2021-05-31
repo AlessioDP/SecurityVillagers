@@ -20,6 +20,7 @@ public enum SecurityVillagersPermission implements ADPPermission {
 	ADMIN_RELOAD			("securityvillagers.admin.reload"),
 	ADMIN_RENAME			("securityvillagers.admin.rename"),
 	ADMIN_SELECT			("securityvillagers.admin.select"),
+	ADMIN_TELEPORT			("securityvillagers.admin.teleport"),
 	ADMIN_VERSION			("securityvillagers.admin.version");
 	
 	private final String perm;

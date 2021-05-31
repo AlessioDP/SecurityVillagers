@@ -36,4 +36,11 @@ public class DataNMS implements IDataNMS {
 	public Material getVillagerEgg() {
 		return Material.MONSTER_EGG;
 	}
+	
+	@Override
+	public boolean isHarvestable(Material material) {
+		return material == Material.WHEAT
+				|| material == Material.POTATO
+				|| material == Material.CARROT;
+	}
 }

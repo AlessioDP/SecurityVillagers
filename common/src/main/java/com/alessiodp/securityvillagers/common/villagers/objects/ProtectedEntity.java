@@ -1,5 +1,6 @@
 package com.alessiodp.securityvillagers.common.villagers.objects;
 
+import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.utils.WorldUtils;
@@ -151,6 +152,8 @@ public abstract class ProtectedEntity {
 	
 	public abstract String getWorld();
 	public abstract Object getEntity();
+	
+	public abstract void teleportTo(User user);
 	
 	// Only Villager/Wanderer trader
 	public abstract boolean isAgeable();

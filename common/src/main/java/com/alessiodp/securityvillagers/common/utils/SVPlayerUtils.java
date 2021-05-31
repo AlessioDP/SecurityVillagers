@@ -9,13 +9,13 @@ import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.configuration.data.Messages;
 import lombok.NonNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SVPlayerUtils implements IPlayerUtils {
 	@Override
-	public List<ADPCommand> getAllowedCommands(@NonNull User user) {
-		List<ADPCommand> ret = new ArrayList<>();
+	public Set<ADPCommand> getAllowedCommands(@NonNull User user) {
+		Set<ADPCommand> ret = new HashSet<>();
 		if (user.isPlayer()) {
 			if (user.hasPermission(SecurityVillagersPermission.ADMIN_HELP.toString()))
 				ret.add(CommonCommands.HELP);
@@ -36,6 +36,9 @@ public class SVPlayerUtils implements IPlayerUtils {
 			if (ConfigMain.RENAME_ENABLE
 					&& user.hasPermission(SecurityVillagersPermission.ADMIN_RENAME.toString()))
 				ret.add(CommonCommands.RENAME);
+			if (ConfigMain.TELEPORT_ENABLE
+					&& user.hasPermission(SecurityVillagersPermission.ADMIN_TELEPORT.toString()))
+				ret.add(CommonCommands.TELEPORT);
 		}
 		return ret;
 	}

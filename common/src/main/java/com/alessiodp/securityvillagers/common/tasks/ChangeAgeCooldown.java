@@ -16,7 +16,6 @@ public class ChangeAgeCooldown implements Runnable {
 	public void run() {
 		plugin.getChangeAgeCooldown().remove(uuid);
 		
-		plugin.getLoggerManager().logDebug(SVConstants.DEBUG_TASK_CHANGEAGE_EXPIRE
-				.replace("{uuid}", uuid.toString()), true);
+		plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_TASK_CHANGEAGE_EXPIRE, uuid.toString()), true);
 	}
 }

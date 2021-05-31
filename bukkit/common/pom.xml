@@ -5,11 +5,60 @@
 	<parent>
 		<artifactId>securityvillagers-bukkit</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.12.0</version>
+		<version>2.13.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	
 	<artifactId>securityvillagers-bukkit-common</artifactId>
+	
+	<build>
+		<defaultGoal>clean package install</defaultGoal>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources/</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven.shade.version}</version>
+				<configuration>
+					<artifactSet>
+						<includes>
+							<include>com.alessiodp.securityvillagers:securityvillagers-bukkit-common</include>
+							<include>com.alessiodp.core:core-bukkit</include>
+						</includes>
+					</artifactSet>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/MANIFEST.MF</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	
 	<repositories>
 		<repository>
@@ -17,6 +66,17 @@
 			<id>dmulloy2-repo</id>
 			<url>https://repo.dmulloy2.net/nexus/repository/public/</url>
 		</repository>
+		<repository>
+			<!-- FactionsX repo -->
+			<id>savagelabs-repo</id>
+			<url>https://nexus.savagelabs.net/repository/maven-releases/</url>
+		</repository>
+		<repository>
+			<!-- GlowAPI repo -->
+			<id>inventive-repo</id>
+			<url>https://repo.inventivetalent.org/content/groups/public/</url>
+		</repository>
+		
 	</repositories>
 	
 	<dependencies>
@@ -25,6 +85,12 @@
 			<artifactId>core-bukkit</artifactId>
 			<version>${libs.adpcore}</version>
 			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alessiodp.core</groupId>
+					<artifactId>core-common</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.alessiodp.securityvillagers</groupId>
@@ -53,11 +119,22 @@
 			<systemPath>${project.basedir}/libs/MassiveCore-${libs.factionsMassiveCraftCore}.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>com.massivecraft</groupId>
-			<artifactId>SavageFactions</artifactId>
-			<version>${libs.savageFactions}</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/libs/SavageFactions-${libs.savageFactions}.jar</systemPath>
+			<groupId>net.prosavage.factionsx</groupId>
+			<artifactId>FactionsX</artifactId>
+			<version>${libs.factionsX}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.inventivetalent</groupId>
+			<artifactId>glowapi</artifactId>
+			<version>${libs.glowapi}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.inventivetalent.packetlistener</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>

@@ -23,6 +23,8 @@ public abstract class Messages extends ConfigurationFile {
 	public static String SECURITYVILLAGERS_SYNTAX_WRONGMESSAGE;
 	@ConfigOption(path = "securityvillagers.syntax.name")
 	public static String SECURITYVILLAGERS_SYNTAX_NAME;
+	@ConfigOption(path = "securityvillagers.syntax.player")
+	public static String SECURITYVILLAGERS_SYNTAX_PLAYER;
 	@ConfigOption(path = "securityvillagers.syntax.profession")
 	public static String SECURITYVILLAGERS_SYNTAX_PROFESSION;
 	
@@ -73,6 +75,11 @@ public abstract class Messages extends ConfigurationFile {
 	@ConfigOption(path = "commands.rename.removed")
 	public static String CMD_RENAME_REMOVED;
 	
+	@ConfigOption(path = "commands.teleport.teleported")
+	public static String CMD_TELEPORT_TELEPORTED;
+	@ConfigOption(path = "commands.teleport.player-not-found")
+	public static String CMD_TELEPORT_PLAYER_NOT_FOUND;
+	
 	@ConfigOption(path = "commands.version.updated")
 	public static String CMD_VERSION_UPDATED;
 	@ConfigOption(path = "commands.version.outdated")
@@ -103,6 +110,8 @@ public abstract class Messages extends ConfigurationFile {
 	public static String HELP_CMD_RELOAD;
 	@ConfigOption(path = "help.commands.rename")
 	public static String HELP_CMD_RENAME;
+	@ConfigOption(path = "help.commands.teleport")
+	public static String HELP_CMD_TELEPORT;
 	@ConfigOption(path = "help.commands.version")
 	public static String HELP_CMD_VERSION;
 	
@@ -118,6 +127,8 @@ public abstract class Messages extends ConfigurationFile {
 	public static String HELP_CMD_DESCRIPTIONS_RELOAD;
 	@ConfigOption(path = "help.command-descriptions.rename")
 	public static String HELP_CMD_DESCRIPTIONS_RENAME;
+	@ConfigOption(path = "help.command-descriptions.teleport")
+	public static String HELP_CMD_DESCRIPTIONS_TELEPORT;
 	@ConfigOption(path = "help.command-descriptions.version")
 	public static String HELP_CMD_DESCRIPTIONS_VERSION;
 	

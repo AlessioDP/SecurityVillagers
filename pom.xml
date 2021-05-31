@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.12.0</version>
+	<version>2.13.0</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>
@@ -53,14 +53,15 @@
 		<maven.javadoc-plugin.version>3.2.0</maven.javadoc-plugin.version>
 		<maven.shade.version>3.2.4</maven.shade.version>
 		
-		<dev.powermock>2.0.7</dev.powermock>
-		<dev.lombok>1.18.12</dev.lombok>
+		<dev.powermock>2.0.9</dev.powermock>
+		<dev.lombok>1.18.20</dev.lombok>
 		
-		<libs.adpcore>1.4.8</libs.adpcore>
+		<libs.adpcore>1.5.8</libs.adpcore>
 		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
-		<libs.savageFactions>2.5-RC-9</libs.savageFactions>
-		<libs.protocolLib>4.5.1</libs.protocolLib>
+		<libs.factionsX>1.0.8-RC</libs.factionsX>
+		<libs.glowapi>1.4.14-SNAPSHOT</libs.glowapi>
+		<libs.protocolLib>4.6.0</libs.protocolLib>
 	</properties>
 	
 	<build>

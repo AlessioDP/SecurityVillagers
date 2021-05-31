@@ -35,9 +35,7 @@ public class SVDatabaseManager extends DatabaseManager {
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {
 		plugin.getScheduler().runAsync(() -> {
-			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_DB_UPDATEENTITY
-					.replace("{mob}", protectedEntity.getType().name())
-					.replace("{uuid}", protectedEntity.getUuid().toString()), true);
+			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_DB_UPDATEENTITY, protectedEntity.getType().name(), protectedEntity.getUuid().toString()), true);
 			
 			((SVFileDispatcher) database).updateProtectedEntity(protectedEntity);
 		});

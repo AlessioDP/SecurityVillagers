@@ -1,13 +1,16 @@
 package com.alessiodp.securityvillagers.bukkit.villagers.objects;
 
+import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntityType;
 import com.alessiodp.securityvillagers.common.villagers.objects.VillagerProfession;
 import lombok.Getter;
 import lombok.NonNull;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 
 import java.util.UUID;
@@ -33,6 +36,16 @@ public class BukkitProtectedEntity extends ProtectedEntity {
 	@Override
 	public String getWorld() {
 		return entity.getWorld().getName();
+	}
+	
+	@Override
+	public void teleportTo(User user) {
+		if (user != null) {
+			Player player = Bukkit.getPlayer(user.getUUID());
+			if (player != null) {
+				entity.teleport(player);
+			}
+		}
 	}
 	
 	@Override

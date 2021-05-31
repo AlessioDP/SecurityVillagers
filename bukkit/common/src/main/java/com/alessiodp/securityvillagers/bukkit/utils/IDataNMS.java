@@ -18,4 +18,11 @@ public interface IDataNMS {
 	default Material getVillagerEgg() {
 		return Material.VILLAGER_SPAWN_EGG;
 	}
+	
+	default boolean isHarvestable(Material material) {
+		return material == Material.WHEAT
+				|| material == Material.POTATOES
+				|| material == Material.CARROTS
+				|| material == Material.BEETROOTS;
+	}
 }

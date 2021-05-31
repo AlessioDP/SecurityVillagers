@@ -2,8 +2,8 @@ package com.alessiodp.securityvillagers.bukkit.addons.external;
 
 import com.alessiodp.core.common.configuration.Constants;
 import com.alessiodp.securityvillagers.bukkit.addons.external.factions.FactionMassiveCraftHandler;
+import com.alessiodp.securityvillagers.bukkit.addons.external.factions.FactionsXHandler;
 import com.alessiodp.securityvillagers.bukkit.addons.external.factions.IFaction;
-import com.alessiodp.securityvillagers.bukkit.addons.external.factions.SavageFactionsHandler;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import lombok.NonNull;
@@ -28,7 +28,7 @@ public class FactionsHandler {
 		if (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.FACTIONS) {
 			IFaction[] list = {
 					new FactionMassiveCraftHandler(),
-					new SavageFactionsHandler()
+					new FactionsXHandler()
 			};
 			
 			for (IFaction faction : list) {
@@ -41,11 +41,9 @@ public class FactionsHandler {
 			if (handler != null) {
 				active = true;
 				
-				plugin.getLoggerManager().log(Constants.DEBUG_ADDON_HOOKED
-						.replace("{addon}", handler.getName()), true);
+				plugin.getLoggerManager().log(String.format(Constants.DEBUG_ADDON_HOOKED, handler.getName()), true);
 			} else {
-				plugin.getLoggerManager().log(Constants.DEBUG_ADDON_FAILED
-						.replace("{addon}", ADDON_NAME), true);
+				plugin.getLoggerManager().log(String.format(Constants.DEBUG_ADDON_FAILED, ADDON_NAME), true);
 			}
 		}
 	}
