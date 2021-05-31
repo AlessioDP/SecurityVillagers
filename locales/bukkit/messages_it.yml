@@ -61,8 +61,8 @@ commands:
     renamed: "&aIl mob è stato rinominato in %name%"
     removed: "&aRimosso nome dal mob"
   teleport:
-    teleported: "&aThe mob has been teleported to %player%"
-    player-not-found: "&cPlayer '%player%' not found"
+    teleported: "&aIl mob è stato teletrasportato da %player%"
+    player-not-found: "&cIl player '%player%' non è stato trovato"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -100,7 +100,7 @@ help:
     protect: 'Proteggi/sproteggi mob'
     reload: 'Ricarica i file di configurazione di SecurityVillagers'
     rename: 'Cambia nome del mob'
-    teleport: 'Teleport mob'
+    teleport: 'Teletrasporta mob'
     version: 'Mostra le informazioni su SecurityVillagers'
 dont-edit-this:
   version: 4
