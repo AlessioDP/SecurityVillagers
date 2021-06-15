@@ -56,7 +56,7 @@
 		<dev.powermock>2.0.9</dev.powermock>
 		<dev.lombok>1.18.20</dev.lombok>
 		
-		<libs.adpcore>1.5.8</libs.adpcore>
+		<libs.adpcore>1.6.0</libs.adpcore>
 		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
 		<libs.factionsX>1.0.8-RC</libs.factionsX>
