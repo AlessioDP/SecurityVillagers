@@ -25,7 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cNiepoprawna składnia: Wpisz &7/%syntax%'
     name: 'nazwa'
-    player: 'player'
+    player: 'gracz'
     profession: 'profesja'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -61,8 +61,8 @@ commands:
     renamed: "&aNazwa moba została ustawiona na %name%"
     removed: "&aUsunięto nazwę moba"
   teleport:
-    teleported: "&aThe mob has been teleported to %player%"
-    player-not-found: "&cPlayer '%player%' not found"
+    teleported: "&aMob został teleportowany do %player%"
+    player-not-found: "&cGracz %player%' nie został znaleziony"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -100,7 +100,7 @@ help:
     protect: 'Chroń/Niechroń moba'
     reload: 'Przeładuj pliki konfiguracyjne SecurityVillagers'
     rename: 'Zmień nazwę moba'
-    teleport: 'Teleport mob'
+    teleport: 'Teleportuj moba'
     version: 'Pokaż informacje o SecurityVillagers'
 dont-edit-this:
   version: 4
