@@ -25,7 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&c错误的语法: 类型 &7/%syntax%'
     name: '名称'
-    player: 'player'
+    player: '玩家'
     profession: '职业'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
