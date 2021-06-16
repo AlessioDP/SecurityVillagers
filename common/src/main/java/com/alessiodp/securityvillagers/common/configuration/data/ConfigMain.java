@@ -171,6 +171,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 	public static boolean		DAMAGE_MOBS_WITCH;
 	@ConfigOption(path = "damage.mobs.wither")
 	public static boolean		DAMAGE_MOBS_WITHER;
+	@ConfigOption(path = "damage.mobs.zoglin")
+	public static boolean		DAMAGE_MOBS_ZOGLIN;
 	@ConfigOption(path = "damage.mobs.zombie")
 	public static boolean		DAMAGE_MOBS_ZOMBIE;
 	@ConfigOption(path = "damage.other.contact")

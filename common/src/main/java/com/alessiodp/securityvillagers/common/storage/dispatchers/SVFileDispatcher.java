@@ -11,7 +11,7 @@ import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import lombok.NonNull;
-import ninja.leaping.configurate.ConfigurationNode;
+import org.spongepowered.configurate.ConfigurationNode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,15 +37,16 @@ public class SVFileDispatcher extends FileDispatcher {
 	
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {
-		ConfigurationNode node = database.getRootNode().getNode("mobs", protectedEntity.getUuid().toString());
-		node.getNode("protection").setValue(protectedEntity.isProtectionEnabled() ? protectedEntity.isProtectionEnabled() : null);
-		
-		if (!protectedEntity.isProtectionEnabled()) {
-			// Delete if unprotected
-			node.setValue(null);
-		}
-		
 		try {
+			ConfigurationNode node = database.getRootNode().node("mobs", protectedEntity.getUuid().toString());
+			node.node("protection").set(protectedEntity.isProtectionEnabled() ? protectedEntity.isProtectionEnabled() : null);
+			
+			if (!protectedEntity.isProtectionEnabled()) {
+				// Delete if unprotected
+				node.set(null);
+			}
+		
+		
 			database.saveFile();
 		} catch (IOException ex) {
 			plugin.getLoggerManager().printErrorStacktrace(Constants.DEBUG_DB_FILE_ERROR, ex);
@@ -54,10 +55,10 @@ public class SVFileDispatcher extends FileDispatcher {
 	
 	public ArrayList<UUID> getAllProtectedEntities() {
 		ArrayList<UUID> ret = new ArrayList<>();
-		for (ConfigurationNode confNode : database.getRootNode().getNode("mobs").getChildrenMap().values()) {
-			if (confNode.getKey() != null && confNode.getNode("protection").getBoolean(false)) {
+		for (ConfigurationNode confNode : database.getRootNode().node("mobs").childrenMap().values()) {
+			if (confNode.key() != null && confNode.node("protection").getBoolean(false)) {
 				try {
-					ret.add(UUID.fromString(confNode.getKey().toString()));
+					ret.add(UUID.fromString(confNode.key().toString()));
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}

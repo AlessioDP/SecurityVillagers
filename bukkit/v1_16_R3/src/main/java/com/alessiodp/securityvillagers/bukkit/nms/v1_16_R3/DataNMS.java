@@ -11,6 +11,7 @@ import org.bukkit.craftbukkit.v1_16_R3.entity.CraftTraderLlama;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftVex;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftVindicator;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftWanderingTrader;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftZoglin;
 
 public class DataNMS implements IDataNMS {
 	
@@ -26,5 +27,6 @@ public class DataNMS implements IDataNMS {
 		MobsType.RAVAGER.setMobClass(CraftRavager.class);
 		MobsType.VEX.setMobClass(CraftVex.class);
 		MobsType.VINDICATOR.setMobClass(CraftVindicator.class);
+		MobsType.ZOGLIN.setMobClass(CraftZoglin.class);
 	}
 }

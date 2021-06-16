@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.13.0</version>
+	<version>2.13.1</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>
@@ -34,6 +34,7 @@
 		<module>bukkit</module>
 		<module>common</module>
 		<module>output</module>
+		<module>output-java16</module>
 	</modules>
 	
 	<properties>
@@ -53,10 +54,17 @@
 		<maven.javadoc-plugin.version>3.2.0</maven.javadoc-plugin.version>
 		<maven.shade.version>3.2.4</maven.shade.version>
 		
+		<!-- Dev libraries -->
 		<dev.powermock>2.0.9</dev.powermock>
 		<dev.lombok>1.18.20</dev.lombok>
 		
-		<libs.adpcore>1.5.8</libs.adpcore>
+		<!-- ADP Core Libraries -->
+		<libs.adpcore>1.6.3</libs.adpcore>
+		<!-- External libraries -->
+		<libs.configurate>4.1.1</libs.configurate>
+		<!-- End ADP Core Libraries -->
+		
+		<!-- External plugins -->
 		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
 		<libs.factionsX>1.0.8-RC</libs.factionsX>

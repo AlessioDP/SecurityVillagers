@@ -5,6 +5,7 @@ import com.alessiodp.core.common.commands.utils.ADPMainCommand;
 import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
+import com.alessiodp.core.common.utils.Color;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
@@ -50,6 +51,8 @@ public class CommandReload extends ADPSubCommand {
 		
 		if (player.isPlayer()) {
 			player.sendMessage(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD, true);
+		} else {
+			plugin.logConsole(Color.translateAndStripColor(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD));
 		}
 		
 		plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_CMD_RELOADED,

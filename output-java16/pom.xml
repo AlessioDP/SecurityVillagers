@@ -9,7 +9,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>output</artifactId>
+	<artifactId>output-java16</artifactId>
 	
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
@@ -18,7 +18,7 @@
 	<build>
 		<defaultGoal>package install</defaultGoal>
 		<directory>${basedir}/target</directory>
-		<finalName>${project.parent.name}-${project.version}</finalName>
+		<finalName>${project.parent.name}-${project.version}-J16</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -40,10 +40,6 @@
 						<relocation>
 							<pattern>net.byteflux.libby</pattern>
 							<shadedPattern>com.alessiodp.securityvillagers.core.common.addons.external.libby</shadedPattern>
-						</relocation>
-						<relocation>
-							<pattern>org.spongepowered.configurate</pattern>
-							<shadedPattern>com.alessiodp.securityvillagers.libs.configurate</shadedPattern>
 						</relocation>
 					</relocations>
 					<filters>

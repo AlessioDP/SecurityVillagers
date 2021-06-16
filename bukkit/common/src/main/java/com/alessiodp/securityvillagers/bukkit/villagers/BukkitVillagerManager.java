@@ -298,6 +298,7 @@ public class BukkitVillagerManager extends VillagerManager {
 				|| (ConfigMain.DAMAGE_MOBS_VINDICATOR && MobsType.VINDICATOR.instanceOf(mob)) // Vindicator
 				|| (ConfigMain.DAMAGE_MOBS_WITCH && mob instanceof Witch) // Witch
 				|| (ConfigMain.DAMAGE_MOBS_WITHER && (mob instanceof Wither || mob instanceof WitherSkull)) // Wither
+				|| (ConfigMain.DAMAGE_MOBS_ZOGLIN && MobsType.ZOGLIN.instanceOf(mob)) // Zombie
 				|| (ConfigMain.DAMAGE_MOBS_ZOMBIE && mob instanceof Zombie) // Zombie
 		);
 	}

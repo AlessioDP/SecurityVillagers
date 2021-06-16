@@ -1,17 +1,17 @@
-package com.alessiodp.securityvillagers.bukkit.nms.v1_16_R1;
+package com.alessiodp.securityvillagers.bukkit.nms.v1_17_R1;
 
 import com.alessiodp.securityvillagers.bukkit.utils.IDataNMS;
 import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftEvoker;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftEvokerFangs;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftIllusioner;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftPillager;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftRavager;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftTraderLlama;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftVex;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftVindicator;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftWanderingTrader;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftZoglin;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftEvoker;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftEvokerFangs;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftIllusioner;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPillager;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftRavager;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftTraderLlama;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftVex;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftVindicator;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftWanderingTrader;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftZoglin;
 
 public class DataNMS implements IDataNMS {
 	

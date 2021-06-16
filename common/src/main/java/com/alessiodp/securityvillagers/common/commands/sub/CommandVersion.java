@@ -56,7 +56,7 @@ public class CommandVersion extends ADPSubCommand {
 		if (player.isPlayer()) {
 			player.sendMessage(message, true);
 		} else {
-			plugin.logConsole(Color.translateAndStripColor(message), false);
+			plugin.logConsole(Color.translateAndStripColor(message));
 		}
 	}
 }

@@ -13,14 +13,8 @@ public class DataNMS implements IDataNMS {
 	
 	@Override
 	public void populateMobs() {
-		MobsType.WANDERING_TRADER.setMobClass(null);
-		MobsType.TRADER_LLAMA.setMobClass(null);
-		
 		MobsType.EVOKER.setMobClass(CraftEvoker.class);
 		MobsType.EVOKER_FANGS.setMobClass(CraftEvokerFangs.class);
-		MobsType.ILLUSIONER.setMobClass(null);
-		MobsType.PILLAGER.setMobClass(null);
-		MobsType.RAVAGER.setMobClass(null);
 		MobsType.STRAY.setMobClass(CraftStray.class);
 		MobsType.VEX.setMobClass(CraftVex.class);
 		MobsType.VINDICATOR.setMobClass(CraftVindicator.class);

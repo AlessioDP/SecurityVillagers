@@ -8,17 +8,7 @@ public class DataNMS implements IDataNMS {
 	
 	@Override
 	public void populateMobs() {
-		MobsType.WANDERING_TRADER.setMobClass(null);
-		MobsType.TRADER_LLAMA.setMobClass(null);
-		
-		MobsType.EVOKER.setMobClass(null);
-		MobsType.EVOKER_FANGS.setMobClass(null);
-		MobsType.ILLUSIONER.setMobClass(null);
-		MobsType.PILLAGER.setMobClass(null);
-		MobsType.RAVAGER.setMobClass(null);
-		MobsType.STRAY.setMobClass(null);
-		MobsType.VEX.setMobClass(null);
-		MobsType.VINDICATOR.setMobClass(null);
+		// Nothing to do
 	}
 	
 	@Override

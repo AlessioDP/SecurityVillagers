@@ -38,6 +38,13 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	}
 	
 	@Override
+	@SuppressWarnings("ConstantConditions")
+	public boolean isCompiledForJava16() {
+		// Check for configurate instead of HikariCP
+		return "org.spongepowered.configurate".equals("org{}spongepowered{}configurate".replace("{}", "."));
+	}
+	
+	@Override
 	protected void initializeCore() {
 		databaseManager = new SVDatabaseManager(this);
 		professionCooldown = new HashMap<>();
