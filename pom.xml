@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.13.1</version>
+	<version>2.13.2</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>
@@ -34,7 +34,6 @@
 		<module>bukkit</module>
 		<module>common</module>
 		<module>output</module>
-		<module>output-java16</module>
 	</modules>
 	
 	<properties>
@@ -46,30 +45,30 @@
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		
+		
 		<maven.compiler.version>3.8.1</maven.compiler.version>
-		<maven.javadoc-plugin.version>3.2.0</maven.javadoc-plugin.version>
+		<maven.javadoc-plugin.version>3.3.0</maven.javadoc-plugin.version>
 		<maven.shade.version>3.2.4</maven.shade.version>
+		<maven.versions.version>2.8.1</maven.versions.version>
 		
 		<!-- Dev libraries -->
 		<dev.powermock>2.0.9</dev.powermock>
 		<dev.lombok>1.18.20</dev.lombok>
 		
-		<!-- ADP Core Libraries -->
-		<libs.adpcore>1.6.3</libs.adpcore>
-		<!-- External libraries -->
-		<libs.configurate>4.1.1</libs.configurate>
-		<!-- End ADP Core Libraries -->
+		<libs.adpcore>1.6.6</libs.adpcore>
+		<libs.api.annotations>22.0.0</libs.api.annotations>
+		<libs.api.spigot>1.17-R0.1-SNAPSHOT</libs.api.spigot>
 		
 		<!-- External plugins -->
 		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
 		<libs.factionsX>1.0.8-RC</libs.factionsX>
 		<libs.glowapi>1.4.14-SNAPSHOT</libs.glowapi>
-		<libs.protocolLib>4.6.0</libs.protocolLib>
+		<libs.protocolLib>4.7.0</libs.protocolLib>
 	</properties>
 	
 	<build>
@@ -77,7 +76,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.8.1</version>
+				<version>${maven.versions.version}</version>
 			</plugin>
 		</plugins>
 	</build>

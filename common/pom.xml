@@ -7,7 +7,7 @@
 	<parent>
 		<artifactId>securityvillagers</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.13.1</version>
+		<version>2.13.2</version>
 	</parent>
 	
 	<artifactId>securityvillagers-common</artifactId>
@@ -25,8 +25,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.version}</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -40,10 +40,6 @@
 						</includes>
 					</artifactSet>
 					<relocations>
-						<relocation>
-							<pattern>net.byteflux.libby</pattern>
-							<shadedPattern>com.alessiodp.securityvillagers.core.common.addons.external.libby</shadedPattern>
-						</relocation>
 						<relocation>
 							<pattern>org.simpleyaml</pattern>
 							<shadedPattern>com.alessiodp.securityvillagers.core.common.addons.external.simpleyaml</shadedPattern>
@@ -68,6 +64,11 @@
 			<artifactId>core-common</artifactId>
 			<version>${libs.adpcore}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>${libs.api.annotations}</version>
 		</dependency>
 	</dependencies>
 	

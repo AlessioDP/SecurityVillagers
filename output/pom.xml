@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>securityvillagers</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.13.1</version>
+		<version>2.13.2</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	
@@ -35,15 +35,6 @@
 						<relocation>
 							<pattern>com.alessiodp.core</pattern>
 							<shadedPattern>com.alessiodp.securityvillagers.core</shadedPattern>
-						</relocation>
-						<!-- ADP Core relocations -->
-						<relocation>
-							<pattern>net.byteflux.libby</pattern>
-							<shadedPattern>com.alessiodp.securityvillagers.core.common.addons.external.libby</shadedPattern>
-						</relocation>
-						<relocation>
-							<pattern>org.spongepowered.configurate</pattern>
-							<shadedPattern>com.alessiodp.securityvillagers.libs.configurate</shadedPattern>
 						</relocation>
 					</relocations>
 					<filters>

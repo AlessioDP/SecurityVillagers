@@ -6,7 +6,7 @@ import com.alessiodp.core.common.storage.StorageType;
 import com.alessiodp.core.common.storage.interfaces.IDatabaseDispatcher;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
-import com.alessiodp.securityvillagers.common.storage.dispatchers.SVFileDispatcher;
+import com.alessiodp.securityvillagers.common.storage.dispatchers.SVYAMLDispatcher;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 
 import java.util.ArrayList;
@@ -30,14 +30,14 @@ public class SVDatabaseManager extends DatabaseManager {
 	
 	@Override
 	protected IDatabaseDispatcher initializeDispatcher(StorageType storageType) {
-		return new SVFileDispatcher(plugin, storageType); // Database is only YAML
+		return new SVYAMLDispatcher(plugin);
 	}
 	
 	public void updateProtectedEntity(ProtectedEntity protectedEntity) {
 		plugin.getScheduler().runAsync(() -> {
 			plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_DB_UPDATEENTITY, protectedEntity.getType().name(), protectedEntity.getUuid().toString()), true);
 			
-			((SVFileDispatcher) database).updateProtectedEntity(protectedEntity);
+			((SVYAMLDispatcher) database).updateProtectedEntity(protectedEntity);
 		});
 	}
 	
@@ -45,7 +45,7 @@ public class SVDatabaseManager extends DatabaseManager {
 		return plugin.getScheduler().runSupplyAsync(() -> {
 			plugin.getLoggerManager().logDebug(SVConstants.DEBUG_DB_GETALLPROTECTED, true);
 			
-			return ((SVFileDispatcher) database).getAllProtectedEntities();
+			return ((SVYAMLDispatcher) database).getAllProtectedEntities();
 		}).join();
 	}
 }

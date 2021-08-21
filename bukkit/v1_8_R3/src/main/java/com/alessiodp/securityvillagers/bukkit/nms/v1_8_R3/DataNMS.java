@@ -1,7 +1,6 @@
 package com.alessiodp.securityvillagers.bukkit.nms.v1_8_R3;
 
 import com.alessiodp.securityvillagers.bukkit.utils.IDataNMS;
-import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 

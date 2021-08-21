@@ -3,6 +3,7 @@ package com.alessiodp.securityvillagers.common;
 import com.alessiodp.core.common.ADPPlugin;
 import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
+import com.alessiodp.core.common.libraries.LibraryUsage;
 import com.alessiodp.core.common.logging.ConsoleColor;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
@@ -13,7 +14,9 @@ import com.alessiodp.securityvillagers.common.utils.SVPlayerUtils;
 import com.alessiodp.securityvillagers.common.villagers.VillagerManager;
 import lombok.Getter;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 public abstract class SecurityVillagersPlugin extends ADPPlugin {
@@ -35,13 +38,6 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	@Override
 	public void onDisabling() {
 		// Nothing to disable
-	}
-	
-	@Override
-	@SuppressWarnings("ConstantConditions")
-	public boolean isCompiledForJava16() {
-		// Check for configurate instead of HikariCP
-		return "org.spongepowered.configurate".equals("org{}spongepowered{}configurate".replace("{}", "."));
 	}
 	
 	@Override
@@ -110,5 +106,10 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 				Messages.SECURITYVILLAGERS_UPDATEAVAILABLE
 		);
 		getAdpUpdater().asyncTaskCheckUpdates();
+	}
+	
+	@Override
+	public List<LibraryUsage> getLibrariesUsages() {
+		return Collections.emptyList();
 	}
 }

@@ -1,7 +1,6 @@
 package com.alessiodp.securityvillagers.bukkit.nms.v1_9_R1;
 
 import com.alessiodp.securityvillagers.bukkit.utils.IDataNMS;
-import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
 import org.bukkit.Material;
 
 public class DataNMS implements IDataNMS {
