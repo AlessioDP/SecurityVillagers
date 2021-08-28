@@ -25,7 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cNesprávná syntaxe: Zadej &7/%syntax%'
     name: 'jméno'
-    player: 'player'
+    player: 'hráč'
     profession: 'profese'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -61,8 +61,8 @@ commands:
     renamed: "&aJméno stvoření nastaveno na %name%"
     removed: "&aNázev stvoření odebrán"
   teleport:
-    teleported: "&aThe mob has been teleported to %player%"
-    player-not-found: "&cPlayer '%player%' not found"
+    teleported: "&aStvoření bylo teleportováno k hráči %player%"
+    player-not-found: "&cHráč '%player%' nenalezen"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -100,7 +100,7 @@ help:
     protect: 'Chránit/nechránit stvoření'
     reload: 'Obnovení konfiguračních souborů pluginu SecurityVillagers'
     rename: 'Změna jména stvoření'
-    teleport: 'Teleport mob'
+    teleport: 'Teleportovat stvoření'
     version: 'Zobrazení informací o pluginu SecurityVillagers'
 dont-edit-this:
   version: 4
