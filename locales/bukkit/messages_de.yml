@@ -23,10 +23,10 @@ securityvillagers:
     invalid-command: '&cUngültiger Befehl'
     configuration-reloaded: '&aDie Konfigurationsdatei wurden neu geladen'
   syntax:
-    wrong-message: '&cWrong syntax: Type &7/%syntax%'
+    wrong-message: '&cFalscher Syntax: Gebe &7/%syntax% ein'
     name: 'name'
-    player: 'player'
-    profession: 'profession'
+    player: 'spieler'
+    profession: 'beruf'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
 #\ =============================== /
@@ -61,8 +61,8 @@ commands:
     renamed: "&aDer Name des Mobs wurde zu %name% gesetzt"
     removed: "&aMob Name entfernt"
   teleport:
-    teleported: "&aThe mob has been teleported to %player%"
-    player-not-found: "&cPlayer '%player%' not found"
+    teleported: "&aDas Mob wurde zu %player% teleportiert"
+    player-not-found: "&cSpieler wurde '%player%' nicht gefunden"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -75,7 +75,7 @@ commands:
 help:
   header: "&6============ &lSecurityVillagers Hilfeseite &r&6============"
   footer: ""
-  perform-command: 'Perform the command'
+  perform-command: 'Befehl ausführen'
   console-help:
     header: 'Du kannst nur diese Befehle ausführen:'
     command: ' > %command% - %description%'
@@ -94,13 +94,13 @@ help:
     teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
-    help: 'Show help pages'
-    changeage: 'Change mob age'
-    profession: 'Change villager profession'
-    protect: 'Protect/unprotect mob'
-    reload: 'Reload SecurityVillagers configuration files'
-    rename: 'Change mob name'
-    teleport: 'Teleport mob'
-    version: 'Show SecurityVillagers information'
+    help: 'Hilfeseiten anzeigen'
+    changeage: 'Mobalter ändern'
+    profession: 'Dorfbewohner-Beruf ändern'
+    protect: 'Mob beschüten/nicht schützen'
+    reload: 'SecurityVillagers Konfigurationsdateien neu laden'
+    rename: 'Mobnamen ändern'
+    teleport: 'Mob teleportieren'
+    version: 'SecurityVillagers Informationen anzeigen'
 dont-edit-this:
   version: 4
