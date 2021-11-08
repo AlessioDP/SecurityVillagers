@@ -25,7 +25,7 @@ securityvillagers:
   syntax:
     wrong-message: '&cНеверный синтакс: Напишите &7/%syntax%'
     name: 'Имя'
-    player: 'player'
+    player: 'игрок'
     profession: 'Профессия'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
@@ -61,8 +61,8 @@ commands:
     renamed: "&aИмя существа было изменено на %name%"
     removed: "&aУдалено имя существа"
   teleport:
-    teleported: "&aThe mob has been teleported to %player%"
-    player-not-found: "&cPlayer '%player%' not found"
+    teleported: "&aМоб был телепортирован к %player%"
+    player-not-found: "&cИгрок '%player%' не найден"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
@@ -100,7 +100,7 @@ help:
     protect: 'Вкл/выкл защиту моба'
     reload: 'Перезагрузить файлы конфигурации SecurityVillagers'
     rename: 'Изменить имя моба'
-    teleport: 'Teleport mob'
+    teleport: 'Телепортировать моба'
     version: 'Показать информацию о SecurityVillagers'
 dont-edit-this:
   version: 4

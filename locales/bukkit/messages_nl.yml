@@ -12,72 +12,72 @@ securityvillagers:
   #[Special tags]
   #=> %version%     = New version found
   #=> %thisversion% = Version installed
-  update-available: '&6Neue Version von SecurityVillagers gefunden: %version% (Aktuell: %thisversion%)'
+  update-available: '&6Nieuwe versie van SecurityVillagers gevonden: %version% (Current: %thisversion%)'
   #[Special tags]
   #=> %config%      = The configuration file name that is outdated
-  configuration-outdated: '&cDie Konfigurationsdatei ''%config%'' von SecurityVillagers ist veraltet!'
+  configuration-outdated: '&cHet configuratiebestand ''%config%'' of SecurityVillagers is verouderd!'
   #[Special tags]
   #=> %permission%  = Missing permission
-  no-permission: '&cDu hast keinen Zugriff auf diesen Befehl'
+  no-permission: '&cJe hebt geen toegang tot die opdracht'
   common-messages:
-    invalid-command: '&cUngültiger Befehl'
-    configuration-reloaded: '&aDie Konfigurationsdatei wurden neu geladen'
+    invalid-command: '&congeldige opdracht'
+    configuration-reloaded: '&aconfiguratie herladen'
   syntax:
-    wrong-message: '&cFalscher Syntax: Gebe &7/%syntax% ein'
-    name: 'name'
-    player: 'spieler'
-    profession: 'beruf'
+    wrong-message: '&cVerkeerde syntaxis: Type &7/%syntax%'
+    name: 'naam'
+    player: 'speler'
+    profession: 'beroep'
 #/ =============================== \
 #|        GENERAL  MESSAGES        |
 #\ =============================== /
 general:
   interact:
-    hit: "&cDu kannst diesen Mob nicht schlagen!"
-    shoot: "&cDu kannst diesen Mob nicht abschießen!"
-    egg: "&cDu kannst keine Eier auf diesem Mob anwenden!"
-    trade: "&cDu kannst nicht mit diesem Mob handeln!"
+    hit: "&cJe kunt deze mob niet hitten!"
+    shoot: "&cJe kan deze mob niet beschieten!"
+    egg: "&cJe kan geen eieren gebruiken op deze mob!"
+    trade: "&cJe kunt niet handelen met deze mob!"
   selection:
-    selected: "&aMob ausgewählt"
-    required: "&cDu musst zuerst einen Mob auswählen!"
+    selected: "&amob geselecteerd"
+    required: "&cJe moet eerst een mob selecteren!"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
 #\ =============================== /
 commands:
   changeage:
-    baby: "&aDer Mob wurde in ein Baby verwandelt!"
-    adult: "&aDer Mob wurde in einen Erwachsenen verwandelt!"
-    cooldown: "&cDu musst noch %seconds% Sekunden warten"
-    failed: "&cDu kannst das Alter dieses Mobs nicht ändern!"
+    baby: "&aheeft de mob een baby gemaakt!"
+    adult: "&aheeft de mob in een volwassene veranderd!"
+    cooldown: "&cJe moet nog %seconds% seconden wachten"
+    failed: "&cJe kunt de leeftijd van deze mob niet veranderen!"
   profession:
-    current: "&aDer Dorfbewohner ist ein %profession%"
-    changed: "&aDen Beruf des Dorfbewohners zu %profession% geändert"
-    cooldown: "&cDu musst noch %seconds% Sekunden warten"
-    not-found: "&cDer Beruf '%profession%' wurde nicht gefunden!"
-    failed: "&cDu kannst den Beruf dieses Mobs nicht ändern!"
+    current: "&aDe dorpeling is een %profession%"
+    changed: "&aheeft dorpsbewoner beroep gewijzigd naar %profession%"
+    cooldown: "&cJe moet nog %seconds% seconden wachten"
+    not-found: "&cBeroep '%profession%' niet gevonden!"
+    failed: "&cJe kunt de specialiteit van deze mob niet veranderen!"
   protect:
-    protected: "&aDer ausgewählt Mob ist jetzt geschützt"
-    unprotected: "&cDer ausgewählt Mob ist jetzt ungeschützt"
+    protected: "&aDe geselecteerde mob is nu beschermd"
+    unprotected: "&cDe geselecteerde mob is niet meer beveiligd"
   rename:
-    renamed: "&aDer Name des Mobs wurde zu %name% gesetzt"
-    removed: "&aMob Name entfernt"
+    renamed: "&aDe mob naam is ingesteld op %name%"
+    removed: "&aVerwijderde mob naam"
   teleport:
-    teleported: "&aDas Mob wurde zu %player% teleportiert"
-    player-not-found: "&cSpieler wurde '%player%' nicht gefunden"
+    teleported: "&aDe mob is geteleporteerd naar %player%"
+    player-not-found: "&cSpeler '%player%' niet gevonden"
   version:
     #[Special tags]
     #=> %version%    = Plugin version
     #=> %newversion% = Latest plugin version
-    updated: "&6&lSecurityVillagers &7%version% - Entwickelt von &6AlessioDP"
-    outdated: "&6&lSecurityVillagers &7%version% - Entwickelt von &6AlessioDP\n&aNeue Version gefunden: &2%newversion%"
+    updated: "&6&lSecurityVillagers &7%version% - Ontwikkeld door &6AlessioDP"
+    outdated: "&6&lSecurityVillagers &7%version% - Ontwikkeld door &6AlessioDP\n&aNieuwe versie gevonden: &2%newversion%"
 #/ =============================== \
 #|          HELP MESSAGES          |
 #\ =============================== /
 help:
-  header: "&6============ &lSecurityVillagers Hilfeseite &r&6============"
+  header: "&6============ &lSecurityVillagers Help pagina &r&6============"
   footer: ""
-  perform-command: 'Befehl ausführen'
+  perform-command: 'Voer het commando uit'
   console-help:
-    header: 'Du kannst nur diese Befehle ausführen:'
+    header: 'Je kunt alleen deze commando''s maken:'
     command: ' > %command% - %description%'
   commands:
     #[Special tags]
@@ -94,13 +94,13 @@ help:
     teleport: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"suggest_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
     version: '{"text":"&6/%syntax% &7- %description%","clickEvent":{"action":"run_command","value":"/%run_command% "},"hoverEvent":{"action":"show_text","value":{"text":"&6%perform_command%"}}}'
   command-descriptions:
-    help: 'Hilfeseiten anzeigen'
-    changeage: 'Mobalter ändern'
-    profession: 'Dorfbewohner-Beruf ändern'
-    protect: 'Mob beschüten/nicht schützen'
-    reload: 'SecurityVillagers Konfigurationsdateien neu laden'
-    rename: 'Mobnamen ändern'
-    teleport: 'Mob teleportieren'
-    version: 'SecurityVillagers Informationen anzeigen'
+    help: 'Help-pagina''s weergeven'
+    changeage: 'Verander mob leeftijd'
+    profession: 'Het beroep van dorpsbewoner wijzigen'
+    protect: 'Mob beschermen/onbeschermen'
+    reload: 'Herlaad SecurityVillagers configuratiebestanden'
+    rename: 'Verander mob naam'
+    teleport: 'Teleporteer mob'
+    version: 'Toon gegevens van SecurityVillagers'
 dont-edit-this:
   version: 4
