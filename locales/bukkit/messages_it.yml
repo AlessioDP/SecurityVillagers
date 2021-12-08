@@ -38,7 +38,7 @@ general:
     trade: "&cNon puoi scambiare con questo mob!"
   selection:
     selected: "&aMob selezionato"
-    unselected: "&aMob unselected"
+    unselected: "&aMob deselezionato"
     required: "&cDevi selezionare un mob prima!"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
