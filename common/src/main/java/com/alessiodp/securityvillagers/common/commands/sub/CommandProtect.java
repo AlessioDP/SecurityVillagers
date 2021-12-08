@@ -5,6 +5,7 @@ import com.alessiodp.core.common.commands.utils.ADPMainCommand;
 import com.alessiodp.core.common.commands.utils.ADPSubCommand;
 import com.alessiodp.core.common.commands.utils.CommandData;
 import com.alessiodp.core.common.user.User;
+import com.alessiodp.securityvillagers.api.events.interfaces.ISecurityVillagersProtectionChangeEvent;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
@@ -69,13 +70,18 @@ public class CommandProtect extends ADPSubCommand {
 		}
 		
 		// Command starts
-		protectedEntity.setProtectionEnabled(protection);
-		protectedEntity.updateProtectedEntity();
-		
-		if (protection) {
-			player.sendMessage(Messages.CMD_PROTECT_PROTECTED, true);
-		} else {
-			player.sendMessage(Messages.CMD_PROTECT_UNPROTECTED, true);
+		ISecurityVillagersProtectionChangeEvent event = ((SecurityVillagersPlugin) plugin).getEventManager().prepareProtectionChangeEvent(player, protectedEntity, protection);
+		((SecurityVillagersPlugin) plugin).getEventManager().callEvent(event);
+		if (!event.isCancelled()) {
+			boolean newProtection = event.getProtection();
+			protectedEntity.setProtectionEnabled(newProtection);
+			protectedEntity.updateProtectedEntity();
+			
+			if (newProtection) {
+				player.sendMessage(Messages.CMD_PROTECT_PROTECTED, true);
+			} else {
+				player.sendMessage(Messages.CMD_PROTECT_UNPROTECTED, true);
+			}
 		}
 	}
 	

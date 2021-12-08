@@ -5,10 +5,7 @@ website: ${plugin.website}
 version: ${plugin.version}
 main: com.alessiodp.securityvillagers.bukkit.bootstrap.BukkitSecurityVillagersBootstrap
 api-version: 1.13
-softdepend: [Factions, GlowAPI, ProtocolLib]
-libraries:
-  - org.spongepowered:configurate-yaml:${libs.configurate}
-  - org.spongepowered:configurate-core:${libs.configurate}
+softdepend: [Citizens, Factions, GlowAPI, ProtocolLib]
 permissions:
   securityvillagers.user.egg:
     description: Allow use of eggs on mobs

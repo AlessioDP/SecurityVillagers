@@ -8,11 +8,11 @@
 #
 
 # / =============================== \
-# |    SECURITYVILLAGER SETTINGS    |
+# |   SECURITYVILLAGERS  SETTINGS   |
 # \ =============================== /
 securityvillagers:
   # [Check for plugins updates]
-  # OreAnnouncer will check for updates when the server finishes to load.
+  # SecurityVillagers will check for updates when the server finishes to load.
   updates:
     check: true
     warn: true
@@ -107,6 +107,14 @@ general:
   factions:
     members-bypass-protection: true
     members-bypass-interact: true
+
+  # [Citizens settings]
+  # Settings for NPC handling
+  citizens:
+    enable: false
+    bypass-protection: true
+    bypass-interact: true
+
 
 
 

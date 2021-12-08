@@ -1,5 +1,9 @@
 package com.alessiodp.securityvillagers.bukkit.villagers;
 
+import com.alessiodp.core.bukkit.bootstrap.ADPBukkitBootstrap;
+import com.alessiodp.securityvillagers.api.enums.AttackResult;
+import com.alessiodp.securityvillagers.api.enums.ProtectedEntityType;
+import com.alessiodp.securityvillagers.bukkit.addons.external.CitizensHandler;
 import com.alessiodp.securityvillagers.bukkit.addons.external.FactionsHandler;
 import com.alessiodp.securityvillagers.bukkit.addons.external.GlowHandler;
 import com.alessiodp.securityvillagers.bukkit.villagers.objects.BukkitProtectedEntity;
@@ -11,7 +15,6 @@ import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
 import com.alessiodp.securityvillagers.common.utils.WorldUtils;
 import com.alessiodp.securityvillagers.common.villagers.VillagerManager;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
-import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntityType;
 import lombok.NonNull;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -70,6 +73,12 @@ public class BukkitVillagerManager extends VillagerManager {
 	}
 	
 	@Override
+	public ProtectedEntityType getEntityType(UUID uuid) {
+		Entity entity = ((ADPBukkitBootstrap) plugin.getBootstrap()).getServer().getEntity(uuid);
+		return entity != null ? getEntityType(entity) : null;
+	}
+	
+	@Override
 	public ProtectedEntityType getEntityType(Object entity) {
 		ProtectedEntityType ret = null;
 		if (entity instanceof Villager) {
@@ -97,7 +106,7 @@ public class BukkitVillagerManager extends VillagerManager {
 	}
 	
 	private boolean isUnprotected(ProtectedEntity protectedEntity, Entity attacker) {
-		if (!protectedEntity.isConfigProtected()) {
+		if (!isConfigProtected(protectedEntity.getType())) {
 			// Entity not protected
 			return true;
 		}
@@ -114,8 +123,20 @@ public class BukkitVillagerManager extends VillagerManager {
 		}
 		
 		// Check for factions
-		return (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.FACTIONS
-				&& !FactionsHandler.isClaimProtectedByAttack(attacker, ((Entity) protectedEntity.getEntity()).getLocation()));
+		if (ConfigMain.GENERAL_PROTECTIONTYPE == ConfigMain.ProtectionType.FACTIONS
+				&& !FactionsHandler.isClaimProtectedByAttack(attacker, ((Entity) protectedEntity.getEntity()).getLocation())) {
+			return true;
+		}
+		
+		// Check for citizens
+		if (ConfigMain.GENERAL_CITIZENS_ENABLE
+				&& ConfigMain.GENERAL_CITIZENS_BYPASS_PROTECTION
+				&& CitizensHandler.isNPC((Entity) protectedEntity.getEntity())) {
+			return true;
+		}
+		
+		// The entity is protected
+		return false;
 	}
 	
 	@Override
@@ -209,76 +230,79 @@ public class BukkitVillagerManager extends VillagerManager {
 		}
 		
 		// Check damage cause
-		boolean protection;
-		switch ((EntityDamageEvent.DamageCause) damageCause) {
-			case CONTACT:
-				protection = ConfigMain.DAMAGE_OTHER_CONTACT;
-				break;
-			case CRAMMING:
-				protection = ConfigMain.DAMAGE_OTHER_CRAMMING;
-				break;
-			case DRAGON_BREATH:
-				protection = ConfigMain.DAMAGE_OTHER_DRAGON;
-				break;
-			case DROWNING:
-				protection = ConfigMain.DAMAGE_OTHER_DROWNING;
-				break;
-			case BLOCK_EXPLOSION:
-			case ENTITY_EXPLOSION:
-				protection = ConfigMain.DAMAGE_OTHER_EXPLOSION;
-				break;
-			case FALL:
-				protection = ConfigMain.DAMAGE_OTHER_FALL;
-				break;
-			case FALLING_BLOCK:
-				protection = ConfigMain.DAMAGE_OTHER_FALLINGBLOCK;
-				break;
-			case FIRE:
-			case FIRE_TICK:
-				protection = ConfigMain.DAMAGE_OTHER_FIRE;
-				break;
-			case HOT_FLOOR:
-				protection = ConfigMain.DAMAGE_OTHER_HOTFLOOR;
-				break;
-			case LAVA:
-				protection = ConfigMain.DAMAGE_OTHER_LAVA;
-				break;
-			case LIGHTNING:
-				protection = ConfigMain.DAMAGE_OTHER_LIGHTNING;
-				break;
-			case MAGIC:
-				protection = ConfigMain.DAMAGE_OTHER_MAGIC;
-				break;
-			case POISON:
-				protection = ConfigMain.DAMAGE_OTHER_POISON;
-				break;
-			case SUFFOCATION:
-				protection = ConfigMain.DAMAGE_OTHER_SUFFOCATION;
-				break;
-			case THORNS:
-				protection = ConfigMain.DAMAGE_OTHER_THORNS;
-				break;
-			case WITHER:
-				protection = ConfigMain.DAMAGE_MOBS_WITHER;
-				break;
-			case VOID:
-				protection = ConfigMain.DAMAGE_OTHER_VOID;
-				break;
-			case CUSTOM:
-			case DRYOUT:
-			case ENTITY_ATTACK:
-			case ENTITY_SWEEP_ATTACK:
-			case FLY_INTO_WALL:
-			case MELTING:
-			case PROJECTILE:
-			case SUICIDE:
-			case STARVATION:
-			default:
-				protection = false;
-				break;
+		if (damageCause != null) {
+			boolean protection;
+			switch ((EntityDamageEvent.DamageCause) damageCause) {
+				case CONTACT:
+					protection = ConfigMain.DAMAGE_OTHER_CONTACT;
+					break;
+				case CRAMMING:
+					protection = ConfigMain.DAMAGE_OTHER_CRAMMING;
+					break;
+				case DRAGON_BREATH:
+					protection = ConfigMain.DAMAGE_OTHER_DRAGON;
+					break;
+				case DROWNING:
+					protection = ConfigMain.DAMAGE_OTHER_DROWNING;
+					break;
+				case BLOCK_EXPLOSION:
+				case ENTITY_EXPLOSION:
+					protection = ConfigMain.DAMAGE_OTHER_EXPLOSION;
+					break;
+				case FALL:
+					protection = ConfigMain.DAMAGE_OTHER_FALL;
+					break;
+				case FALLING_BLOCK:
+					protection = ConfigMain.DAMAGE_OTHER_FALLINGBLOCK;
+					break;
+				case FIRE:
+				case FIRE_TICK:
+					protection = ConfigMain.DAMAGE_OTHER_FIRE;
+					break;
+				case HOT_FLOOR:
+					protection = ConfigMain.DAMAGE_OTHER_HOTFLOOR;
+					break;
+				case LAVA:
+					protection = ConfigMain.DAMAGE_OTHER_LAVA;
+					break;
+				case LIGHTNING:
+					protection = ConfigMain.DAMAGE_OTHER_LIGHTNING;
+					break;
+				case MAGIC:
+					protection = ConfigMain.DAMAGE_OTHER_MAGIC;
+					break;
+				case POISON:
+					protection = ConfigMain.DAMAGE_OTHER_POISON;
+					break;
+				case SUFFOCATION:
+					protection = ConfigMain.DAMAGE_OTHER_SUFFOCATION;
+					break;
+				case THORNS:
+					protection = ConfigMain.DAMAGE_OTHER_THORNS;
+					break;
+				case WITHER:
+					protection = ConfigMain.DAMAGE_MOBS_WITHER;
+					break;
+				case VOID:
+					protection = ConfigMain.DAMAGE_OTHER_VOID;
+					break;
+				case CUSTOM:
+				case DRYOUT:
+				case ENTITY_ATTACK:
+				case ENTITY_SWEEP_ATTACK:
+				case FLY_INTO_WALL:
+				case MELTING:
+				case PROJECTILE:
+				case SUICIDE:
+				case STARVATION:
+				default:
+					protection = false;
+					break;
+			}
+			return !protection;
 		}
 		
-		return !protection;
+		return true;
 	}
 	
 	private boolean canBeAttackedFromPlayer(Player player, boolean isMelee) {

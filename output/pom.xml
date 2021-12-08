@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>securityvillagers</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.13.2</version>
+		<version>2.14.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	
@@ -27,6 +27,7 @@
 				<configuration>
 					<artifactSet>
 						<includes>
+							<include>com.alessiodp.securityvillagers:securityvillagers-api</include>
 							<include>com.alessiodp.securityvillagers:securityvillagers-common</include>
 							<include>com.alessiodp.securityvillagers:securityvillagers-bukkit-output</include>
 						</includes>

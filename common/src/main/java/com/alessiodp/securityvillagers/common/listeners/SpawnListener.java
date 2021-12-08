@@ -10,6 +10,9 @@ public abstract class SpawnListener {
 	@NonNull protected final SecurityVillagersPlugin plugin;
 	
 	protected boolean onSpawn(ProtectedEntity protectedEntity) {
-		return protectedEntity.isConfigPreventSpawn(protectedEntity.getWorld());
+		return plugin.getVillagerManager().isConfigPreventSpawn(
+				protectedEntity.getType(),
+				protectedEntity.getWorld()
+		);
 	}
 }

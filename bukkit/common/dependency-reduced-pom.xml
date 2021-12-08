@@ -3,7 +3,7 @@
   <parent>
     <artifactId>securityvillagers-bukkit</artifactId>
     <groupId>com.alessiodp.securityvillagers</groupId>
-    <version>2.13.2</version>
+    <version>2.14.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>securityvillagers-bukkit-common</artifactId>
@@ -56,8 +56,8 @@
   </build>
   <repositories>
     <repository>
-      <id>dmulloy2-repo</id>
-      <url>https://repo.dmulloy2.net/nexus/repository/public/</url>
+      <id>everything</id>
+      <url>https://repo.citizensnpcs.co/</url>
     </repository>
     <repository>
       <id>savagelabs-repo</id>
@@ -67,18 +67,22 @@
       <id>inventive-repo</id>
       <url>https://repo.inventivetalent.org/content/groups/public/</url>
     </repository>
+    <repository>
+      <id>dmulloy2-repo</id>
+      <url>https://repo.dmulloy2.net/nexus/repository/public/</url>
+    </repository>
   </repositories>
   <dependencies>
     <dependency>
       <groupId>com.alessiodp.securityvillagers</groupId>
       <artifactId>securityvillagers-common</artifactId>
-      <version>2.13.2</version>
+      <version>2.14.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>com.comphenix.protocol</groupId>
-      <artifactId>ProtocolLib</artifactId>
-      <version>4.7.0</version>
+      <groupId>net.citizensnpcs</groupId>
+      <artifactId>citizensapi</artifactId>
+      <version>2.0.19-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -100,46 +104,16 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.20</version>
+      <groupId>com.comphenix.protocol</groupId>
+      <artifactId>ProtocolLib</artifactId>
+      <version>4.7.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <version>2.0.9</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>powermock-module-junit4-common</artifactId>
-          <groupId>org.powermock</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>junit</artifactId>
-          <groupId>junit</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>hamcrest-core</artifactId>
-          <groupId>org.hamcrest</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-api-mockito2</artifactId>
-      <version>2.0.9</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>powermock-api-support</artifactId>
-          <groupId>org.powermock</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>mockito-core</artifactId>
-          <groupId>org.mockito</groupId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.22</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.massivecraft</groupId>

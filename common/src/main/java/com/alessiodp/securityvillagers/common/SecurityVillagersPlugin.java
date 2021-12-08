@@ -5,6 +5,9 @@ import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
 import com.alessiodp.core.common.libraries.LibraryUsage;
 import com.alessiodp.core.common.logging.ConsoleColor;
+import com.alessiodp.securityvillagers.api.SecurityVillagers;
+import com.alessiodp.securityvillagers.api.interfaces.SecurityVillagersAPI;
+import com.alessiodp.securityvillagers.common.events.EventManager;
 import com.alessiodp.securityvillagers.common.utils.SecurityVillagersPermission;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
@@ -27,6 +30,8 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	@Getter private final String packageName = SVConstants.PLUGIN_PACKAGENAME;
 	
 	// SecurityVillagers fields
+	@Getter protected SecurityVillagersAPI api;
+	@Getter protected EventManager eventManager;
 	@Getter protected VillagerManager villagerManager;
 	@Getter protected HashMap<UUID, Long> changeAgeCooldown;
 	@Getter protected HashMap<UUID, Long> professionCooldown;
@@ -64,6 +69,7 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 		
 		reloadAdpUpdater();
 		getAddonManager().loadAddons();
+		SecurityVillagers.setApi(api);
 	}
 	
 	protected abstract void registerListeners();

@@ -72,6 +72,13 @@ public abstract class ConfigMain extends ConfigurationFile {
 	@ConfigOption(path = "general.factions.members-bypass-interact")
 	public static boolean		GENERAL_FACTIONS_MEMBERBYPASS_INTERACT;
 	
+	@ConfigOption(path = "general.citizens.enable")
+	public static boolean		GENERAL_CITIZENS_ENABLE;
+	@ConfigOption(path = "general.citizens.bypass-protection")
+	public static boolean		GENERAL_CITIZENS_BYPASS_PROTECTION;
+	@ConfigOption(path = "general.citizens.bypass-interact")
+	public static boolean		GENERAL_CITIZENS_BYPASS_INTERACT;
+	
 	
 	// Mobs settings
 	@ConfigOption(path = "mobs.villager.protect")

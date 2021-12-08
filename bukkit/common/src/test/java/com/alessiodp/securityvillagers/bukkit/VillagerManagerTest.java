@@ -1,10 +1,10 @@
 package com.alessiodp.securityvillagers.bukkit;
 
 import com.alessiodp.core.common.logging.LoggerManager;
+import com.alessiodp.securityvillagers.api.enums.AttackResult;
 import com.alessiodp.securityvillagers.bukkit.villagers.BukkitVillagerManager;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
-import com.alessiodp.securityvillagers.common.villagers.VillagerManager;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
 import org.bukkit.World;
 import org.bukkit.entity.Arrow;
@@ -14,45 +14,35 @@ import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Villager;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({
-		SecurityVillagersPlugin.class,
-		ConfigMain.class,
-		LoggerManager.class,
-		EntityDamageEvent.DamageCause.class,
-		BukkitVillagerManager.class
-})
 public class VillagerManagerTest {
-	private BukkitVillagerManager villagerManager;
-	private World mockWorld;
+	private static final SecurityVillagersPlugin mockPlugin = mock(SecurityVillagersPlugin.class);
+	private static final BukkitVillagerManager villagerManager = new BukkitVillagerManager(mockPlugin);
+	private static final World mockWorld = mock(World.class);
 	
-	@Before
-	public void setUp() {
-		SecurityVillagersPlugin mockPlugin = mock(SecurityVillagersPlugin.class);
+	@BeforeAll
+	public static void setUp() {
 		LoggerManager mockLoggerManager = mock(LoggerManager.class);
 		when(mockPlugin.getLoggerManager()).thenReturn(mockLoggerManager);
-		villagerManager = new BukkitVillagerManager(mockPlugin);
-		
-		mockWorld = mock(World.class);
 		when(mockWorld.getName()).thenReturn("world");
-		
+	}
+	
+	@BeforeEach
+	public void setUpEach() {
 		ConfigMain.GENERAL_PROTECTIONTYPE = ConfigMain.ProtectionType.GLOBAL;
 		ConfigMain.GENERAL_DAMAGE_IMMORTAL = false;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("*");
@@ -86,18 +76,18 @@ public class VillagerManagerTest {
 		ProtectedEntity protectedVillager = villagerManager.initializeProtectedEntity(mockVillager);
 		
 		// Melee
-		assertEquals(VillagerManager.AttackResult.HIT, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
+		assertEquals(AttackResult.HIT, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
 		// Melee bypass thanks to permission
 		when(mockPlayer.hasPermission(anyString())).thenReturn(true);
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
 		// Villager unprotected
 		when(mockPlayer.hasPermission(anyString())).thenReturn(false);
 		ConfigMain.MOBS_VILLAGER_PROTECT = false;
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
 		// No world protection
 		ConfigMain.MOBS_VILLAGER_PROTECT = true;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("");
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayer));
 	}
 	
 	@Test
@@ -116,14 +106,14 @@ public class VillagerManagerTest {
 		ProtectedEntity protectedVillager = villagerManager.initializeProtectedEntity(mockVillager);
 		
 		// Shoot
-		assertEquals(VillagerManager.AttackResult.SHOOT, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
+		assertEquals(AttackResult.SHOOT, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
 		// Shoot bypass thanks to permission
 		when(mockPlayer.hasPermission(anyString())).thenReturn(true);
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
 		// No world protection
 		when(mockPlayer.hasPermission(anyString())).thenReturn(false);
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("");
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockPlayerArrow));
 	}
 	
 	@Test
@@ -141,14 +131,14 @@ public class VillagerManagerTest {
 		ProtectedEntity protectedVillager = villagerManager.initializeProtectedEntity(mockVillager);
 		
 		// Protected
-		assertEquals(VillagerManager.AttackResult.HIT, villagerManager.canBeAttacked(protectedVillager, mockZombie));
+		assertEquals(AttackResult.HIT, villagerManager.canBeAttacked(protectedVillager, mockZombie));
 		// Unprotected
 		ConfigMain.DAMAGE_MOBS_ZOMBIE = false;
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockZombie));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockZombie));
 		// No world protection
 		ConfigMain.DAMAGE_MOBS_ZOMBIE = true;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("");
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockZombie));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockZombie));
 	}
 	
 	@Test
@@ -168,14 +158,14 @@ public class VillagerManagerTest {
 		ProtectedEntity protectedVillager = villagerManager.initializeProtectedEntity(mockVillager);
 		
 		// Protected
-		assertEquals(VillagerManager.AttackResult.SHOOT, villagerManager.canBeAttacked(protectedVillager, mockArrow));
+		assertEquals(AttackResult.SHOOT, villagerManager.canBeAttacked(protectedVillager, mockArrow));
 		// Unprotected
 		ConfigMain.DAMAGE_MOBS_SKELETON = false;
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockArrow));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockArrow));
 		// No world protection
 		ConfigMain.DAMAGE_MOBS_SKELETON = true;
 		ConfigMain.GENERAL_DAMAGE_WORLDS = Collections.singletonList("");
-		assertEquals(VillagerManager.AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockArrow));
+		assertEquals(AttackResult.SUCCESS, villagerManager.canBeAttacked(protectedVillager, mockArrow));
 	}
 	
 	@Test

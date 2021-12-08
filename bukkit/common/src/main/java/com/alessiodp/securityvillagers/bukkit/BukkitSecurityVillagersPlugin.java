@@ -8,9 +8,11 @@ import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
 import com.alessiodp.securityvillagers.bukkit.addons.BukkitSVAddonManager;
 import com.alessiodp.securityvillagers.bukkit.addons.external.BukkitMetricsHandler;
+import com.alessiodp.securityvillagers.bukkit.api.BukkitApiHandler;
 import com.alessiodp.securityvillagers.bukkit.bootstrap.BukkitSecurityVillagersBootstrap;
 import com.alessiodp.securityvillagers.bukkit.commands.BukkitSVCommandManager;
 import com.alessiodp.securityvillagers.bukkit.configuration.BukkitSVConfigurationManager;
+import com.alessiodp.securityvillagers.bukkit.events.BukkitEventManager;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitDamageListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitDeathListener;
 import com.alessiodp.securityvillagers.bukkit.listeners.BukkitFarmListener;
@@ -23,6 +25,7 @@ import com.alessiodp.securityvillagers.bukkit.listeners.BukkitTargetListener;
 import com.alessiodp.securityvillagers.bukkit.utils.NMSManager;
 import com.alessiodp.securityvillagers.bukkit.villagers.BukkitVillagerManager;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
+import com.alessiodp.securityvillagers.common.api.ApiHandler;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import lombok.Getter;
 import org.bukkit.plugin.Plugin;
@@ -56,7 +59,9 @@ public class BukkitSecurityVillagersPlugin extends SecurityVillagersPlugin {
 	
 	@Override
 	protected void postHandle() {
+		api = new BukkitApiHandler(this);
 		addonManager = new BukkitSVAddonManager(this);
+		eventManager = new BukkitEventManager(this);
 		
 		super.postHandle();
 		

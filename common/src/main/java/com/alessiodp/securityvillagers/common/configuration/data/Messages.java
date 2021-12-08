@@ -40,6 +40,8 @@ public abstract class Messages extends ConfigurationFile {
 	public static String GENERAL_INTERACT_TRADE;
 	@ConfigOption(path = "general.selection.selected")
 	public static String GENERAL_SELECTION_SELECTED;
+	@ConfigOption(path = "general.selection.unselected")
+	public static String GENERAL_SELECTION_UNSELECTED;
 	@ConfigOption(path = "general.selection.required")
 	public static String GENERAL_SELECTION_REQUIRED;
 	

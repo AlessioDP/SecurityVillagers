@@ -3,6 +3,7 @@ package com.alessiodp.securityvillagers.bukkit.listeners;
 import com.alessiodp.core.bukkit.user.BukkitUser;
 import com.alessiodp.core.common.user.User;
 import com.alessiodp.securityvillagers.bukkit.BukkitSecurityVillagersPlugin;
+import com.alessiodp.securityvillagers.bukkit.addons.external.CitizensHandler;
 import com.alessiodp.securityvillagers.bukkit.addons.external.FactionsHandler;
 import com.alessiodp.securityvillagers.bukkit.villagers.objects.MobsType;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
@@ -57,5 +58,10 @@ public class BukkitInteractListener extends InteractListener implements Listener
 	@Override
 	protected boolean isFactionProtected(User user, ProtectedEntity protectedEntity) {
 		return FactionsHandler.isClaimProtectedByInteract(Bukkit.getPlayer(user.getUUID()), ((Entity) protectedEntity.getEntity()).getLocation());
+	}
+	
+	@Override
+	protected boolean isNPCProtected(ProtectedEntity protectedEntity) {
+		return CitizensHandler.isNPC((Entity) protectedEntity.getEntity());
 	}
 }

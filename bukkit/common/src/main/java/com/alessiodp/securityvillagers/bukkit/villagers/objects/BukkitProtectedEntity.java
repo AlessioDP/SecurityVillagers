@@ -1,9 +1,9 @@
 package com.alessiodp.securityvillagers.bukkit.villagers.objects;
 
 import com.alessiodp.core.common.user.User;
+import com.alessiodp.securityvillagers.api.enums.ProtectedEntityType;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntity;
-import com.alessiodp.securityvillagers.common.villagers.objects.ProtectedEntityType;
 import com.alessiodp.securityvillagers.common.villagers.objects.VillagerProfession;
 import lombok.Getter;
 import lombok.NonNull;
