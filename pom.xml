@@ -71,7 +71,7 @@
 		<libs.factionsMassiveCraft>2.14.0</libs.factionsMassiveCraft>
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
 		<libs.factionsX>1.2-STABLE</libs.factionsX>
-		<libs.glowapi>1.4.14-SNAPSHOT</libs.glowapi>
+		<libs.glowapi>1.5.1-SNAPSHOT</libs.glowapi>
 		<libs.protocolLib>4.7.0</libs.protocolLib>
 	</properties>
 	
