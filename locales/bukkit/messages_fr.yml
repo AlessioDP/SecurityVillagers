@@ -1,9 +1,9 @@
 ---
-#/ =========================================== \
-#|  This is the messages file of OreAnnouncer  |
-#\ =========================================== /
+#/ ================================================ \
+#|  This is the messages file of SecurityVillagers  |
+#\ ================================================ /
 #For any problem be sure to:
-#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Read the entire documentation on: https://alessiodp.com/docs/securityvillagers/
 #- Join our Discord for further help: https://discord.alessiodp.com/
 #/ =============================== \
 #|   SECURITYVILLAGERS  MESSAGES   |
@@ -38,6 +38,7 @@ general:
     trade: "&cVous ne pouvez pas échanger avec cette créature !"
   selection:
     selected: "&aCréature sélectionnée"
+    unselected: "&aMob unselected"
     required: "&cVous devez d'abord sélectionner une créature !"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
@@ -103,4 +104,4 @@ help:
     teleport: 'Teleport mob'
     version: 'Afficher les informations sur SecurityVillagers'
 dont-edit-this:
-  version: 4
+  version: 5

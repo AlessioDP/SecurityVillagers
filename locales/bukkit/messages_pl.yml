@@ -1,9 +1,9 @@
 ---
-#/ =========================================== \
-#|  This is the messages file of OreAnnouncer  |
-#\ =========================================== /
+#/ ================================================ \
+#|  This is the messages file of SecurityVillagers  |
+#\ ================================================ /
 #For any problem be sure to:
-#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Read the entire documentation on: https://alessiodp.com/docs/securityvillagers/
 #- Join our Discord for further help: https://discord.alessiodp.com/
 #/ =============================== \
 #|   SECURITYVILLAGERS  MESSAGES   |
@@ -38,6 +38,7 @@ general:
     trade: "&cNie możesz handlować z tym mobem!"
   selection:
     selected: "&aWybrano moba"
+    unselected: "&aMob unselected"
     required: "&cNajpierw musisz wybrać moba!"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
@@ -103,4 +104,4 @@ help:
     teleport: 'Teleportuj moba'
     version: 'Pokaż informacje o SecurityVillagers'
 dont-edit-this:
-  version: 4
+  version: 5

@@ -1,9 +1,9 @@
 ---
-#/ =========================================== \
-#|  This is the messages file of OreAnnouncer  |
-#\ =========================================== /
+#/ ================================================ \
+#|  This is the messages file of SecurityVillagers  |
+#\ ================================================ /
 #For any problem be sure to:
-#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Read the entire documentation on: https://alessiodp.com/docs/securityvillagers/
 #- Join our Discord for further help: https://discord.alessiodp.com/
 #/ =============================== \
 #|   SECURITYVILLAGERS  MESSAGES   |
@@ -38,6 +38,7 @@ general:
     trade: "&cNon puoi scambiare con questo mob!"
   selection:
     selected: "&aMob selezionato"
+    unselected: "&aMob deselezionato"
     required: "&cDevi selezionare un mob prima!"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
@@ -103,4 +104,4 @@ help:
     teleport: 'Teletrasporta mob'
     version: 'Mostra le informazioni su SecurityVillagers'
 dont-edit-this:
-  version: 4
+  version: 5

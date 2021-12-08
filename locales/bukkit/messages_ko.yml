@@ -1,9 +1,9 @@
 ---
-#/ =========================================== \
-#|  This is the messages file of OreAnnouncer  |
-#\ =========================================== /
+#/ ================================================ \
+#|  This is the messages file of SecurityVillagers  |
+#\ ================================================ /
 #For any problem be sure to:
-#- Read the entire documentation on: https://alessiodp.com/docs/oreannouncer/
+#- Read the entire documentation on: https://alessiodp.com/docs/securityvillagers/
 #- Join our Discord for further help: https://discord.alessiodp.com/
 #/ =============================== \
 #|   SECURITYVILLAGERS  MESSAGES   |
@@ -38,6 +38,7 @@ general:
     trade: "&c이 몹과 거래할 수 없습니다!"
   selection:
     selected: "&a몹이 선택됨"
+    unselected: "&aMob unselected"
     required: "&c몹을 먼저 선택하셔야 합니다!"
 #/ =============================== \
 #|        COMMANDS MESSAGES        |
@@ -103,4 +104,4 @@ help:
     teleport: 'Teleport mob'
     version: 'SecurityVillagers 정보 열기'
 dont-edit-this:
-  version: 4
+  version: 5
