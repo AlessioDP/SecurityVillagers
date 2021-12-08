@@ -67,11 +67,6 @@
 			<url>https://repo.citizensnpcs.co/</url>
 		</repository>
 		<repository>
-			<!-- FactionsX repo -->
-			<id>savagelabs-repo</id>
-			<url>https://nexus.savagelabs.net/repository/maven-releases/</url>
-		</repository>
-		<repository>
 			<!-- GlowAPI repo -->
 			<id>inventive-repo</id>
 			<url>https://repo.inventivetalent.org/content/groups/public/</url>
@@ -127,7 +122,8 @@
 			<groupId>net.prosavage.factionsx</groupId>
 			<artifactId>FactionsX</artifactId>
 			<version>${libs.factionsX}</version>
-			<scope>provided</scope>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/FactionsX-${libs.factionsX}.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.inventivetalent</groupId>

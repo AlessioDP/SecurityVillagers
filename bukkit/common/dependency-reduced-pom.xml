@@ -60,10 +60,6 @@
       <url>https://repo.citizensnpcs.co/</url>
     </repository>
     <repository>
-      <id>savagelabs-repo</id>
-      <url>https://nexus.savagelabs.net/repository/maven-releases/</url>
-    </repository>
-    <repository>
       <id>inventive-repo</id>
       <url>https://repo.inventivetalent.org/content/groups/public/</url>
     </repository>
@@ -83,12 +79,6 @@
       <groupId>net.citizensnpcs</groupId>
       <artifactId>citizensapi</artifactId>
       <version>2.0.19-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.prosavage.factionsx</groupId>
-      <artifactId>FactionsX</artifactId>
-      <version>1.0.8-RC</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -128,6 +118,13 @@
       <version>${libs.factionsMassiveCraftCore}</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/libs/MassiveCore-${libs.factionsMassiveCraftCore}.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>net.prosavage.factionsx</groupId>
+      <artifactId>FactionsX</artifactId>
+      <version>${libs.factionsX}</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/FactionsX-${libs.factionsX}.jar</systemPath>
     </dependency>
   </dependencies>
 </project>
