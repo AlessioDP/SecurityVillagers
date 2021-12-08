@@ -30,11 +30,24 @@
 		<url>https://github.com/AlessioDP/SecurityVillagers/</url>
 	</scm>
 	
+	<distributionManagement>
+		<repository>
+			<id>alessiodp-repo</id>
+			<name>AlessioDP repository</name>
+			<url>https://repo.alessiodp.com/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>alessiodp-repo-snapshots</id>
+			<name>AlessioDP repository</name>
+			<url>https://repo.alessiodp.com/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
 	<modules>
+		<module>api</module>
 		<module>bukkit</module>
 		<module>common</module>
 		<module>output</module>
-		<module>api</module>
 	</modules>
 	
 	<properties>
