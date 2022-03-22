@@ -7,7 +7,7 @@ public interface SecurityVillagersEvent  {
 	/**
 	 * Get the SecurityVillagers API instance
 	 *
-	 * @return Returns the {@link SecurityVillagersAPI}
+	 * @return the {@link SecurityVillagersAPI}
 	 */
 	@NotNull
 	SecurityVillagersAPI getApi();
@@ -15,7 +15,7 @@ public interface SecurityVillagersEvent  {
 	/**
 	 * Set the SecurityVillagers API instance. Used by SecurityVillagers instance to let you hook directly to the main API.
 	 *
-	 * @param instance {@link SecurityVillagersAPI} instance to set
+	 * @param instance the {@link SecurityVillagersAPI} instance to set
 	 */
 	void setApi(SecurityVillagersAPI instance);
 }

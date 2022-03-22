@@ -27,6 +27,9 @@ securityvillagers:
       format: "%date% [%time%] %message%\n"
       file: log.txt
 
+  # Automatic upgrade configs if outdated, otherwise just alert
+  automatic-upgrade-configs: false
+
 
 # / =============================== \
 # |        STORAGE  SETTINGS        |
@@ -356,4 +359,4 @@ commands:
 
 
 dont-edit-this:
-  version: 5
+  version: 6

@@ -104,7 +104,6 @@ public abstract class SecurityVillagersPlugin extends ADPPlugin {
 	
 	private void reloadAdpUpdater() {
 		getAdpUpdater().reload(
-				getPluginFallbackName(),
 				SVConstants.PLUGIN_SPIGOTCODE,
 				ConfigMain.SECURITYVILLAGERS_UPDATES_CHECK,
 				ConfigMain.SECURITYVILLAGERS_UPDATES_WARN,

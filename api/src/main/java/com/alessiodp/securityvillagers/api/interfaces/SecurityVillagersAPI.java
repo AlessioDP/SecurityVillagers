@@ -18,8 +18,8 @@ public interface SecurityVillagersAPI {
 	
 	/**
 	 * Get the entity type of SecurityVillagers for the given entity
-	 * @param entity The entity
-	 * @return Returns the {@link ProtectedEntityType}
+	 * @param entity the entity
+	 * @return the {@link ProtectedEntityType}
 	 */
 	@Nullable
 	ProtectedEntityType getEntityType(Entity entity);
@@ -27,16 +27,16 @@ public interface SecurityVillagersAPI {
 	/**
 	 * Is the entity protected by SecurityVillagers?
 	 *
-	 * @param entity The entity
-	 * @return Returns true if protected
+	 * @param entity the entity
+	 * @return true if protected
 	 */
 	boolean isEntityDamageProtected(@NotNull Entity entity);
 	
 	/**
 	 * Is the entity selected by the given player?
 	 *
-	 * @param player The player
-	 * @return Returns the entity selected or null
+	 * @param player the player
+	 * @return the entity selected or null
 	 */
 	@Nullable
 	Entity getSelectedEntity(Player player);
@@ -44,7 +44,7 @@ public interface SecurityVillagersAPI {
 	/**
 	 * Get a list of protected entities. Used only if custom protection is enabled.
 	 *
-	 * @return Returns the list of protected entities
+	 * @return the list of protected entities
 	 */
 	List<UUID> getProtectedEntities();
 }

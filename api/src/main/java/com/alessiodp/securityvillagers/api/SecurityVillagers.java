@@ -12,7 +12,7 @@ public final class SecurityVillagers {
 	/**
 	 * Get the {@link SecurityVillagersAPI} instance
 	 *
-	 * @return Returns the {@link SecurityVillagersAPI} interface
+	 * @return the {@link SecurityVillagersAPI} interface
 	 * @throws IllegalStateException if SecurityVillagersAPI has not been initialized, in other words,
 	 *                               SecurityVillagersAPI has not been loaded
 	 */
@@ -26,7 +26,7 @@ public final class SecurityVillagers {
 	/**
 	 * Set the SecurityVillagers API instance. This should not be used.
 	 *
-	 * @param instance The SecurityVillagersAPI instance.
+	 * @param instance the SecurityVillagersAPI instance.
 	 */
 	public static void setApi(SecurityVillagersAPI instance) {
 		api = instance;
@@ -35,7 +35,7 @@ public final class SecurityVillagers {
 	/**
 	 * Flag to know if SecurityVillagers has been hooked
 	 *
-	 * @return Returns true if the API has been hooked at least one time
+	 * @return true if the API has been hooked at least one time
 	 */
 	public static boolean isFlagHook() {
 		return flagHook;

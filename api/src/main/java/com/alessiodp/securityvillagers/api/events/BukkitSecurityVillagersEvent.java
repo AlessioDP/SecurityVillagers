@@ -12,7 +12,7 @@ public class BukkitSecurityVillagersEvent extends Event implements SecurityVilla
 	/**
 	 * Get the SecurityVillagers API instance
 	 *
-	 * @return Returns the {@link SecurityVillagersAPI}
+	 * @return the {@link SecurityVillagersAPI}
 	 */
 	@NotNull
 	public SecurityVillagersAPI getApi() {
@@ -22,7 +22,7 @@ public class BukkitSecurityVillagersEvent extends Event implements SecurityVilla
 	/**
 	 * Set the SecurityVillagers API instance. Used by SecurityVillagers instance to let you hook directly to the main API.
 	 *
-	 * @param instance {@link SecurityVillagersAPI} instance to set
+	 * @param instance the {@link SecurityVillagersAPI} instance to set
 	 */
 	public void setApi(SecurityVillagersAPI instance) {
 		api = instance;

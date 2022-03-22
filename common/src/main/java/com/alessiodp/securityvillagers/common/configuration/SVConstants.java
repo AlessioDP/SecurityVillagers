@@ -14,7 +14,7 @@ public class SVConstants {
 	
 	
 	// Versions
-	public static final int VERSION_BUKKIT_CONFIG = 5;
+	public static final int VERSION_BUKKIT_CONFIG = 6;
 	public static final int VERSION_BUKKIT_MESSAGES = 5;
 	public static final int VERSION_DATABASE_YAML = 1;
 	

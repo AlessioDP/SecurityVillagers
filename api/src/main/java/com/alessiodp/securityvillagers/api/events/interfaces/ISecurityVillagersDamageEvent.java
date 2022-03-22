@@ -9,7 +9,7 @@ public interface ISecurityVillagersDamageEvent extends SecurityVillagersEvent {
 	/**
 	 * Get the damaged entity
 	 *
-	 * @return Returns the {@link Entity}
+	 * @return the {@link Entity}
 	 */
 	@NotNull
 	Entity getEntity();
@@ -17,7 +17,7 @@ public interface ISecurityVillagersDamageEvent extends SecurityVillagersEvent {
 	/**
 	 * Get who is doing damage to the entity
 	 *
-	 * @return Returns the {@link Entity} damager
+	 * @return the {@link Entity} damager
 	 */
 	@NotNull
 	Entity getDamager();
@@ -25,7 +25,7 @@ public interface ISecurityVillagersDamageEvent extends SecurityVillagersEvent {
 	/**
 	 * Get the attack result of the event.
 	 *
-	 * @return Returns the {@link AttackResult}
+	 * @return the {@link AttackResult}
 	 */
 	@NotNull
 	AttackResult getAttackResult();
@@ -33,7 +33,7 @@ public interface ISecurityVillagersDamageEvent extends SecurityVillagersEvent {
 	/**
 	 * Set the attack result of the event
 	 *
-	 * @param attackResult The attack result to set, cannot be null
+	 * @param attackResult the attack result to set, cannot be null
 	 */
 	void setAttackResult(@NotNull AttackResult attackResult);
 }

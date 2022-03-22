@@ -11,7 +11,7 @@ public interface ISecurityVillagersSelectEvent extends SecurityVillagersEvent, C
 	/**
 	 * Get the player
 	 *
-	 * @return Returns the {@link Player}
+	 * @return the {@link Player}
 	 */
 	@NotNull
 	Player getPlayer();
@@ -19,7 +19,7 @@ public interface ISecurityVillagersSelectEvent extends SecurityVillagersEvent, C
 	/**
 	 * Get the selected entity
 	 *
-	 * @return Return the {@link Entity}
+	 * @return the {@link Entity}
 	 */
 	@NotNull
 	Entity getSelectedEntity();
@@ -27,7 +27,7 @@ public interface ISecurityVillagersSelectEvent extends SecurityVillagersEvent, C
 	/**
 	 * Get the previously selected entity
 	 *
-	 * @return Return the {@link Entity}
+	 * @return the {@link Entity}
 	 */
 	@Nullable
 	Entity getOldSelection();
@@ -35,7 +35,7 @@ public interface ISecurityVillagersSelectEvent extends SecurityVillagersEvent, C
 	/**
 	 * Check if the player is unselecting the entity
 	 *
-	 * @return Returns true if unselecting
+	 * @return true if unselecting
 	 */
 	default boolean isUnselection() {
 		return getOldSelection() != null && getOldSelection().equals(getSelectedEntity());

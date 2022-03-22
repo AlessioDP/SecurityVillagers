@@ -49,7 +49,7 @@ public class SVYAMLDispatcher extends YAMLDispatcher {
 		
 			database.saveFile();
 		} catch (IOException ex) {
-			plugin.getLoggerManager().printErrorStacktrace(Constants.DEBUG_DB_FILE_ERROR, ex);
+			plugin.getLoggerManager().logError(Constants.DEBUG_DB_FILE_ERROR, ex);
 		}
 	}
 	

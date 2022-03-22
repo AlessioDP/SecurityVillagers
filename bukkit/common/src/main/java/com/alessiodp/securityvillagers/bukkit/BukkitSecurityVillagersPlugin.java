@@ -71,14 +71,14 @@ public class BukkitSecurityVillagersPlugin extends SecurityVillagersPlugin {
 	@Override
 	protected void initializeJsonHandler() {
 		if (((BukkitSecurityVillagersBootstrap) getBootstrap()).isSpigot())
-			jsonHandler = new SpigotJsonHandler();
+			jsonHandler = new SpigotJsonHandler(this);
 		else
-			jsonHandler = new BukkitJsonHandler();
+			jsonHandler = new BukkitJsonHandler(this);
 	}
 	
 	@Override
 	protected void initializeTitleHandler() {
-		titleHandler = new BukkitTitleHandler();
+		titleHandler = new BukkitTitleHandler(this);
 	}
 	
 	@Override

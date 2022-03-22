@@ -11,7 +11,7 @@ public interface ISecurityVillagersInteractProtectionEvent extends SecurityVilla
 	/**
 	 * Get the interacted entity
 	 *
-	 * @return Returns the {@link Entity}
+	 * @return the {@link Entity}
 	 */
 	@NotNull
 	Entity getEntity();
@@ -19,7 +19,7 @@ public interface ISecurityVillagersInteractProtectionEvent extends SecurityVilla
 	/**
 	 * Get who is interacting with the entity
 	 *
-	 * @return Returns the {@link Player} interactor
+	 * @return the {@link Player} interactor
 	 */
 	@NotNull
 	Player getInteractor();
@@ -28,7 +28,7 @@ public interface ISecurityVillagersInteractProtectionEvent extends SecurityVilla
 	/**
 	 * Get the type of interaction
 	 *
-	 * @return Returns the {@link InteractType}
+	 * @return the {@link InteractType}
 	 */
 	@NotNull
 	InteractType getInteractType();

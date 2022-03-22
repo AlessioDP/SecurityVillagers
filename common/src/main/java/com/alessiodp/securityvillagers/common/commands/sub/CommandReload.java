@@ -48,12 +48,7 @@ public class CommandReload extends ADPSubCommand {
 		
 		plugin.reloadConfiguration();
 		
-		
-		if (player.isPlayer()) {
-			player.sendMessage(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD, true);
-		} else {
-			plugin.logConsole(Color.translateAndStripColor(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD));
-		}
+		player.sendMessage(Messages.SECURITYVILLAGERS_COMMON_CONFIGRELOAD, true);
 		
 		plugin.getLoggerManager().logDebug(String.format(SVConstants.DEBUG_CMD_RELOADED,
 				player.getName()), true);

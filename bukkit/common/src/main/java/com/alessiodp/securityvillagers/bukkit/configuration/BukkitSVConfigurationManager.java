@@ -4,6 +4,7 @@ import com.alessiodp.securityvillagers.bukkit.configuration.data.BukkitConfigMai
 import com.alessiodp.securityvillagers.bukkit.configuration.data.BukkitMessages;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.configuration.SVConfigurationManager;
+import com.alessiodp.securityvillagers.common.configuration.data.ConfigMain;
 
 public class BukkitSVConfigurationManager extends SVConfigurationManager {
 	
@@ -12,5 +13,10 @@ public class BukkitSVConfigurationManager extends SVConfigurationManager {
 		
 		getConfigs().add(new BukkitMessages(plugin));
 		getConfigs().add(new BukkitConfigMain(plugin));
+	}
+	
+	@Override
+	protected boolean isAutoUpgradeEnabled() {
+		return ConfigMain.SECURITYVILLAGERS_AUTOMATIC_UPGRADE_CONFIGS;
 	}
 }

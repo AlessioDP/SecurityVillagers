@@ -22,6 +22,8 @@ public abstract class ConfigMain extends ConfigurationFile {
 	@ConfigOption(path = "securityvillagers.logging.save-file.file")
 	public static String		SECURITYVILLAGERS_LOGGING_SAVE_FILE;
 	
+	@ConfigOption(path = "securityvillagers.automatic-upgrade-configs")
+	public static boolean		SECURITYVILLAGERS_AUTOMATIC_UPGRADE_CONFIGS;
 	
 	// Storage settings
 	@ConfigOption(path = "storage.database-file")

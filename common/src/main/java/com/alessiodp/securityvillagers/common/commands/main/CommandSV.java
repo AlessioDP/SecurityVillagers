@@ -76,16 +76,16 @@ public class CommandSV extends ADPMainCommand {
 				if (exists(subCommand) && getSubCommand(subCommand).isExecutableByConsole()) {
 					plugin.getCommandManager().getCommandUtils().executeCommand(sender, getCommandName(), getSubCommand(subCommand), args);
 				} else {
-					plugin.logConsole(Color.translateAndStripColor(Messages.SECURITYVILLAGERS_COMMON_INVALIDCMD));
+					sender.sendMessage(Messages.SECURITYVILLAGERS_COMMON_INVALIDCMD, true);
 				}
 			} else {
 				// Print help
-				plugin.logConsole(Messages.HELP_CONSOLEHELP_HEADER);
+				sender.sendMessage(Messages.HELP_CONSOLEHELP_HEADER, true);
 				for(Map.Entry<ADPCommand, ADPExecutableCommand> e : plugin.getCommandManager().getOrderedCommands().entrySet()) {
 					if (e.getValue().isExecutableByConsole()  && e.getValue().isListedInHelp()) {
-						plugin.logConsole(Messages.HELP_CONSOLEHELP_COMMAND
+						sender.sendMessage(Messages.HELP_CONSOLEHELP_COMMAND
 								.replace("%command%", e.getValue().getConsoleSyntax())
-								.replace("%description%", e.getValue().getDescription()));
+								.replace("%description%", e.getValue().getDescription() != null ? e.getValue().getDescription() : ""), true);
 					}
 				}
 			}

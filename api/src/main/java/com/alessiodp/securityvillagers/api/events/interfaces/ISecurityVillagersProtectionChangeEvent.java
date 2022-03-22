@@ -10,7 +10,7 @@ public interface ISecurityVillagersProtectionChangeEvent extends SecurityVillage
 	/**
 	 * Get the player who is changing the protection
 	 *
-	 * @return Returns the {@link Player}
+	 * @return the {@link Player}
 	 */
 	@NotNull
 	Player getPlayer();
@@ -18,7 +18,7 @@ public interface ISecurityVillagersProtectionChangeEvent extends SecurityVillage
 	/**
 	 * Get the selected entity
 	 *
-	 * @return Return the {@link Entity}
+	 * @return the {@link Entity}
 	 */
 	@NotNull
 	Entity getEntity();
@@ -26,14 +26,14 @@ public interface ISecurityVillagersProtectionChangeEvent extends SecurityVillage
 	/**
 	 * Get the new protection value for the entity
 	 *
-	 * @return Returns true if protected
+	 * @return true if protected
 	 */
 	boolean getProtection();
 	
 	/**
 	 * Set a new protection value for the entity
 	 *
-	 * @param protection The protection value
+	 * @param protection the protection value
 	 */
 	void setProtection(boolean protection);
 }
