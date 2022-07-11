@@ -10,7 +10,7 @@
 		<version>2.14.2</version>
 	</parent>
 	
-	<artifactId>v1_18_R2</artifactId>
+	<artifactId>v1_19_R1</artifactId>
 	
 	<dependencies>
 		<dependency>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
-			<version>1.18.2-R0.1-SNAPSHOT</version>
+			<version>1.19-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
