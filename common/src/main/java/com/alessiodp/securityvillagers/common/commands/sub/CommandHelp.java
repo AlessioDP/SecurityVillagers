@@ -58,7 +58,7 @@ public class CommandHelp extends ADPSubCommand {
 			if (allowedCommands.contains(e.getKey()) && e.getValue().isListedInHelp()) {
 				player.sendMessage(e.getValue().getHelp()
 						.replace("%syntax%", e.getValue().getSyntaxForUser(commandData.getSender()))
-						.replace("%description%", e.getValue().getDescription())
+						.replace("%description%", e.getValue().getDescription() != null ? e.getValue().getDescription() : "")
 						.replace("%run_command%", e.getValue().getRunCommand())
 						.replace("%perform_command%", Messages.HELP_PERFORM_COMMAND), true);
 			}
