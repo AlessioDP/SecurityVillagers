@@ -1,8 +1,7 @@
 package com.alessiodp.securityvillagers.bukkit;
 
-import com.alessiodp.core.bukkit.addons.internal.json.BukkitJsonHandler;
-import com.alessiodp.core.bukkit.addons.internal.json.SpigotJsonHandler;
-import com.alessiodp.core.bukkit.addons.internal.title.BukkitTitleHandler;
+import com.alessiodp.core.bukkit.addons.internal.BukkitJsonHandler;
+import com.alessiodp.core.bukkit.addons.internal.SpigotJsonHandler;
 import com.alessiodp.core.bukkit.scheduling.ADPBukkitScheduler;
 import com.alessiodp.core.common.bootstrap.ADPBootstrap;
 import com.alessiodp.core.common.configuration.Constants;
@@ -25,7 +24,6 @@ import com.alessiodp.securityvillagers.bukkit.listeners.BukkitTargetListener;
 import com.alessiodp.securityvillagers.bukkit.utils.NMSManager;
 import com.alessiodp.securityvillagers.bukkit.villagers.BukkitVillagerManager;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
-import com.alessiodp.securityvillagers.common.api.ApiHandler;
 import com.alessiodp.securityvillagers.common.configuration.SVConstants;
 import lombok.Getter;
 import org.bukkit.plugin.Plugin;
@@ -74,11 +72,6 @@ public class BukkitSecurityVillagersPlugin extends SecurityVillagersPlugin {
 			jsonHandler = new SpigotJsonHandler(this);
 		else
 			jsonHandler = new BukkitJsonHandler(this);
-	}
-	
-	@Override
-	protected void initializeTitleHandler() {
-		titleHandler = new BukkitTitleHandler(this);
 	}
 	
 	@Override

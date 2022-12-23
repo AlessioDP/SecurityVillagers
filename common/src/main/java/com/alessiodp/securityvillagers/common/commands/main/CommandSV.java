@@ -4,7 +4,6 @@ import com.alessiodp.core.common.commands.list.ADPCommand;
 import com.alessiodp.core.common.commands.utils.ADPExecutableCommand;
 import com.alessiodp.core.common.commands.utils.ADPMainCommand;
 import com.alessiodp.core.common.user.User;
-import com.alessiodp.core.common.utils.Color;
 import com.alessiodp.core.common.utils.CommonUtils;
 import com.alessiodp.securityvillagers.common.SecurityVillagersPlugin;
 import com.alessiodp.securityvillagers.common.commands.list.CommonCommands;

@@ -63,7 +63,7 @@ general:
     disable-arrow-damage: true
     disable-dispenser-arrow-damage: true
     prevent-worlds:
-      - '*'
+    - '*'
 
   # [Interaction settings]
   # General settings for interaction with mobs
@@ -74,7 +74,7 @@ general:
     disable-trade: false
     disable-egg: true
     prevent-worlds:
-      - '*'
+    - '*'
 
   # [Mute settings]
   # Mute annoying villager sounds. ProtocolLib PLUGIN IS REQUIRED!
@@ -84,7 +84,7 @@ general:
   mute:
     disable-sound: false
     prevent-worlds:
-      - '*'
+    - '*'
 
   # [Target settings]
   # Prevent targets on mobs, they won't be attacked by other entities.
@@ -94,7 +94,7 @@ general:
   target:
     disable-target: true
     prevent-worlds:
-      - '*'
+    - '*'
 
   # [Farming settings]
   # Farmer villagers automatically farm/harvest/plant seeds.
@@ -102,7 +102,7 @@ general:
     disable-planting: false
     disable-harvesting: false
     prevent-worlds:
-      - '*'
+    - '*'
 
   # [Factions settings]
   # Enable protection only for factions
@@ -131,7 +131,7 @@ mobs:
     spawn:
       prevent: false
       prevent-worlds:
-        - '*'
+      - '*'
 
   wandering-trader:
     protect: true
@@ -139,7 +139,7 @@ mobs:
     spawn:
       prevent: false
       prevent-worlds:
-        - '*'
+      - '*'
 
   trader-llama:
     protect: true
@@ -147,14 +147,14 @@ mobs:
     spawn:
       prevent: false
       prevent-worlds:
-        - '*'
+      - '*'
 
   iron-golem:
     protect: false
     spawn:
       prevent: false
       prevent-worlds:
-        - '*'
+      - '*'
 
   illager:
     evoker:
@@ -162,43 +162,43 @@ mobs:
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     illusioner:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     pillager:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     ravager:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     vex:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     vindicator:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
     witch:
       protect: false
       spawn:
         prevent: false
         prevent-worlds:
-          - '*'
+        - '*'
 
 
 # / =============================== \
@@ -340,7 +340,7 @@ commands:
       command: 'sv'
       description: 'SecurityVillagers help page'
       aliases:
-        - securityvillagers
+      - securityvillagers
   sub-commands:
     help: 'help'
     changeage: 'changeage'

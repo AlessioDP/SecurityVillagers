@@ -137,14 +137,4 @@ public abstract class Messages extends ConfigurationFile {
 	protected Messages(@NonNull ADPPlugin plugin) {
 		super(plugin);
 	}
-	
-	@Override
-	public void loadDefaults() {
-		loadDefaultConfigOptions();
-	}
-	
-	@Override
-	public void loadConfiguration() {
-		loadConfigOptions();
-	}
 }

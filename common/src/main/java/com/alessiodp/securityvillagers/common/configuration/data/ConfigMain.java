@@ -324,16 +324,12 @@ public abstract class ConfigMain extends ConfigurationFile {
 	
 	
 	@Override
-	public void loadDefaults() {
-		loadDefaultConfigOptions();
-		
+	public void loadCustomDefaultOptions() {
 		GENERAL_PROTECTIONTYPE = ProtectionType.GLOBAL;
 	}
 	
 	@Override
-	public void loadConfiguration() {
-		loadConfigOptions();
-		
+	public void loadCustomFileOptions() {
 		GENERAL_PROTECTIONTYPE = ProtectionType.getType(configuration.getString("general.protection-type", GENERAL_PROTECTIONTYPE.name()));
 	}
 	
