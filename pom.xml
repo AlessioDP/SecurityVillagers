@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.14.5</version>
+	<version>2.14.6</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>
@@ -77,8 +77,8 @@
 		<dev.mockito>4.10.0</dev.mockito>
 		<dev.junit>5.9.1</dev.junit>
 		
-		<libs.adpcore>1.8.9</libs.adpcore>
-		<libs.api.spigot>1.19.4-R0.1-SNAPSHOT</libs.api.spigot>
+		<libs.adpcore>1.8.10</libs.adpcore>
+		<libs.api.spigot>1.20.1-R0.1-SNAPSHOT</libs.api.spigot>
 		
 		<!-- External plugins -->
 		<libs.citizens>2.0.30-SNAPSHOT</libs.citizens>
@@ -135,7 +135,7 @@
 		<repository>
 			<!-- Spigot repo -->
 			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 		<repository>
 			<!-- OSS Sonatype repo -->
