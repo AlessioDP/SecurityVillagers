@@ -41,10 +41,12 @@ public class BukkitProtectedEntity extends ProtectedEntity {
 	@Override
 	public void teleportTo(User user) {
 		if (user != null) {
-			Player player = Bukkit.getPlayer(user.getUUID());
-			if (player != null) {
-				entity.teleport(player);
-			}
+			plugin.getScheduler().getSyncExecutor().execute(() -> {
+				Player player = Bukkit.getPlayer(user.getUUID());
+				if (player != null) {
+					entity.teleport(player);
+				}
+			});
 		}
 	}
 	

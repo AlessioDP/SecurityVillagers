@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.14.7</version>
+	<version>2.14.8</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>

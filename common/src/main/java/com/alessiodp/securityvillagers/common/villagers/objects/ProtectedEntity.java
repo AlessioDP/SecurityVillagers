@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public abstract class ProtectedEntity {
-	@NonNull private final SecurityVillagersPlugin plugin;
+	@NonNull protected final SecurityVillagersPlugin plugin;
 	@NonNull @Getter private ProtectedEntityType type;
 	@Getter @Setter private boolean protectionEnabled = false;
 	
