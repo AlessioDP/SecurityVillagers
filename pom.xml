@@ -6,7 +6,7 @@
 	
 	<groupId>com.alessiodp.securityvillagers</groupId>
 	<artifactId>securityvillagers</artifactId>
-	<version>2.14.8</version>
+	<version>2.15.0</version>
 	<packaging>pom</packaging>
 	
 	<name>SecurityVillagers</name>
@@ -86,7 +86,7 @@
 		<libs.factionsMassiveCraftCore>2.14.0</libs.factionsMassiveCraftCore>
 		<libs.factionsX>1.2-STABLE</libs.factionsX>
 		<libs.glowapi>1.4.14-SNAPSHOT</libs.glowapi> <!-- Cannot upgrade due to Java 8 -->
-		<libs.protocolLib>4.8.0</libs.protocolLib>
+		<libs.protocolLib>5.1.0</libs.protocolLib>
 	</properties>
 	
 	<build>

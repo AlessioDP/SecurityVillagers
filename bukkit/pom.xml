@@ -7,38 +7,10 @@
 	<parent>
 		<artifactId>securityvillagers</artifactId>
 		<groupId>com.alessiodp.securityvillagers</groupId>
-		<version>2.14.8</version>
+		<version>2.15.0</version>
 	</parent>
 	
 	<artifactId>securityvillagers-bukkit</artifactId>
-	<packaging>pom</packaging>
-	
-	<modules>
-		<module>common</module>
-		<module>v1_8_R3</module>
-		<module>v1_9_R1</module>
-		<module>v1_9_R2</module>
-		<module>v1_10_R1</module>
-		<module>v1_11_R1</module>
-		<module>v1_12_R1</module>
-		<module>v1_13_R1</module>
-		<module>v1_13_R2</module>
-		<module>v1_14_R1</module>
-		<module>v1_15_R1</module>
-		<module>v1_16_R1</module>
-		<module>v1_16_R2</module>
-		<module>v1_16_R3</module>
-		<module>v1_17_R1</module>
-		<module>v1_18_R1</module>
-		<module>v1_18_R2</module>
-		<module>v1_19_R1</module>
-		<module>v1_19_R2</module>
-		<module>v1_19_R3</module>
-		<module>v1_20_R1</module>
-		<module>v1_20_R2</module>
-		<module>v1_20_R3</module>
-		<module>output</module>
-	</modules>
 	
 	<build>
 		<defaultGoal>clean package install</defaultGoal>
@@ -92,8 +64,79 @@
 	<repositories>
 		<repository>
 			<!-- CodeMC repo -->
+			<id>dmulloy2-repo</id>
+			<url>https://repo.dmulloy2.net/repository/public/</url>
+		</repository>
+		<repository>
+			<!-- CodeMC repo -->
 			<id>codemc-repo</id>
 			<url>https://repo.codemc.io/repository/nms/</url>
 		</repository>
 	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.alessiodp.core</groupId>
+			<artifactId>core-bukkit</artifactId>
+			<version>${libs.adpcore}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alessiodp.core</groupId>
+					<artifactId>core-common</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.alessiodp.securityvillagers</groupId>
+			<artifactId>securityvillagers-common</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.citizensnpcs</groupId>
+			<artifactId>citizensapi</artifactId>
+			<version>${libs.citizens}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.massivecraft</groupId>
+			<artifactId>factions</artifactId>
+			<version>${libs.factionsMassiveCraft}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/FactionsMassiveCraft-${libs.factionsMassiveCraft}.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.massivecraft</groupId>
+			<artifactId>massivecore</artifactId>
+			<version>${libs.factionsMassiveCraftCore}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/MassiveCore-${libs.factionsMassiveCraftCore}.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>net.prosavage.factionsx</groupId>
+			<artifactId>FactionsX</artifactId>
+			<version>${libs.factionsX}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/FactionsX-${libs.factionsX}.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.inventivetalent</groupId>
+			<artifactId>glowapi</artifactId>
+			<version>${libs.glowapi}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.inventivetalent.packetlistener</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.comphenix.protocol</groupId>
+			<artifactId>ProtocolLib</artifactId>
+			<version>${libs.protocolLib}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>
